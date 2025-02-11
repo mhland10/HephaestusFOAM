@@ -692,7 +692,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListListI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListList.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrix.H \
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/linear.H \
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linear.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/correctedSnGrad.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/laplacianScheme.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/gaussLaplacianScheme.C \
@@ -730,6 +730,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListListIO.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/ddtScheme.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrixI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrix.C \
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linearI.H \
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linear.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/correctedSnGrad.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/transform.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/spatialTransform.H \
@@ -1454,7 +1456,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListListI.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListList.C :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvmDdt.C :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrix.H :
-$(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/linear.H :
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linear.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/correctedSnGrad.H :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/laplacianScheme.C :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/gaussLaplacianScheme.C :
@@ -1492,6 +1494,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/UCompactListListIO.C :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/ddtScheme.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrixI.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduMatrix.C :
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linearI.H :
+$(WM_PROJECT_DIR)/src/thermophysicalModels/specie/lnInclude/linear.C :
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/correctedSnGrad.C :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/transform.H :
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/spatialTransform.H :
