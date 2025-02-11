@@ -1,0 +1,4 @@
+setDeltaT.C
+hephaestusFoam.C
+
+EXE = $(FOAM_APPBIN)/hephaestusFoam
