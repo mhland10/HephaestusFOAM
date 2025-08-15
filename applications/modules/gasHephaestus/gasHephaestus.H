@@ -121,7 +121,7 @@ public:
 
 
     //- Runtime type information
-    TypeName("multicomponentFluid");
+    TypeName("GasHephaestus");
 
 
     // Constructors

@@ -1,0 +1,7 @@
+SOURCE += psiThermo/psiCanteraThermo.C
+SOURCE += psiThermo/psiCanteraThermos.C
+
+SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermo.C
+SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
+
+LIB = $(FOAM_LIBBIN)/libcanteraThermophysicalModels

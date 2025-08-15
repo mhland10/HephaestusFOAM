@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+
+echo "Beginning installation of Cantera package"
+export hephaestus_utilsDir="$PWD"
+
+#==================================================================================================
+#
+#  Create dynamic links for included files
+#
+#==================================================================================================
+
+ln -sf "$hephaestus_utilsDir/include"/* cantera/lnInclude
+# ln -sf include/* cantera/factory
+
+#==================================================================================================
+#
+#  Install Cantera Package
+#
+#==================================================================================================
+
+start_dir="$PWD"
+
+echo "Changing to cantera directory: $start_dir/cantera"
+cd "$start_dir/cantera"
+
+echo "Compiling with wmake..."
+wmake > cantera_make.log 2>&1
+
+echo "Compilation complete. Log saved to cantera_make.log"
+
+#==================================================================================================
+#
+#  I
+#
+#==================================================================================================

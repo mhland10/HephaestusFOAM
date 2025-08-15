@@ -1,3 +1,0 @@
-rhoCentralHephaestus.C
-
-EXE = $(FOAM_APPBIN)/rhoCentralHephaestus

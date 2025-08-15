@@ -2,4 +2,4 @@ SOURCE += gasHephaestus.C
 SOURCE += setRDeltaT.C
 SOURCE += thermophysicalPredictor.C
 
-LIB = $(FOAM_LIBBIN)/libgasHephaestus
+LIB = $(FOAM_LIBBIN)/libGasHephaestus

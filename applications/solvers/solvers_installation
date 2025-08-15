@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+echo "Beginning installation of HephaestusFOAM application"
+
+#==================================================================================================
+#
+#  Install hephaestusFoam
+#
+#==================================================================================================
+
+cd hephaestusFoam
+wmake > build.log
+cd ../
+echo "    HephaestusFOAM completed, view build.log for results"
+

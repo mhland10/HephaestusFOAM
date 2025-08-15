@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+echo "Beginning installation of HephaestusFOAM modules"
+
+#==================================================================================================
+#
+#  Install hephaestusGas
+#
+#==================================================================================================
+
+cd gasHephaestus
+wmake > build.log
+cd ../
+
