@@ -1,5 +1,6 @@
 EXE_INC = \
     -I/home/mholland/hephaestusfoam/utilities/cantera/lnInclude \
+    -I/home/mholland/hephaestusfoam/utilities/cantera/multicomponent/fluidMulticomponentThermo \
     -I$(FOAM_SRC)/physicalProperties/lnInclude \
     -I$(FOAM_SRC)/thermophysicalModels/specie/lnInclude \
     -I$(FOAM_SRC)/thermophysicalModels/specie/include \

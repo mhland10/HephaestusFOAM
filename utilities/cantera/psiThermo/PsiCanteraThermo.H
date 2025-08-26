@@ -40,6 +40,13 @@ SourceFiles
 
 #include "BasicThermo.H"
 
+// Cantera headers
+#include "cantera/thermo/IdealGasPhase.h" // defines class IdealGasPhase
+#include "cantera/base/Solution.h"
+//#include "cantera/kinetics/GasKinetics.h"
+//#include "cantera/transport.h" // transport properties
+#include <iostream>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -57,7 +64,14 @@ class PsiCanteraThermo
     // Private Member Functions
 
         //- Calculate the thermo variables
-        void calculate();
+        virtual void calculate();
+        
+        bool useEnthalpy_;
+        
+protected:
+
+    // Create pointer for Cantera solution
+    Cantera::shared_ptr<Cantera::Solution> solution_;
 
 public:
 

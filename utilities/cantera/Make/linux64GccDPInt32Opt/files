@@ -1,6 +1,8 @@
 SOURCE += psiThermo/psiCanteraThermo.C
 SOURCE += psiThermo/psiCanteraThermos.C
 
+SOURCE += multicomponent/fluidMulticomponentThermo/canteraFluidMulticomponentThermo.C
+
 SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermo.C
 SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
 

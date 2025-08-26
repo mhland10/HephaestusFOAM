@@ -1,6 +1,8 @@
 psiThermo/psiCanteraThermo.C
 psiThermo/psiCanteraThermos.C
 
+multicomponent/fluidMulticomponentThermo/canteraFluidMulticomponentThermo.C
+
 psiMulticomponentThermo/psiMulticomponentCanteraThermo.C
 psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
 

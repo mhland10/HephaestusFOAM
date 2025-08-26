@@ -41,6 +41,8 @@ SourceFiles
 
 #include "psiCanteraThermo.H"
 #include "fluidMulticomponentThermo.H"
+#include "fluidMulticomponentThermo.H"
+#include "BasicThermo.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -56,12 +58,18 @@ class psiMulticomponentCanteraThermo
     virtual public psiCanteraThermo,
     virtual public fluidMulticomponentThermo
 {
+    // Private methods
+    
+
 public:
 
     // Public Classes
 
         //- Forward declare the composite class
         class composite;
+        
+    // Public Methods
+        virtual void calculate();// override;
 
 
     // Public Typedefs
@@ -147,7 +155,18 @@ public:
                 mesh,
                 phaseName
             )
-        {}
+            
+            
+        {
+          Info << "Created psiMulticomponentCanteraThermo" << nl;
+        }
+        
+        template<class MixtureType>
+        void calculate()
+        {
+            Info << "Using multicomponent calculate with species" << nl;
+        }  
+        
 };
 
 

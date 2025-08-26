@@ -44,7 +44,9 @@ Foam::psiCanteraThermo::implementation::implementation
     const fvMesh& mesh,
     const word& phaseName
 )
-{}
+{
+    Foam::Info << "psiCanteraThermo constructor using dictionary, mesh, and phaseName" << Foam::nl;
+}
 
 
 // * * * * * * * * * * * * * * * * Selectors * * * * * * * * * * * * * * * * //
