@@ -1,25 +1,38 @@
 /*---------------------------------------------------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2017-2023 OpenFOAM Foundation
-     \\/     M anipulation  |
+                        |
+        //=\\===\\      |    HephaestusFOAM
+       //   \\   \\     |      OpenFOAM addition for aerothermal chemistry
+      //     \\   \\    |
+      ||      \\   \\   |    From the University of Texas at San Antonio
+      \\       \\===\\  |         the Laboratory for Turbulence, Sensing, 
+       \\      ||   ||  |              and Intelligent Systems
+       /\\    //   //   |
+      /  \\  //   //    |    Author:  Matthew Holland
+     /   /\\//   //     |              matthew.holland@my.utsa.edu
+    /   /  ^-----^      |
+    \__/                |
+                        |
 -------------------------------------------------------------------------------
-License
-    This file is part of OpenFOAM.
+Control
+    Aspects of this software may be subject to CUI//EXPT restrictions. 
+    Ensure you are using the public version, or confirm you are a U.S. 
+    citizen or otherwise authorized under 22 CFR 120.62.
 
-    OpenFOAM is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by
+License
+    This file is from HephaestusFOAM.
+
+    HephaestusFOAM is free software: you can redistribute it and/or modify 
+    it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-    for more details.
+    HephaestusFOAM is distributed in the hope that it will be useful, but 
+    WITHOUT ANY WARRANTY; without even the implied warranty of 
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+    General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+    along with HephaestusFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
     Foam::canteraMulticomponentMixture
