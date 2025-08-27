@@ -35,7 +35,7 @@ License
 
 // * * * * * * * Helpful Functions in an Anonymous Namespace * * * * * * * * //
 
-// Put helpers in anonymous namespace so they don’t pollute global scope
+// Put helpers in anonymous namespace so they donï¿½t pollute global scope
 namespace
 {
     // Helper to detect specieNames()
@@ -113,7 +113,6 @@ namespace
 
 using namespace Cantera;
 
-
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 template<class BaseThermo>
@@ -160,7 +159,6 @@ void Foam::PsiCanteraThermo<BaseThermo>::calculate()
                 whereas Cantera works with absolute enthalpy. This also applies
                 to internal energy, but we go through enthalpy for this.
         */
-                
          
         if (useEnthalpy_)
         {  
@@ -196,7 +194,6 @@ void Foam::PsiCanteraThermo<BaseThermo>::calculate()
         //Info << "Set cell to T=" << TCells[celli] << ", P=" <<  pCells[celli] << nl;
         
     }
-    
     
     // Generate references to the boundary values associated with the 
     //  volScalarFields for the various flow parameters

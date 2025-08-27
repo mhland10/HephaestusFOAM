@@ -12,6 +12,7 @@ export hephaestus_utilsDir="$PWD"
 
 ln -sf "$hephaestus_utilsDir/include"/* cantera/lnInclude
 # ln -sf include/* cantera/factory
+ln -sf "$hephaestus_utilsDir/cantera/rhoThermo"/* cantera/lnInclude
 
 #==================================================================================================
 #
