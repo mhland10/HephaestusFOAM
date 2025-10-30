@@ -1,0 +1,5 @@
+SOURCE += chemistrySolver/canteraChemistrySolvers.C
+
+SOURCE += chemistryModel/canteraChemistryModel.C
+
+LIB = $(FOAM_LIBBIN)/libcanteraChemistryModel

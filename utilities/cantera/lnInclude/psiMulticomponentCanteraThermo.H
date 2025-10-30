@@ -1,1 +1,0 @@
-../psiMulticomponentThermo/psiMulticomponentCanteraThermo.H

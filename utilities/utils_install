@@ -6,32 +6,63 @@ export hephaestus_utilsDir="$PWD"
 
 #==================================================================================================
 #
-#  Create dynamic links for included files
+#  Create dynamic links for included thermodynamic files
 #
 #==================================================================================================
 
-ln -sf "$hephaestus_utilsDir/include"/* cantera/lnInclude
+ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/lnInclude
 # ln -sf include/* cantera/factory
-ln -sf "$hephaestus_utilsDir/cantera/rhoThermo"/* cantera/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/rhoThermo"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/psiThermo"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/rhoMulticomponentThermo"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/psiMulticomponentThermo"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponent/fluidMulticomponentThermo"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/mixtures/canteraMulticomponentMixture"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/factory"/* cantera/thermofluid/lnInclude
 
 #==================================================================================================
 #
-#  Install Cantera Package
+#  Create dynamic links for included chemistry files
 #
 #==================================================================================================
 
-start_dir="$PWD"
+ln -sf "$hephaestus_utilsDir/cantera/thermochemistry/chemistryModel"/* cantera/thermochemistry/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermochemistry/chemistrySolver"/* cantera/thermochemistry/lnInclude
 
-echo "Changing to cantera directory: $start_dir/cantera"
-cd "$start_dir/cantera"
+#==================================================================================================
+#
+#  Install Cantera Thermofluid Package
+#
+#==================================================================================================
 
-echo "Compiling with wmake..."
+export start_dir=$PWD
+
+echo "Changing to cantera directory: $start_dir/cantera/thermofluid"
+cd "$start_dir/cantera/thermofluid"
+
+echo "Compiling thermo package with wmake..."
 wmake > cantera_make.log 2>&1
 
 echo "Compilation complete. Log saved to cantera_make.log"
 
 #==================================================================================================
 #
-#  I
+#  Install Cantera Thermochemistry Package
 #
 #==================================================================================================
+
+cd ../thermochemistry
+
+echo "Compiling chemistry package with wmake..."
+wmake > cantera_make.log 2>&1
+
+#==================================================================================================
+#
+#  Move tables over
+#
+#==================================================================================================
+
+cd ../tables
+
+cp basicChemistryModel $FOAM_ETC/codeTemplates/dynamicCode
+cp fluidMulticomponentThermo $FOAM_ETC/codeTemplates/dynamicCode

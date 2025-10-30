@@ -1,0 +1,15 @@
+SOURCE += psiThermo/psiCanteraThermo.C
+SOURCE += psiThermo/psiCanteraThermos.C
+
+SOURCE += rhoThermo/rhoCanteraThermo.C
+SOURCE += rhoThermo/rhoCanteraThermos.C
+
+SOURCE += multicomponent/fluidMulticomponentThermo/canteraFluidMulticomponentThermo.C
+
+SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermo.C
+SOURCE += psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
+
+SOURCE += rhoMulticomponentThermo/rhoMulticomponentCanteraThermo.C
+SOURCE += rhoMulticomponentThermo/rhoMulticomponentCanteraThermos.C
+
+LIB = $(FOAM_LIBBIN)/libcanteraThermophysicalModels

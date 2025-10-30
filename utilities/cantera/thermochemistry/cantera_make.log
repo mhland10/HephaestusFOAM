@@ -1,0 +1,100 @@
+Making dependency list for source file canteraChemistryModel.C
+could not open file os.h for source file chemistryModel/canteraChemistryModel.C due to No such file or directory
+Making dependency list for source file canteraChemistrySolvers.C
+could not open file os.h for source file chemistrySolver/canteraChemistrySolvers.C due to No such file or directory
+g++ -std=c++14 -m64 -DLIB_NAME=libcanteraChemistryModel.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/opt/openfoam12/src/physicalProperties/lnInclude -I/opt/openfoam12/src/thermophysicalModels/multicomponentThermo/lnInclude -I/opt/openfoam12/src/thermophysicalModels/basic/lnInclude -I/opt/openfoam12/src/thermophysicalModels/specie/lnInclude -I/opt/openfoam12/src/thermophysicalModels/functions/Polynomial -I/opt/openfoam12/src/ODE/lnInclude -I/opt/openfoam12/src/finiteVolume/lnInclude -I/opt/openfoam12/src/meshTools/lnInclude -I/opt/openfoam12/src/thermophysicalModels/chemistryModel/lnInclude -I/opt/cantera/include -I/opt/cantera/include/cantera -I/opt/cantera/include/cantera/base -I/opt/cantera/include/cantera/thermo -I/opt/cantera/include/cantera/transport -I/opt/cantera/include/cantera/kinetics -I/opt/cantera/include/cantera/zeroD -I/opt/cantera/include/cantera/ext -I/opt/cantera/include/cantera/ext/fmt -I/usr/include/eigen3 -I/usr/include/eigen3/Eigen/src -IlnInclude -I. -I/opt/openfoam12/src/OpenFOAM/lnInclude -I/opt/openfoam12/src/OSspecific/POSIX/lnInclude   -fPIC -c chemistrySolver/canteraChemistrySolvers.C -o Make/linux64GccDPInt32Opt/chemistrySolver/canteraChemistrySolvers.o
+In file included from /opt/cantera/include/cantera/zerodim.h:35,
+                 from lnInclude/canteraChemistryModelI.H:31,
+                 from lnInclude/canteraChemistryModel.H:209,
+                 from chemistrySolver/canteraChemistrySolvers.C:27:
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Sin1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:155:26: warning: use of old-style cast to ‘class Cantera::Func1&’ [-Wold-style-cast]
+  155 |         return (Func1&) *nfunc;
+      |                          ^~~~~
+      |                ---------------
+      |                static_cast<Func1&> ( *nfunc)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Cos1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:198:26: warning: use of old-style cast to ‘class Cantera::Func1&’ [-Wold-style-cast]
+  198 |         return (Func1&) *nfunc;
+      |                          ^~~~~
+      |                ---------------
+      |                static_cast<Func1&> ( *nfunc)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Gaussian::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:852:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  852 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Poly1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:894:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  894 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Fourier1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:953:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  953 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Arrhenius1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:1014:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+ 1014 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Periodic1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:1057:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+ 1057 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+g++ -std=c++14 -m64 -DLIB_NAME=libcanteraChemistryModel.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/opt/openfoam12/src/physicalProperties/lnInclude -I/opt/openfoam12/src/thermophysicalModels/multicomponentThermo/lnInclude -I/opt/openfoam12/src/thermophysicalModels/basic/lnInclude -I/opt/openfoam12/src/thermophysicalModels/specie/lnInclude -I/opt/openfoam12/src/thermophysicalModels/functions/Polynomial -I/opt/openfoam12/src/ODE/lnInclude -I/opt/openfoam12/src/finiteVolume/lnInclude -I/opt/openfoam12/src/meshTools/lnInclude -I/opt/openfoam12/src/thermophysicalModels/chemistryModel/lnInclude -I/opt/cantera/include -I/opt/cantera/include/cantera -I/opt/cantera/include/cantera/base -I/opt/cantera/include/cantera/thermo -I/opt/cantera/include/cantera/transport -I/opt/cantera/include/cantera/kinetics -I/opt/cantera/include/cantera/zeroD -I/opt/cantera/include/cantera/ext -I/opt/cantera/include/cantera/ext/fmt -I/usr/include/eigen3 -I/usr/include/eigen3/Eigen/src -IlnInclude -I. -I/opt/openfoam12/src/OpenFOAM/lnInclude -I/opt/openfoam12/src/OSspecific/POSIX/lnInclude   -fPIC -c chemistryModel/canteraChemistryModel.C -o Make/linux64GccDPInt32Opt/chemistryModel/canteraChemistryModel.o
+In file included from /opt/cantera/include/cantera/zerodim.h:35,
+                 from chemistryModel/canteraChemistryModelI.H:31,
+                 from chemistryModel/canteraChemistryModel.H:209,
+                 from chemistryModel/canteraChemistryModel.C:26:
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Sin1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:155:26: warning: use of old-style cast to ‘class Cantera::Func1&’ [-Wold-style-cast]
+  155 |         return (Func1&) *nfunc;
+      |                          ^~~~~
+      |                ---------------
+      |                static_cast<Func1&> ( *nfunc)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Cos1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:198:26: warning: use of old-style cast to ‘class Cantera::Func1&’ [-Wold-style-cast]
+  198 |         return (Func1&) *nfunc;
+      |                          ^~~~~
+      |                ---------------
+      |                static_cast<Func1&> ( *nfunc)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Gaussian::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:852:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  852 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Poly1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:894:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  894 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Fourier1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:953:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+  953 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Arrhenius1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:1014:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+ 1014 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+/opt/cantera/include/cantera/numerics/Func1.h: In member function ‘virtual Cantera::Func1& Cantera::Periodic1::duplicate() const’:
+/opt/cantera/include/cantera/numerics/Func1.h:1057:26: warning: use of old-style cast to ‘class Cantera::Func1*’ [-Wold-style-cast]
+ 1057 |         return *((Func1*)np);
+      |                          ^~
+      |                  ----------
+      |                  static_cast<Func1*> (np)
+g++ -std=c++14 -m64 -DLIB_NAME=libcanteraChemistryModel.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/opt/openfoam12/src/physicalProperties/lnInclude -I/opt/openfoam12/src/thermophysicalModels/multicomponentThermo/lnInclude -I/opt/openfoam12/src/thermophysicalModels/basic/lnInclude -I/opt/openfoam12/src/thermophysicalModels/specie/lnInclude -I/opt/openfoam12/src/thermophysicalModels/functions/Polynomial -I/opt/openfoam12/src/ODE/lnInclude -I/opt/openfoam12/src/finiteVolume/lnInclude -I/opt/openfoam12/src/meshTools/lnInclude -I/opt/openfoam12/src/thermophysicalModels/chemistryModel/lnInclude -I/opt/cantera/include -I/opt/cantera/include/cantera -I/opt/cantera/include/cantera/base -I/opt/cantera/include/cantera/thermo -I/opt/cantera/include/cantera/transport -I/opt/cantera/include/cantera/kinetics -I/opt/cantera/include/cantera/zeroD -I/opt/cantera/include/cantera/ext -I/opt/cantera/include/cantera/ext/fmt -I/usr/include/eigen3 -I/usr/include/eigen3/Eigen/src -IlnInclude -I. -I/opt/openfoam12/src/OpenFOAM/lnInclude -I/opt/openfoam12/src/OSspecific/POSIX/lnInclude   -fPIC -fuse-ld=bfd -shared -Xlinker --add-needed -Xlinker --no-as-needed Make/linux64GccDPInt32Opt/chemistrySolver/canteraChemistrySolvers.o Make/linux64GccDPInt32Opt/chemistryModel/canteraChemistryModel.o -L/opt/openfoam12/platforms/linux64GccDPInt32Opt/lib \
+    -lfluidThermophysicalModels -lmulticomponentThermophysicalModels -lspecie -lODE -lfiniteVolume -lmeshTools  -o /opt/openfoam12/platforms/linux64GccDPInt32Opt/lib/libcanteraChemistryModel.so

@@ -1,0 +1,33 @@
+EXE_INC = \
+    -I$(LIB_SRC)/physicalProperties/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/multicomponentThermo/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/functions/Polynomial \
+    -I$(LIB_SRC)/ODE/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/chemistryModel/lnInclude \
+    -I/opt/cantera/include \
+    -I/opt/cantera/include/cantera \
+    -I/opt/cantera/include/cantera/base \
+    -I/opt/cantera/include/cantera/thermo \
+    -I/opt/cantera/include/cantera/transport \
+    -I/opt/cantera/include/cantera/kinetics \
+    -I/opt/cantera/include/cantera/zeroD \
+    -I/opt/cantera/include/cantera/ext \
+    -I/opt/cantera/include/cantera/ext/fmt \
+    -I/usr/include/eigen3 \
+    -I/usr/include/eigen3/Eigen/src
+
+LIB_LIBS = \
+    -lfluidThermophysicalModels \
+    -lmulticomponentThermophysicalModels \
+    -lspecie \
+    -lODE \
+    -lfiniteVolume \
+    -lmeshTools
+    
+EXE_LIBS = \
+    -L/opt/cantera/lib \
+    -lcantera
