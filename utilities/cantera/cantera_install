@@ -10,7 +10,7 @@ set -e
 # --- Versions ---
 CANTERA_VERSION="2.6.0"          # or "2.6.1", "2.6.2"
 INSTALL_DIR="$HOME/cantera-$CANTERA_VERSION"
-BUILD_DIR="/opt/cantera"
+BUILD_DIR=$CANT_HOME
 
 # --- C++ & Build Flags ---
 export CXXFLAGS="-std=c++14"
@@ -53,7 +53,7 @@ git checkout "v$CANTERA_VERSION"
 # --- Configure Build ---
 # Disable Python module if only C++ is needed (set yes if needed)
 scons build \
-    prefix=/opt/cantera \
+    prefix=$BUILD_DIR \
     optimize=y \
     debug=n \
     python_package=n \

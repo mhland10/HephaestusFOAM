@@ -1,0 +1,9 @@
+multicomponent/fluidMulticomponentThermo/canteraFluidMulticomponentThermo.C
+
+psiMulticomponentThermo/psiMulticomponentCanteraThermo.C
+psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
+
+rhoMulticomponentThermo/rhoMulticomponentCanteraThermo.C
+rhoMulticomponentThermo/rhoMulticomponentCanteraThermos.C
+
+LIB = $(FOAM_LIBBIN)/libcanteraMulticomponentThermophysicalModels

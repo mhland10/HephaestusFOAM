@@ -1,0 +1,21 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+touch foam.foam
+
+runApplication blockMesh
+runApplication setFields
+runApplication decomposePar
+##runApplication $(getApplication)
+runParallel $(getApplication) ## --use-hwthread-cpus --oversubscribe
+runApplication reconstructPar
+
+##runApplication -s sample foamPostProcess -func sample
+##./createGraphs
+
+rm -rf proc* &
+
+#------------------------------------------------------------------------------

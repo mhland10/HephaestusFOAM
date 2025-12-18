@@ -6,19 +6,26 @@ export hephaestus_utilsDir="$PWD"
 
 #==================================================================================================
 #
-#  Create dynamic links for included thermodynamic files
+#  Create dynamic links for included thermodynamic files for basic thermo models
 #
 #==================================================================================================
 
-ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/lnInclude
-# ln -sf include/* cantera/factory
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/rhoThermo"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/psiThermo"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/rhoMulticomponentThermo"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/psiMulticomponentThermo"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponent/fluidMulticomponentThermo"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/mixtures/canteraMulticomponentMixture"/* cantera/thermofluid/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/factory"/* cantera/thermofluid/lnInclude
+ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/baseThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/baseThermo/rhoThermo"/* cantera/thermofluid/baseThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/baseThermo/psiThermo"/* cantera/thermofluid/baseThermo/lnInclude
+
+#==================================================================================================
+#
+#  Create dynamic links for included thermodynamic files for basic thermo models
+#
+#==================================================================================================
+
+ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/factory"/* cantera/thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/rhoMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/psiMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/multicomponent/fluidMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/mixtures/canteraMulticomponentMixture"/* cantera/thermofluid/multicomponentThermo/lnInclude
 
 #==================================================================================================
 #
@@ -31,19 +38,32 @@ ln -sf "$hephaestus_utilsDir/cantera/thermochemistry/chemistrySolver"/* cantera/
 
 #==================================================================================================
 #
-#  Install Cantera Thermofluid Package
+#  Install Cantera Basic Thermodynamics Package
 #
 #==================================================================================================
 
 export start_dir=$PWD
 
-echo "Changing to cantera directory: $start_dir/cantera/thermofluid"
-cd "$start_dir/cantera/thermofluid"
+echo "Changing to cantera directory: $start_dir/cantera/thermofluid/baseThermo"
+cd "$start_dir/cantera/thermofluid/baseThermo"
 
 echo "Compiling thermo package with wmake..."
-wmake > cantera_make.log 2>&1
+wmake > cantera_basicThermo_make.log 2>&1
 
-echo "Compilation complete. Log saved to cantera_make.log"
+echo "Compilation complete. Log saved to cantera_basicThermo_make.log"
+
+#==================================================================================================
+#
+#  Install Cantera Multicomponent Thermodynamics Package
+#
+#==================================================================================================
+
+cd ../multicomponentThermo
+
+echo "Compiling thermo package with wmake..."
+wmake > cantera_multiCThermo_make.log 2>&1
+
+echo "Compilation complete. Log saved to cantera_multiCThermo_make.log"
 
 #==================================================================================================
 #
@@ -51,10 +71,10 @@ echo "Compilation complete. Log saved to cantera_make.log"
 #
 #==================================================================================================
 
-cd ../thermochemistry
+cd ../../thermochemistry
 
 echo "Compiling chemistry package with wmake..."
-wmake > cantera_make.log 2>&1
+wmake > cantera_chem_make.log 2>&1
 
 #==================================================================================================
 #
@@ -64,5 +84,5 @@ wmake > cantera_make.log 2>&1
 
 cd ../tables
 
-cp basicChemistryModel $FOAM_ETC/codeTemplates/dynamicCode
-cp fluidMulticomponentThermo $FOAM_ETC/codeTemplates/dynamicCode
+##cp basicChemistryModel $FOAM_ETC/codeTemplates/dynamicCode
+##cp fluidMulticomponentThermo $FOAM_ETC/codeTemplates/dynamicCode

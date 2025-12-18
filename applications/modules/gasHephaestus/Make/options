@@ -1,5 +1,8 @@
 EXE_INC = \
-    -I/home/mholland/hephaestusfoam/utilities/cantera/psiThermo \
+    -I$(HEPH_UTIL)/cantera/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/baseThermo/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/multicomponentThermo/lnInclude \
     -I$(FOAM_MODULES)/fluidSolver/lnInclude \
     -I$(FOAM_MODULES)/isothermalFluid/lnInclude \
     -I$(LIB_SRC)/MomentumTransportModels/momentumTransportModels/lnInclude \
@@ -20,7 +23,8 @@ EXE_INC = \
     -I$(LIB_SRC)/sampling/lnInclude
 
 LIB_LIBS = \
-    -lcanteraThermophysicalModels \
+    -lcanteraBasicThermophysicalModels \
+    -lcanteraMulticomponentThermophysicalModels \
     -lfluidSolver \
     -lisothermalFluid \
     -lfluidThermophysicalModels \

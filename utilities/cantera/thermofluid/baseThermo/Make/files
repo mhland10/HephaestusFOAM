@@ -1,0 +1,7 @@
+psiThermo/psiCanteraThermo.C
+psiThermo/psiCanteraThermos.C
+
+rhoThermo/rhoCanteraThermo.C
+rhoThermo/rhoCanteraThermos.C
+
+LIB = $(FOAM_LIBBIN)/libcanteraBasicThermophysicalModels

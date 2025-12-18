@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2412                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      decomposeParDict;
+}
+
+// Number of subdomains for parallel run
+numberOfSubdomains 4;  // <-- adjust to your CPU cores
+
+// Method for decomposition: simple, hierarchical, scotch, metis
+method          scotch;
+
+// Only needed if method=simple
+simpleCoeffs
+{
+    n               (2 2 1);   // number of subdomains in x, y, z
+    delta           0.001;
+}
+
+// Only needed if method=hierarchical
+hierarchicalCoeffs
+{
+    n               (1 1 1);
+    delta           0.001;
+    order           xyz;
+}
+
+// Only needed if method=manual
+manualCoeffs
+{
+    dataFile        "";
+}
+
+// Do not change
+distributed     no;
+roots           ( );

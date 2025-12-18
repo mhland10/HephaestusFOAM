@@ -46,10 +46,10 @@ License
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#define makeFluidMulticomponentCanteraThermo(BaseThermo, Mixture, ThermoPhysics)              \
-                                                                               \
-    defineExternalThermo(BaseThermo, Mixture, ThermoPhysics);                                 \
-                                                                               \
+#define makeFluidMulticomponentCanteraThermo(BaseThermo, Mixture, ThermoPhysics)               \
+                                                                                               \
+    defineExternalThermo(BaseThermo, Mixture, ThermoPhysics);                                  \
+                                                                                               \
     addExternalThermo(BaseThermo, BaseThermo, Mixture, ThermoPhysics)
     
 //addExternalThermo(fluidMulticomponentThermo, BaseThermo, Mixture);  

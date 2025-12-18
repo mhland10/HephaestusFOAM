@@ -31,3 +31,7 @@ LIB_LIBS = \
 EXE_LIBS = \
     -L/opt/cantera/lib \
     -lcantera
+
+LIB_COMPILE_OPTION = -std=c++11
+
+EXE_COMPILE_OPTION = -std=c++11

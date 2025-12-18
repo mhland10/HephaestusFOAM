@@ -1,0 +1,26 @@
+#!/bin/bash
+# HephaestusFoam environment setup
+
+# Source OpenFOAM first (version you're basing it on)
+source /opt/openfoam12/etc/bashrc
+
+# Add Cantera-related paths
+export CPATH=$HOME/hephaestusfoam/utilities/cantera/thermofluid/lnInclude:$HOME/hephaestusfoam/utilities/cantera/thermofluid:$CPATH
+export LD_LIBRARY_PATH=$HOME/hephaestusfoam/utilities/cantera:$LD_LIBRARY_PATH
+
+# Optional: point to your custom solvers/utilities
+export PATH=$HOME/hephaestusfoam/utilities/cantera:$PATH
+export FOAM_USER_APPBIN=$HOME/hephaestusfoam/platforms/linux64GccDPInt32Opt/bin
+export FOAM_USER_LIBBIN=$HOME/hephaestusfoam/platforms/linux64GccDPInt32Opt/lib
+
+# Add in locations of different portions
+export HEPH_APP=$HOME/hephaestusfoam/applications
+export HEPH_UTIL=$HOME/hephaestusfoam/utilities
+export HEPH_CANT=$HOME/hephaestusfoam/utilities/cantera
+export HEPH_TUT==$HOME/hephaestusfoam/tutorials
+
+# Add in the Cantera location
+export CANT_HOME=/opt/cantera
+
+# Add in the eigen location
+export EIG_LOC=/usr/include/eigen3

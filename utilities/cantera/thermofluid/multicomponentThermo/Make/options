@@ -1,0 +1,39 @@
+EXE_INC = \
+    -I$(HEPH_UTIL)/cantera/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/baseThermo/lnInclude \
+    -I$(HEPH_UTIL)/cantera/thermofluid/multicomponentThermo/lnInclude \
+    -I$(FOAM_SRC)/physicalProperties/lnInclude \
+    -I$(FOAM_SRC)/thermophysicalModels/specie/lnInclude \
+    -I$(FOAM_SRC)/thermophysicalModels/thermophysicalProperties/lnInclude \
+    -I$(FOAM_SRC)/finiteVolume/lnInclude \
+    -I$(FOAM_SRC)/meshTools/lnInclude \
+    -I$(FOAM_SRC)/thermophysicalModels/multicomponentThermo/lnInclude \
+    -I$(FOAM_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(CANT_HOME)/include \
+    -I$(CANT_HOME)/include/cantera \
+    -I$(CANT_HOME)/include/cantera/base \
+    -I$(CANT_HOME)/include/cantera/thermo \
+    -I$(CANT_HOME)/include/cantera/transport \
+    -I$(CANT_HOME)/include/cantera/kinetics \
+    -I$(CANT_HOME)/include/cantera/ext \
+    -I$(CANT_HOME)/include/cantera/ext/fmt \
+    -I$(EIG_LOC) \
+    -I$(EIG_LOC)/Eigen/src
+
+LIB_LIBS = \
+    -lphysicalProperties \
+    -lspecie \
+    -lthermophysicalProperties \
+    -lfiniteVolume \
+    -lmeshTools \
+    -lfluidThermophysicalModels \
+    -lcanteraBasicThermophysicalModels \
+    -L$(CANT_HOME)/lib \
+    -lcantera
+
+EXE_LIBS = \
+    -L$(CANT_HOME)/lib \
+    -lOpenFOAM \
+    -lcantera
+
