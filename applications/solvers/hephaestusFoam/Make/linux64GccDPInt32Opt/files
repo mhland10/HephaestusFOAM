@@ -1,4 +1,0 @@
-SOURCE += setDeltaT.C
-SOURCE += hephaestusFoam.C
-
-EXE = $(FOAM_APPBIN)/hephaestusFoam
