@@ -4,14 +4,26 @@ HephaestusFOAM is an OpenFOAM (v12) addition that allows users superior aerother
 
 ## Getting started
 
-- Install hephaestusFOAM via:
+1. If not already done so, [install OpenFOAM v12](https://openfoam.org/download/12-ubuntu/)
+
+2. Pull the git repository into the user's home directory. For fresh installations use the following. For stable versions, select the latest release branch. Generally it is recommended that <install location> is ~.
 
 ```
 cd <install location>
-git remote add origin http://prometheus.utsarr.net/mholland/hephaestusfoam.git
-git branch -M main
-git push -uf origin main>
+git clone <repository-url>
+git branch -M <branch name>
+
 ```
+
+3. Install HephaestusFOAM from scratch via 
+
+```
+cd <install location>/hephaestusfoam
+./clean_install
+
+```
+
+4. Use the available tutorials to understand how HephaestusFOAM is integrated into OpenFOAM.
 
 ## To Do List
 
