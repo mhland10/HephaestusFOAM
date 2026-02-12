@@ -1,0 +1,15 @@
+**Foam Source Code:**
+/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src
+**Foam app binary:**
+/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/platforms/linux64IcxDPInt32Opt/bin
+**WM Label Size**
+32
+WM_LABEL_SIZE=32
+**Building application**
+Making dependency list for source file hephaestusFoam.C
+Making dependency list for source file setDeltaT.C
+mpiicpc -DLIB_NAME=libNULL.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra  -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof  -O3 -fno-inline -march=core-avx2 -std=c++14 -fp-trap=common -fp-model precise  -DNoRepository -ftemplate-depth-100 -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/finiteVolume/lnInclude -IlnInclude -I. -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OSspecific/POSIX/lnInclude   -fPIC -c setDeltaT.C -o Make/linux64IcxDPInt32Opt/setDeltaT.o
+mpiicpc -DLIB_NAME=libNULL.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra  -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof  -O3 -fno-inline -march=core-avx2 -std=c++14 -fp-trap=common -fp-model precise  -DNoRepository -ftemplate-depth-100 -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/finiteVolume/lnInclude -IlnInclude -I. -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OSspecific/POSIX/lnInclude   -fPIC -c hephaestusFoam.C -o Make/linux64IcxDPInt32Opt/hephaestusFoam.o
+mpiicpc -DLIB_NAME=libNULL.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra  -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof  -O3 -fno-inline -march=core-avx2 -std=c++14 -fp-trap=common -fp-model precise  -DNoRepository -ftemplate-depth-100 -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/finiteVolume/lnInclude -IlnInclude -I. -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude -I/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/src/OSspecific/POSIX/lnInclude   -fPIC -Xlinker --add-needed Make/linux64IcxDPInt32Opt/setDeltaT.o Make/linux64IcxDPInt32Opt/hephaestusFoam.o -L/home1/apps/intel24/impi21/OpenFOAM/OpenFOAM-12/platforms/linux64IcxDPInt32Opt/lib \
+    -lfiniteVolume -lOpenFOAM -ldl  \
+     -lm -o /work/09629/m_hland10/ls6/apps/hephaestusFoam

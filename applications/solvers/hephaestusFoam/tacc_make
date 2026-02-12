@@ -1,0 +1,59 @@
+#!/bin/bash
+# ----------------------------------------------------
+# This script is made to build hephaestusFOAM on TACC
+# ----------------------------------------------------
+
+#SBATCH -J hephaestus_build           # Job name
+#SBATCH -o hephaestus_build.o%j       # Name of stdout output file
+#SBATCH -e hephaestus_build.e%j       # Name of stderr error file
+#SBATCH -p development                # Queue (partition) name
+#SBATCH -N 1                          # Total # of nodes (must be 1 for serial)
+#SBATCH -n 1                          # Total # of mpi tasks (serial build)
+#SBATCH --cpus-per-task=128           # Number of cores per task
+#SBATCH -t 1:59:00                    # Run time (hh:mm:ss)
+#SBATCH --mail-type=all               # Send email at begin and end of job
+#SBATCH -A Large-scale-simulati       # Project/Allocation name
+#SBATCH --mail-user=matthew.holland@my.utsa.edu
+
+# Stop the script if any command fails
+##set -e
+##set -x
+
+# Remove any previous build directory
+rm -rf build
+
+# Load the required modules
+module purge
+module load gcc
+module load intel/24.1 impi/21.12
+module load openfoam/12
+module load cmake
+
+# Set the install location
+export INSTALLDIR=/work/09629/m_hland10/ls6/apps/hephaestusFoam
+export MATT_SOURCE=/home1/09629/m_hland10/hephaestusfoam/applications/solvers/hephaestusFoam
+
+# Move to the source directory
+cd $MATT_SOURCE
+
+# Show OpenFOAM locations
+echo "**Foam Source Code:**"
+echo $FOAM_SRC
+echo "**Foam app binary:**"
+echo $FOAM_APPBIN
+
+# Grab the source bashrc
+source $WM_PROJECT_DIR/etc/bashrc 
+##export WM_LABEL_SIZE=32
+echo "**WM Label Size**"
+echo $WM_LABEL_SIZE
+env | grep WM_LABEL_SIZE
+
+# Build the project and install
+echo "**Building application**"
+##cmake -DWM_LABEL_SIZE=32 -DCMAKE_CACHE_FORCE=ON -DCMAKE_CXX_FLAGS="-DWM_LABEL_SIZE=32" ..
+wmake
+##make
+##make install DESTDIR=$INSTALLDIR
+##make -f ../Make/Makefile clean
+

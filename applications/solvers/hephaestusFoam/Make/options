@@ -1,9 +1,9 @@
 EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
-    -I/opt/cantera/include   
+    -I$(CANT_HOME)/include   
     
 
 EXE_LIBS = \
     -lfiniteVolume \
-    -L/opt/cantera/lib \
+    -L$(CANT_HOME)/lib \
     -lcantera

@@ -1,34 +1,4 @@
 #!/bin/bash
-set -e
-
-#==================================================================================================
-#
-#  Set up required variables
-#
-#==================================================================================================
-
-# --- Versions ---
-CANTERA_VERSION="2.6.0"          # or "2.6.1", "2.6.2"
-INSTALL_DIR="$HOME/cantera-$CANTERA_VERSION"
-BUILD_DIR=$CANT_HOME
-
-# --- C++ & Build Flags ---
-export CXXFLAGS="-std=c++14"
-export CC=gcc
-export CXX=g++
-
-#==================================================================================================
-#
-#  Install dependencies
-#
-#==================================================================================================
-
-# --- Dependencies ---
-sudo apt update
-sudo apt install -y \
-    g++ gfortran scons python3-dev python3-numpy python3-yaml \
-    libboost-all-dev libeigen3-dev \
-    git
     
 #==================================================================================================
 #
@@ -36,13 +6,21 @@ sudo apt install -y \
 #
 #==================================================================================================
 
+export INSTALL_DIR="$HOME/cantera"
 mkdir -p $INSTALL_DIR && cd $INSTALL_DIR
 
 # Clone the exact version
 git clone https://github.com/Cantera/cantera.git
 cd cantera
 git fetch --tags
-git checkout "v$CANTERA_VERSION"
+echo "Available Git tags for Cantera:"
+git tag
+echo "Trying to check out $CANTERA_VERSION"
+git checkout "$CANTERA_VERSION" 
+echo "Cantera version:"
+git describe --tags
+git pull
+git status
 
 #==================================================================================================
 #
@@ -50,19 +28,28 @@ git checkout "v$CANTERA_VERSION"
 #
 #==================================================================================================
 
+mkdir -p $BUILD_DIR
+
 # --- Configure Build ---
 # Disable Python module if only C++ is needed (set yes if needed)
+echo "Building Cantera with CXX Flags:"
+echo $CXXFLAGS
+echo "And CPATH:"
+echo $CPATH
+echo " "
 scons build \
     prefix=$BUILD_DIR \
     optimize=y \
     debug=n \
     python_package=n \
     f90_interface=n \
-    system_eigen=y
+    system_eigen=y \
+    extra_inc_dirs=$TACC_EIGEN_DIR/include/eigen3 \
+    boost_inc_dir=$TACC_BOOST_DIR/include
 
 
 # --- Install ---
-sudo scons install > cantera_install.log
+scons install > ~/hephaestusfoam/cantera_install.log
 
 #==================================================================================================
 #
@@ -71,10 +58,10 @@ sudo scons install > cantera_install.log
 #==================================================================================================
 
 # --- Verification ---
-strings /opt/cantera/lib/libcantera.so | grep std=
+strings $CANT_HOME/lib/libcantera.so | grep std=
 # should show: -std=c++14
 
-grep CANTERA_VERSION /opt/cantera/include/cantera/base/config.h
+grep CANTERA_VERSION $CANT_HOME/include/cantera/base/config.h
 # should show: 2.6.0
 
 # --- Environment Setup ---

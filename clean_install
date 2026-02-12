@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "Environment ready"
+
 ##=================================================================================================
 ##
 ##  This script is for a clean installation of HephaestusFOAM onto OpenFOAM v12. If HephaestusFOAM
@@ -14,8 +16,17 @@ set -e
 ##=================================================================================================
 
 ## Append hephaestusFOAM RC to bashrc
-echo '. ~/hephaestusfoam/hephaestusrc' >> ~/.bashrc
-source ~/.bashrc
+# Temporarily disable exit-on-error
+set +e
+source ~/hephaestusfoam/hephaestusrc
+rc=$?
+set -e
+
+if [ $rc -ne 0 ]; then
+    echo "Warning: hephaestusrc returned non-zero ($rc)"
+fi
+
+echo "sourced the hephaestusrc"
 
 ##=================================================================================================
 ##
@@ -27,7 +38,7 @@ echo "**Installing Cantera**"
 echo " "
 
 ## Run Cantera install script
-cd $(HEPH_CANT)
+cd "$HEPH_CANT"
 ./cantera_install
 
 echo " "
@@ -44,7 +55,7 @@ echo "**Installing Utilities**"
 echo " "
 
 ## Run utilities install script
-cd $(HEPH_UTIL)
+cd "$HEPH_UTIL"
 ./utils_install
 
 echo " "
@@ -61,7 +72,7 @@ echo "**Installing Modules**"
 echo " "
 
 ## Run modules install script
-cd $(HEPH_APP)
+cd "$HEPH_APP"
 cd modules
 ./modules_installation
 
