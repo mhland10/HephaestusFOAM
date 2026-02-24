@@ -1,0 +1,112 @@
+#!/bin/bash
+set -e
+
+echo "Environment ready"
+
+module purge
+
+##=================================================================================================
+##
+##  This script is for a clean installation of HephaestusFOAM onto OpenFOAM v12. If HephaestusFOAM
+##  needs to be partially installed, one must currently install those specific modules in the 
+##  installation order that appears in this script.
+##
+##  Note that OpenFOAM v12 must be completely installed.
+##
+##  Questions should be directed to matthew.holland@utsa.edu
+##
+##=================================================================================================
+
+## Append hephaestusFOAM RC to bashrc
+# Temporarily disable exit-on-error
+set +e
+. ~/hephaestusfoam/hephaestusrc
+rc=$?
+set -e
+
+if [ $rc -ne 0 ]; then
+    echo "Warning: hephaestusrc returned non-zero ($rc)"
+fi
+
+echo "sourced the hephaestusrc"
+echo "rc check: "
+echo $CANT_HOME
+echo $LD_LIBRARY_PATH
+echo " "
+
+##=================================================================================================
+##
+##  Install Cantera
+##  
+##=================================================================================================
+
+echo "**Installing Cantera**"
+echo " "
+
+module load intel/24.1
+module load boost/1.86.0
+export CPATH=$TACC_BOOST_DIR/include:$CPATH
+
+## Run Cantera install script
+cd "$HEPH_CANT"
+#./cantera_install
+
+echo " "
+echo "**Cantera Install Complete**"
+echo " "
+
+##=================================================================================================
+##
+##  Install Utilities
+##
+##=================================================================================================
+
+echo "Purging modules and reseting"
+module purge
+. ~/hephaestusfoam/hephaestusrc
+
+echo "**Installing Utilities**"
+echo " "
+
+## Run utilities install script
+cd "$HEPH_UTIL"
+./utils_install
+
+echo " "
+echo "**Utilities Installed**"
+echo " "
+
+##=================================================================================================
+##
+##  Install Modules
+##
+##=================================================================================================
+
+echo "**Installing Modules**"
+echo " "
+
+## Run modules install script
+cd "$HEPH_APP"
+cd modules
+./modules_installation
+
+echo " "
+echo "**Module Installed**"
+echo " "
+
+##=================================================================================================
+##
+##  Install Applications
+##
+##=================================================================================================
+
+echo "**Installing Applications**"
+echo " "
+
+## Run applications install script
+cd ../solvers
+./solvers_installation
+
+echo " "
+echo "**Applications Installed**"
+echo " "

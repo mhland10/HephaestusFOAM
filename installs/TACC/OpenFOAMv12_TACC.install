@@ -1,0 +1,100 @@
+#!/bin/bash
+# ----------------------------------------------------
+# SLURM script to build OpenFOAM-12 with GCC + OpenMPI
+# ----------------------------------------------------
+
+#SBATCH -J FOAM12_build           # Job name
+#SBATCH -o FOAM12_build.o%j       # Stdout output file
+#SBATCH -e FOAM12_build.e%j       # Stderr error file
+#SBATCH -p vm-small                # Queue (partition) name
+#SBATCH -N 1                        # Total nodes (1 for serial build)
+#SBATCH -n 1                        # Total MPI tasks
+#SBATCH --cpus-per-task=16          # Cores per task
+#SBATCH -t 47:59:00                 # Walltime
+#SBATCH --mail-type=ALL
+#SBATCH -A Large-scale-simulati
+#SBATCH --mail-user=matthew.holland@my.utsa.edu
+
+# ----------------------------------------------------
+# 1. Load compilers & MPI
+# ----------------------------------------------------
+module purge
+
+# Set up GCC compiler
+module load gcc/13.2.0
+
+# Load your custom OpenMPI environment
+. $WORK/openmpi-4.1.6/openmpirc
+export CC=$WORK/OpenMPI-4.1.6/bin/mpicc
+export CXX=$WORK/OpenMPI-4.1.6/bin/mpicxx
+
+# Verify compilers and MPI
+echo "CC: $CC"
+echo "CXX: $CXX"
+which mpicc
+mpicc --showme:link
+echo "Current LD Library path:"
+echo $LD_LIBRARY_PATH
+
+# ----------------------------------------------------
+# 2. Set installation location
+# ----------------------------------------------------
+export FOAM_BASE=$WORK/OpenFOAM
+mkdir -p $FOAM_BASE
+cd $FOAM_BASE
+
+# ----------------------------------------------------
+# 3. Clone OpenFOAM and ThirdParty if needed
+# ----------------------------------------------------
+echo "** DOWNLOADING OPENFOAM **"
+
+if [ ! -d OpenFOAM-12 ]; then
+    git clone https://github.com/OpenFOAM/OpenFOAM-12.git 
+fi
+
+if [ ! -d ThirdParty-12 ]; then
+    git clone https://github.com/OpenFOAM/ThirdParty-12.git
+fi
+
+# ----------------------------------------------------
+# 4. Set up OpenFOAM Build
+# ----------------------------------------------------
+echo "** PREPPING OPENFOAM **"
+cd $FOAM_BASE/OpenFOAM-12
+
+# Set OpenFOAM environment BEFORE sourcing etc/bashrc
+export WM_COMPILER=Gcc
+export WM_MPLIB=OPENMPI
+export FOAM_MPI=openmpi
+. etc/bashrc
+
+# Confirm
+echo "Compiler: $WM_COMPILER"
+echo "CC: $CC"
+echo "CXX: $CXX"
+echo "WM_MPLIB: $WM_MPLIB"
+echo "FOAM_MPI: $FOAM_MPI"
+echo "Platform: $WM_OPTIONS"
+
+
+# ----------------------------------------------------
+# 5. Build OpenFOAM
+# ----------------------------------------------------
+echo "** BUILDING OPENFOAM **"
+
+./Allwmake -j $SLURM_CPUS_PER_TASK
+
+# ----------------------------------------------------
+# 6. Post-build checks
+# ----------------------------------------------------
+echo "** CHECK OPENFOAM INSTALLATION **"
+which icoFoam
+if [ $? -ne 0 ]; then
+    echo "ERROR: icoFoam not found!"
+    exit 1
+fi
+
+echo "MPI linkage for icoFoam:"
+ldd $(which icoFoam) | grep mpi || echo "No MPI linkage found."
+
+echo "Build complete."

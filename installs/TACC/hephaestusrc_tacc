@@ -1,0 +1,72 @@
+#!/bin/bash
+# HephaestusFoam environment setup
+
+##module purge
+
+# --------------------------------------------------
+# 1. Source OpenFOAM FIRST
+# --------------------------------------------------
+. $FOAM_ETC/bashrc
+
+# --------------------------------------------------
+# 2. Modules
+# --------------------------------------------------
+module load gcc/13.2.0
+module load eigen/3.4.0
+export LD_LIBRARY_PATH=/scratch/tacc/apps/gcc/13.2.0/lib64:$LD_LIBRARY_PATH
+
+# --------------------------------------------------
+# 3. Cantera source + build locations
+# --------------------------------------------------
+export CANTERA_VERSION="v2.6.0"
+
+# Source location (downloaded tarball extracted here)
+export INSTALL_DIR="$HOME/cantera-$CANTERA_VERSION"
+
+# Build/install prefix (lives on WORK)
+export CANT_HOME="$WORK/cantera"
+
+# --------------------------------------------------
+# 4. Compiler / Eigen
+# --------------------------------------------------
+export EIG_LOC="$TACC_EIGEN_DIR"
+
+export CXXFLAGS="-std=c++14"
+
+# --------------------------------------------------
+# 5. Boost
+# --------------------------------------------------
+
+
+# --------------------------------------------------
+# 6. Cantera paths
+# --------------------------------------------------
+export PATH="$CANT_HOME/bin:$PATH"
+
+export LD_LIBRARY_PATH="$CANT_HOME/lib:$LD_LIBRARY_PATH"
+
+export PYTHONPATH="$CANT_HOME/lib/python3/site-packages:$PYTHONPATH"
+
+# --------------------------------------------------
+# 7. HephaestusFoam paths
+# --------------------------------------------------
+export HEPH_HOME="$HOME/hephaestusfoam"
+
+export FOAM_USER_APPBIN="$HEPH_HOME/platforms/linux64GccDPInt32Opt/bin"
+export FOAM_USER_LIBBIN="$HEPH_HOME/platforms/linux64GccDPInt32Opt/lib"
+
+export PATH="$HEPH_HOME/utilities/cantera:$PATH"
+export LD_LIBRARY_PATH="$HEPH_HOME/utilities/cantera:$LD_LIBRARY_PATH"
+
+export HEPH_APP="$HEPH_HOME/applications"
+export HEPH_UTIL="$HEPH_HOME/utilities"
+export HEPH_CANT="$HEPH_HOME/utilities/cantera"
+export HEPH_TUT="$HEPH_HOME/tutorials"
+
+# --------------------------------------------------
+# 8. Python paths
+# --------------------------------------------------
+export PATH=/usr/bin:$PATH
+export PYTHON=$(which python)
+
+export LD_LIBRARY_PATH=/scratch/tacc/apps/gcc/13.2.0/lib64:/scratch/tacc/apps/gcc/13.2.0/lib:$CANT_HOME/lib:$LD_LIBRARY_PATH

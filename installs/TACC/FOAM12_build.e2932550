@@ -1,0 +1,690 @@
+Cloning into 'OpenFOAM-12'...
+Updating files:   5% (891/15759)Updating files:   6% (946/15759)Updating files:   7% (1104/15759)Updating files:   8% (1261/15759)Updating files:   9% (1419/15759)Updating files:  10% (1576/15759)Updating files:  10% (1636/15759)Updating files:  11% (1734/15759)Updating files:  12% (1892/15759)Updating files:  13% (2049/15759)Updating files:  14% (2207/15759)Updating files:  15% (2364/15759)Updating files:  15% (2483/15759)Updating files:  16% (2522/15759)Updating files:  17% (2680/15759)Updating files:  18% (2837/15759)Updating files:  19% (2995/15759)Updating files:  20% (3152/15759)Updating files:  21% (3310/15759)Updating files:  21% (3356/15759)Updating files:  22% (3467/15759)Updating files:  23% (3625/15759)Updating files:  24% (3783/15759)Updating files:  25% (3940/15759)Updating files:  26% (4098/15759)Updating files:  26% (4222/15759)Updating files:  27% (4255/15759)Updating files:  28% (4413/15759)Updating files:  29% (4571/15759)Updating files:  30% (4728/15759)Updating files:  31% (4886/15759)Updating files:  31% (5020/15759)Updating files:  32% (5043/15759)Updating files:  33% (5201/15759)Updating files:  34% (5359/15759)Updating files:  35% (5516/15759)Updating files:  36% (5674/15759)Updating files:  36% (5800/15759)Updating files:  37% (5831/15759)Updating files:  38% (5989/15759)Updating files:  39% (6147/15759)Updating files:  40% (6304/15759)Updating files:  41% (6462/15759)Updating files:  42% (6619/15759)Updating files:  42% (6669/15759)Updating files:  43% (6777/15759)Updating files:  44% (6934/15759)Updating files:  45% (7092/15759)Updating files:  46% (7250/15759)Updating files:  47% (7407/15759)Updating files:  47% (7490/15759)Updating files:  48% (7565/15759)Updating files:  49% (7722/15759)Updating files:  50% (7880/15759)Updating files:  51% (8038/15759)Updating files:  52% (8195/15759)Updating files:  52% (8352/15759)Updating files:  53% (8353/15759)Updating files:  54% (8510/15759)Updating files:  55% (8668/15759)Updating files:  56% (8826/15759)Updating files:  57% (8983/15759)Updating files:  58% (9141/15759)Updating files:  58% (9267/15759)Updating files:  59% (9298/15759)Updating files:  60% (9456/15759)Updating files:  61% (9613/15759)Updating files:  62% (9771/15759)Updating files:  63% (9929/15759)Updating files:  64% (10086/15759)Updating files:  64% (10095/15759)Updating files:  65% (10244/15759)Updating files:  66% (10401/15759)Updating files:  67% (10559/15759)Updating files:  68% (10717/15759)Updating files:  69% (10874/15759)Updating files:  70% (11032/15759)Updating files:  70% (11084/15759)Updating files:  71% (11189/15759)Updating files:  72% (11347/15759)Updating files:  73% (11505/15759)Updating files:  74% (11662/15759)Updating files:  75% (11820/15759)Updating files:  76% (11977/15759)Updating files:  76% (12110/15759)Updating files:  77% (12135/15759)Updating files:  78% (12293/15759)Updating files:  79% (12450/15759)Updating files:  80% (12608/15759)Updating files:  81% (12765/15759)Updating files:  82% (12923/15759)Updating files:  83% (13080/15759)Updating files:  83% (13113/15759)Updating files:  84% (13238/15759)Updating files:  85% (13396/15759)Updating files:  86% (13553/15759)Updating files:  87% (13711/15759)Updating files:  88% (13868/15759)Updating files:  89% (14026/15759)Updating files:  89% (14046/15759)Updating files:  90% (14184/15759)Updating files:  91% (14341/15759)Updating files:  92% (14499/15759)Updating files:  93% (14656/15759)Updating files:  94% (14814/15759)Updating files:  95% (14972/15759)Updating files:  95% (15011/15759)Updating files:  96% (15129/15759)Updating files:  97% (15287/15759)Updating files:  98% (15444/15759)Updating files:  99% (15602/15759)Updating files: 100% (15759/15759)Updating files: 100% (15759/15759), done.
+Cloning into 'ThirdParty-12'...
+Updating files:  24% (1048/4355)Updating files:  25% (1089/4355)Updating files:  26% (1133/4355)Updating files:  27% (1176/4355)Updating files:  28% (1220/4355)Updating files:  29% (1263/4355)Updating files:  30% (1307/4355)Updating files:  31% (1351/4355)Updating files:  32% (1394/4355)Updating files:  33% (1438/4355)Updating files:  34% (1481/4355)Updating files:  35% (1525/4355)Updating files:  36% (1568/4355)Updating files:  37% (1612/4355)Updating files:  38% (1655/4355)Updating files:  39% (1699/4355)Updating files:  40% (1742/4355)Updating files:  41% (1786/4355)Updating files:  42% (1830/4355)Updating files:  43% (1873/4355)Updating files:  44% (1917/4355)Updating files:  45% (1960/4355)Updating files:  46% (2004/4355)Updating files:  47% (2047/4355)Updating files:  48% (2091/4355)Updating files:  49% (2134/4355)Updating files:  49% (2144/4355)Updating files:  50% (2178/4355)Updating files:  51% (2222/4355)Updating files:  52% (2265/4355)Updating files:  53% (2309/4355)Updating files:  54% (2352/4355)Updating files:  55% (2396/4355)Updating files:  56% (2439/4355)Updating files:  57% (2483/4355)Updating files:  58% (2526/4355)Updating files:  59% (2570/4355)Updating files:  60% (2613/4355)Updating files:  61% (2657/4355)Updating files:  62% (2701/4355)Updating files:  63% (2744/4355)Updating files:  64% (2788/4355)Updating files:  65% (2831/4355)Updating files:  66% (2875/4355)Updating files:  67% (2918/4355)Updating files:  68% (2962/4355)Updating files:  69% (3005/4355)Updating files:  70% (3049/4355)Updating files:  71% (3093/4355)Updating files:  72% (3136/4355)Updating files:  73% (3180/4355)Updating files:  74% (3223/4355)Updating files:  75% (3267/4355)Updating files:  76% (3310/4355)Updating files:  77% (3354/4355)Updating files:  77% (3369/4355)Updating files:  78% (3397/4355)Updating files:  79% (3441/4355)Updating files:  80% (3484/4355)Updating files:  81% (3528/4355)Updating files:  82% (3572/4355)Updating files:  83% (3615/4355)Updating files:  84% (3659/4355)Updating files:  85% (3702/4355)Updating files:  86% (3746/4355)Updating files:  87% (3789/4355)Updating files:  88% (3833/4355)Updating files:  89% (3876/4355)Updating files:  90% (3920/4355)Updating files:  91% (3964/4355)Updating files:  92% (4007/4355)Updating files:  93% (4051/4355)Updating files:  94% (4094/4355)Updating files:  95% (4138/4355)Updating files:  96% (4181/4355)Updating files:  97% (4225/4355)Updating files:  98% (4268/4355)Updating files:  99% (4312/4355)Updating files: 100% (4355/4355)Updating files: 100% (4355/4355), done.
+lex.yy.c:1293:16: warning: ‘input’ defined but not used [-Wunused-function]
+ 1293 |     static int input  (void)
+      |                ^~~~~
+lex.yy.c:1250:17: warning: ‘yyunput’ defined but not used [-Wunused-function]
+ 1250 |     static void yyunput (int c, char * yy_bp )
+      |                 ^~~~~~~
++ cd scotch_6.0.9/src
++ prefixDIR=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9
++ libDIR=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib
++ mkdir -p /work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9
++ mkdir -p /work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib
++ configOpt='prefix=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9 libdir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib'
++ '[' -f ../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM ']'
++ rm -f Makefile.inc
++ ln -s ../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM Makefile.inc
++ '[' -f Makefile.inc ']'
++ unset configEnv
++ '[' gcc '!=' gcc ']'
++ make realclean
++ make -j 8 scotch
+In file included from graph_io_habo.c:64:
+graph_io_habo.c: In function ‘_SCOTCHgraphGeomLoadHabo’:
+common.h:144:37: warning: ‘realloc’ called on pointer ‘*grafptr.edgetax’ with nonzero offset 4 [-Wfree-nonheap-object]
+  144 | #define memRealloc(ptr,size)        realloc ((ptr),((size) | 8))
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+graph_io_habo.c:349:32: note: in expansion of macro ‘memRealloc’
+  349 |   grafptr->edgetax = ((Gnum *) memRealloc (grafptr->edgetax + 1, grafptr->edgenbr * sizeof (Gnum))) - 1;
+      |                                ^~~~~~~~~~
++ make prefix=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9 libdir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib install
+cp: cannot stat '../bin/d[agm]*': No such file or directory
+make: [Makefile:123: install] Error 1 (ignored)
+cp: cannot stat '../include/*esmumps*.h': No such file or directory
+make: [Makefile:124: install] Error 1 (ignored)
+cp: cannot stat '../lib/*esmumps*.so': No such file or directory
+make: [Makefile:126: install] Error 1 (ignored)
++ make realclean
++ cd scotch_6.0.9/src
++ prefixDIR=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9
++ libDIR=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib/openmpi-system
++ incDIR=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9/include/openmpi-system
++ mkdir -p /work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9
++ mkdir -p /work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib/openmpi-system
++ configOpt='prefix=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9 libdir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib/openmpi-system includedir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9/include/openmpi-system'
++ '[' -f ../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM ']'
++ rm -f Makefile.inc
++ ln -s ../../etc/wmakeFiles/scotch/Makefile.inc.i686_pc_linux2.shlib-OpenFOAM Makefile.inc
++ '[' -f Makefile.inc ']'
++ unset configEnv
++ '[' gcc '!=' gcc ']'
++ make realclean
++ make -j 8 ptscotch
+In file included from graph_io_habo.c:64:
+graph_io_habo.c: In function ‘_SCOTCHgraphGeomLoadHabo’:
+common.h:144:37: warning: ‘realloc’ called on pointer ‘*grafptr.edgetax’ with nonzero offset 4 [-Wfree-nonheap-object]
+  144 | #define memRealloc(ptr,size)        realloc ((ptr),((size) | 8))
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+graph_io_habo.c:349:32: note: in expansion of macro ‘memRealloc’
+  349 |   grafptr->edgetax = ((Gnum *) memRealloc (grafptr->edgetax + 1, grafptr->edgenbr * sizeof (Gnum))) - 1;
+      |                                ^~~~~~~~~~
++ make prefix=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9 libdir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib/openmpi-system includedir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9/include/openmpi-system install
+mkdir: cannot create directory ‘/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9/include_stub’: File exists
+make: [Makefile:84: /work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/scotch_6.0.9/include/openmpi-system] Error 1 (ignored)
+cp: cannot stat '../bin/[agm]*': No such file or directory
+make: [Makefile:122: install] Error 1 (ignored)
+cp: cannot stat '../include/*esmumps*.h': No such file or directory
+make: [Makefile:124: install] Error 1 (ignored)
+cp: cannot stat '../lib/*esmumps*.so': No such file or directory
+make: [Makefile:126: install] Error 1 (ignored)
++ make realclean
++ cd Zoltan-3.90
++ mkdir -p build
++ cd build
++ ../configure --prefix=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/Zoltan-3.90 --libdir=/work/09629/m_hland10/ls6/OpenFOAM/ThirdParty-12/platforms/linux64GccDPInt32/lib/openmpi-system --with-mpi=/work/09629/m_hland10/ls6/OpenMPI-4.1.6 --with-mpi-compilers=no --with-mpi-libdir=/work/09629/m_hland10/ls6/OpenMPI-4.1.6/lib64 --disable-zoltan-cppdriver --with-ccflags=-fPIC --with-cxxflags=-fPIC
++ make everything
+../../src/lb/lb_init.c: In function ‘Zoltan_LB_Serialize_Size’:
+../../src/lb/lb_init.c:128:33: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  128 |   struct Zoltan_LB_Struct *lb = &(zz->LB);
+      |                                 ^
+../../src/lb/lb_init.c: In function ‘Zoltan_LB_Serialize’:
+../../src/lb/lb_init.c:161:33: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  161 |   struct Zoltan_LB_Struct *lb = &(zz->LB);
+      |                                 ^
++ make install
+version changed from previous build
+In file included from lnInclude/List.H:312,
+                 from lnInclude/HashTable.C:30,
+                 from lnInclude/Istream.H:196,
+                 from lnInclude/ISstream.H:39,
+                 from lnInclude/IOstreams.H:38,
+                 from lnInclude/VectorSpace.C:27,
+                 from lnInclude/VectorSpace.H:241,
+                 from lnInclude/Vector.H:44,
+                 from lnInclude/vector.H:39,
+                 from lnInclude/point.H:35,
+                 from lnInclude/pointField.H:35,
+                 from lnInclude/face.H:46,
+                 from lnInclude/faceList.H:34,
+                 from meshes/meshShapes/cell/cell.H:38,
+                 from meshes/meshShapes/cell/oppositeCellFace.C:30:
+In copy constructor ‘Foam::List<T>::List(const Foam::List<T>&) [with T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::List<T>&) [with T = int]’ at lnInclude/List.C:103:1,
+    inlined from ‘Foam::face::face(const Foam::face&)’ at lnInclude/face.H:74:7,
+    inlined from ‘Foam::oppositeFace::oppositeFace(const Foam::face&, Foam::label, Foam::label)’ at lnInclude/oppositeFace.H:77:41,
+    inlined from ‘Foam::oppositeFace Foam::cell::opposingFace(Foam::label, const Foam::faceUList&) const’ at meshes/meshShapes/cell/oppositeCellFace.C:149:9:
+lnInclude/List.C:122:43: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  122 |                 List_ELEM((*this), vp, i) = List_ELEM(a, ap, i);
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C: In member function ‘void Foam::mappedInternalPatchBase::calcMapping() const’:
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C:267:26: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  267 |             const point& fc = patch_.faceCentres()[patchFacei];
+      |                          ^~
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C:267:62: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceCentres() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](patchFacei)’
+  267 |             const point& fc = patch_.faceCentres()[patchFacei];
+      |                                                              ^
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C: In member function ‘Foam::tmp<Foam::Field<Foam::Vector<double> > > Foam::mappedInternalPatchBase::samplePoints() const’:
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C:407:22: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  407 |         const point& fc = patch_.faceCentres()[patchFacei];
+      |                      ^~
+mappedPatches/mappedInternalPatchBase/mappedInternalPatchBase.C:407:58: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceCentres() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](patchFacei)’
+  407 |         const point& fc = patch_.faceCentres()[patchFacei];
+      |                                                          ^
+In file included from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.H:312,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/labelList.H:48,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/UPstream.H:42,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/Pstream.H:42,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/globalIndex.H:45,
+                 from fvMesh/extendedStencil/cellToCell/globalIndexStencils/cellToCellStencil.H:39,
+                 from fvMesh/extendedStencil/cellToCell/globalIndexStencils/cellToCellStencil.C:26:
+In constructor ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:131:1,
+    inlined from ‘Foam::IndirectListAddressing::IndirectListAddressing(const Foam::labelUList&)’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:34:5,
+    inlined from ‘Foam::IndirectList<T>::IndirectList(const Foam::UList<T>&, const Foam::labelUList&) [with T = Foam::face]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:59:5,
+    inlined from ‘Foam::autoPtr<Foam::PrimitivePatch<Foam::IndirectList<Foam::face>, const Foam::Field<Foam::Vector<double> >&> > Foam::cellToCellStencil::allCoupledFacesPatch() const’ at fvMesh/extendedStencil/cellToCell/globalIndexStencils/cellToCellStencil.C:228:13:
+/work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:142:39: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  142 |             List_ELEM((*this), vp, i) = T(List_ELEM(a, ap, i));
+In file included from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.H:312,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/labelList.H:48,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/UPstream.H:42,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/Pstream.H:42,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/globalIndex.H:45,
+                 from fvMesh/extendedStencil/cellToFace/globalIndexStencils/cellToFaceStencil.H:39,
+                 from fvMesh/extendedStencil/cellToFace/globalIndexStencils/cellToFaceStencil.C:26:
+In constructor ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:131:1,
+    inlined from ‘Foam::IndirectListAddressing::IndirectListAddressing(const Foam::labelUList&)’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:34:5,
+    inlined from ‘Foam::IndirectList<T>::IndirectList(const Foam::UList<T>&, const Foam::labelUList&) [with T = Foam::face]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:59:5,
+    inlined from ‘Foam::autoPtr<Foam::PrimitivePatch<Foam::IndirectList<Foam::face>, const Foam::Field<Foam::Vector<double> >&> > Foam::cellToFaceStencil::allCoupledFacesPatch() const’ at fvMesh/extendedStencil/cellToFace/globalIndexStencils/cellToFaceStencil.C:229:13:
+/work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:142:39: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  142 |             List_ELEM((*this), vp, i) = T(List_ELEM(a, ap, i));
+fvMesh/fvMeshStitchers/fvMeshStitcher/fvMeshStitcher.C: In member function ‘void Foam::fvMeshStitcher::stabiliseOrigPatchFaces(Foam::GeometricField<Foam::Vector<double>, Foam::fvsPatchField, Foam::surfaceMesh>::Boundary&, Foam::GeometricField<Foam::Vector<double>, Foam::fvsPatchField, Foam::surfaceMesh>::Boundary&) const’:
+fvMesh/fvMeshStitchers/fvMeshStitcher/fvMeshStitcher.C:1384:27: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+ 1384 |             const vector& a = origPp.faceAreas()[origPatchFacei];
+      |                           ^
+fvMesh/fvMeshStitchers/fvMeshStitcher/fvMeshStitcher.C:1384:64: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceAreas() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](origPatchFacei)’
+ 1384 |             const vector& a = origPp.faceAreas()[origPatchFacei];
+      |                                                                ^
+fvMesh/fvMeshStitchers/fvMeshStitcher/fvMeshStitcher.C:1385:26: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+ 1385 |             const point& c = origPp.faceCentres()[origPatchFacei];
+      |                          ^
+fvMesh/fvMeshStitchers/fvMeshStitcher/fvMeshStitcher.C:1385:65: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceCentres() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](origPatchFacei)’
+ 1385 |             const point& c = origPp.faceCentres()[origPatchFacei];
+      |                                                                 ^
+In file included from interpolation/surfaceInterpolation/schemes/quadraticLinearUpwindFit/quadraticLinearUpwindFit.C:26:
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Tensor<double>; Polynomial = Foam::quadraticLinearUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Tensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticLinearUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SymmTensor<double>; Polynomial = Foam::quadraticLinearUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SymmTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticLinearUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SphericalTensor<double>; Polynomial = Foam::quadraticLinearUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SphericalTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticLinearUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Vector<double>; Polynomial = Foam::quadraticLinearUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Vector<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticLinearUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = double; Polynomial = Foam::quadraticLinearUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticLinearUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<double, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<double, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::quadraticLinearUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+In file included from interpolation/surfaceInterpolation/schemes/quadraticUpwindFit/quadraticUpwindFit.C:26:
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Tensor<double>; Polynomial = Foam::quadraticUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Tensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SymmTensor<double>; Polynomial = Foam::quadraticUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SymmTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SphericalTensor<double>; Polynomial = Foam::quadraticUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SphericalTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+In file included from interpolation/surfaceInterpolation/schemes/cubicUpwindFit/cubicUpwindFit.C:26:
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Tensor<double>; Polynomial = Foam::cubicUpwindFitPolynomial; Stencil = Foam::upwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Tensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::cubicUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Tensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Vector<double>; Polynomial = Foam::quadraticUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Vector<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SymmTensor<double>; Polynomial = Foam::cubicUpwindFitPolynomial; Stencil = Foam::upwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SymmTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::cubicUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SymmTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = double; Polynomial = Foam::quadraticUpwindFitPolynomial; Stencil = Foam::upwindFECCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::quadraticUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<double, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<double, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::quadraticUpwindFitPolynomial, Foam::upwindFECCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SphericalTensor<double>; Polynomial = Foam::cubicUpwindFitPolynomial; Stencil = Foam::upwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SphericalTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::cubicUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::SphericalTensor<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Vector<double>; Polynomial = Foam::cubicUpwindFitPolynomial; Stencil = Foam::upwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Vector<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::cubicUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<Foam::Vector<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<Foam::Vector<double>, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+lnInclude/UpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::UpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = double; Polynomial = Foam::cubicUpwindFitPolynomial; Stencil = Foam::upwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/UpwindFitScheme.H:115:9:   required from here
+lnInclude/UpwindFitScheme.H:129:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  129 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/UpwindFitScheme.H:131:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::cubicUpwindFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), true, ((const Foam::UpwindFitScheme<double, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::UpwindFitScheme<double, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>*)this)->Foam::UpwindFitScheme<double, Foam::cubicUpwindFitPolynomial, Foam::upwindCFCCellToFaceStencilObject>::centralWeight_)’
+  130 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |             (
+      |             ^
+  132 |                 mesh,
+      |                 ~~~~~
+  133 |                 stencil,
+      |                 ~~~~~~~~
+  134 |                 true,           // calculate as offset to linear
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  136 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  137 |             );
+      |             ~
+In file included from interpolation/surfaceInterpolation/schemes/linearPureUpwindFit/linearPureUpwindFit.C:26:
+lnInclude/PureUpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::PureUpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Tensor<double>; Polynomial = Foam::linearFitPolynomial; Stencil = Foam::pureUpwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Tensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/PureUpwindFitScheme.H:115:9:   required from here
+lnInclude/PureUpwindFitScheme.H:125:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  125 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/PureUpwindFitScheme.H:127:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::linearFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), false, ((const Foam::PureUpwindFitScheme<Foam::Tensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::Tensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::PureUpwindFitScheme<Foam::Tensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::Tensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::centralWeight_)’
+  126 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |             (
+      |             ^
+  128 |                 mesh,
+      |                 ~~~~~
+  129 |                 stencil,
+      |                 ~~~~~~~~
+  130 |                 false,              // offset to upwind
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  132 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  133 |             );
+      |             ~
+lnInclude/PureUpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::PureUpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SymmTensor<double>; Polynomial = Foam::linearFitPolynomial; Stencil = Foam::pureUpwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SymmTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/PureUpwindFitScheme.H:115:9:   required from here
+lnInclude/PureUpwindFitScheme.H:125:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  125 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/PureUpwindFitScheme.H:127:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::linearFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), false, ((const Foam::PureUpwindFitScheme<Foam::SymmTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::SymmTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::PureUpwindFitScheme<Foam::SymmTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::SymmTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::centralWeight_)’
+  126 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |             (
+      |             ^
+  128 |                 mesh,
+      |                 ~~~~~
+  129 |                 stencil,
+      |                 ~~~~~~~~
+  130 |                 false,              // offset to upwind
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  132 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  133 |             );
+      |             ~
+lnInclude/PureUpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::PureUpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::SphericalTensor<double>; Polynomial = Foam::linearFitPolynomial; Stencil = Foam::pureUpwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::SphericalTensor<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/PureUpwindFitScheme.H:115:9:   required from here
+lnInclude/PureUpwindFitScheme.H:125:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  125 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/PureUpwindFitScheme.H:127:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::linearFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), false, ((const Foam::PureUpwindFitScheme<Foam::SphericalTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::SphericalTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::PureUpwindFitScheme<Foam::SphericalTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::SphericalTensor<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::centralWeight_)’
+  126 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |             (
+      |             ^
+  128 |                 mesh,
+      |                 ~~~~~
+  129 |                 stencil,
+      |                 ~~~~~~~~
+  130 |                 false,              // offset to upwind
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  132 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  133 |             );
+      |             ~
+lnInclude/PureUpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::PureUpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = Foam::Vector<double>; Polynomial = Foam::linearFitPolynomial; Stencil = Foam::pureUpwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<Foam::Vector<double>, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/PureUpwindFitScheme.H:115:9:   required from here
+lnInclude/PureUpwindFitScheme.H:125:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  125 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/PureUpwindFitScheme.H:127:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::linearFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), false, ((const Foam::PureUpwindFitScheme<Foam::Vector<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::Vector<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::PureUpwindFitScheme<Foam::Vector<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<Foam::Vector<double>, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::centralWeight_)’
+  126 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |             (
+      |             ^
+  128 |                 mesh,
+      |                 ~~~~~
+  129 |                 stencil,
+      |                 ~~~~~~~~
+  130 |                 false,              // offset to upwind
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  132 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  133 |             );
+      |             ~
+lnInclude/PureUpwindFitScheme.H: In instantiation of ‘Foam::tmp<Foam::GeometricField<Type, Foam::fvsPatchField, Foam::surfaceMesh> > Foam::PureUpwindFitScheme<Type, Polynomial, Stencil>::correction(Foam::VolField<Type>&) const [with Type = double; Polynomial = Foam::linearFitPolynomial; Stencil = Foam::pureUpwindCFCCellToFaceStencilObject; Foam::VolField<Type> = Foam::GeometricField<double, Foam::fvPatchField, Foam::volMesh>]’:
+lnInclude/PureUpwindFitScheme.H:115:9:   required from here
+lnInclude/PureUpwindFitScheme.H:125:46: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  125 |             const UpwindFitData<Polynomial>& ufd =
+      |                                              ^~~
+lnInclude/PureUpwindFitScheme.H:127:13: note: the temporary was destroyed at the end of the full expression ‘Foam::DemandDrivenMeshObject<Foam::fvMesh, Foam::MoveableMeshObject, Foam::UpwindFitData<Foam::linearFitPolynomial> >::New<Foam::extendedUpwindCellToFaceStencil, bool, double, double>((* & mesh), (* & stencil), false, ((const Foam::PureUpwindFitScheme<double, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<double, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::linearLimitFactor_, ((const Foam::PureUpwindFitScheme<double, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>*)this)->Foam::PureUpwindFitScheme<double, Foam::linearFitPolynomial, Foam::pureUpwindCFCCellToFaceStencilObject>::centralWeight_)’
+  126 |             UpwindFitData<Polynomial>::New
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  127 |             (
+      |             ^
+  128 |                 mesh,
+      |                 ~~~~~
+  129 |                 stencil,
+      |                 ~~~~~~~~
+  130 |                 false,              // offset to upwind
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  131 |                 linearLimitFactor_,
+      |                 ~~~~~~~~~~~~~~~~~~~
+  132 |                 centralWeight_
+      |                 ~~~~~~~~~~~~~~
+  133 |             );
+      |             ~
+In file included from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.H:312,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/HashTable.H:580,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/objectRegistry.H:38,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/polyMesh.H:44,
+                 from perfectInterface/perfectInterface.H:39,
+                 from perfectInterface/perfectInterface.C:30:
+In constructor ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:131:1,
+    inlined from ‘Foam::IndirectListAddressing::IndirectListAddressing(const Foam::labelUList&)’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:34:5,
+    inlined from ‘Foam::IndirectList<T>::IndirectList(const Foam::UList<T>&, const Foam::labelUList&) [with T = Foam::face]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:59:5,
+    inlined from ‘virtual void Foam::perfectInterface::setRefinement(Foam::polyTopoChange&) const’ at perfectInterface/perfectInterface.C:346:9:
+/work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:142:39: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  142 |             List_ELEM((*this), vp, i) = T(List_ELEM(a, ap, i));
+In constructor ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:131:1,
+    inlined from ‘Foam::IndirectListAddressing::IndirectListAddressing(const Foam::labelUList&)’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:34:5,
+    inlined from ‘Foam::IndirectList<T>::IndirectList(const Foam::UList<T>&, const Foam::labelUList&) [with T = Foam::face]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:59:5,
+    inlined from ‘virtual void Foam::perfectInterface::setRefinement(Foam::polyTopoChange&) const’ at perfectInterface/perfectInterface.C:353:9:
+/work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:142:39: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  142 |             List_ELEM((*this), vp, i) = T(List_ELEM(a, ap, i));
+moving/fvMeshStitchersMoving.C: In member function ‘void Foam::fvMeshStitchers::moving::unconformErrorFaceCorrectMeshPhi(const Foam::GeometricField<int, Foam::fvsPatchField, Foam::surfaceMesh>::Boundary&, Foam::surfaceVectorField&, Foam::surfaceVectorField&, Foam::surfaceScalarField&)’:
+moving/fvMeshStitchersMoving.C:953:30: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  953 |                 const point& origC =
+      |                              ^~~~~
+moving/fvMeshStitchersMoving.C:954:65: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceCentres() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](((Foam::label)origPatchFacei))’
+  954 |                     origFvp.patch().faceCentres()[origPatchFacei];
+      |                                                                 ^
+In file included from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.H:312,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/HashTable.C:30,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/Istream.H:196,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/token.H:535,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/runTimeSelectionTables.H:35,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/functionObject.H:123,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/regionFunctionObject.H:42,
+                 from /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/finiteVolume/lnInclude/fvMeshFunctionObject.H:46,
+                 from lnInclude/fieldValue.H:43,
+                 from fieldValues/surfaceFieldValue/surfaceFieldValue.H:160,
+                 from fieldValues/surfaceFieldValue/surfaceFieldValue.C:26:
+In constructor ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’,
+    inlined from ‘Foam::List<T>::List(const Foam::UList<T2>&) [with T2 = int; T = int]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:131:1,
+    inlined from ‘Foam::IndirectListAddressing::IndirectListAddressing(const Foam::labelUList&)’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:34:5,
+    inlined from ‘Foam::IndirectList<T>::IndirectList(const Foam::UList<T>&, const Foam::labelUList&) [with T = Foam::face]’ at /work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/IndirectListI.H:59:5,
+    inlined from ‘void Foam::functionObjects::fieldValues::surfaceFieldValue::combineMeshGeometry(Foam::faceList&, Foam::pointField&) const’ at fieldValues/surfaceFieldValue/surfaceFieldValue.C:308:9:
+/work/09629/m_hland10/ls6/OpenFOAM/OpenFOAM-12/src/OpenFOAM/lnInclude/List.C:142:39: warning: ‘void* __builtin_memcpy(void*, const void*, long unsigned int)’ forming offset [8589934588, 8589934595] is out of the bounds [0, 8589934588] [-Warray-bounds=]
+  142 |             List_ELEM((*this), vp, i) = T(List_ELEM(a, ap, i));
+In file included from lnInclude/FreeStream.H:114,
+                 from parcels/derived/dsmcParcel/makeDSMCParcelInflowBoundaryModels.C:28:
+lnInclude/FreeStream.C: In instantiation of ‘void Foam::FreeStream<CloudType>::inflow() [with CloudType = Foam::DSMCCloud<Foam::DSMCParcel<Foam::particle> >]’:
+lnInclude/FreeStream.C:141:6:   required from here
+lnInclude/FreeStream.C:236:27: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  236 |             const vector& fC = patch.faceCentres()[pFI];
+      |                           ^~
+lnInclude/FreeStream.C:236:27: note: the temporary was destroyed at the end of the full expression ‘Foam::polyPatch::faceCentres() const().Foam::SubField<Foam::Vector<double> >::<anonymous>.Foam::SubList<Foam::Vector<double> >::<anonymous>.Foam::UList<Foam::Vector<double> >::operator[](pFI)’
+In file included from phaseInterface/sidedPhaseInterface/sidedPhaseInterface.C:27:
+phaseInterface/sidedPhaseInterface/sidedPhaseInterface.H: In constructor ‘Foam::sidedPhaseInterface::sidedPhaseInterface(const Foam::phaseSystem&, const Foam::word&)’:
+phaseInterface/sidedPhaseInterface/sidedPhaseInterface.H:58:27: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   58 |         const phaseModel& phase_;
+      |                           ^~~~~~
+phaseInterface/sidedPhaseInterface/sidedPhaseInterface.C:68:61: note: the temporary was destroyed at the end of the full expression ‘Foam::phaseInterface::identifyPhases((* & fluid), (* & name), Foam::List<Foam::word>(std::initializer_list<Foam::word>{((const Foam::word*)(& const Foam::word [1]{Foam::sidedPhaseInterface::separator()()})), 1})).Foam::Tuple2<const Foam::phaseModel&, const Foam::phaseModel&>::second()’
+   68 |     phase_(identifyPhases(fluid, name, {separator()}).second())
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from phaseInterface/displacedPhaseInterface/displacedPhaseInterface.C:26:
+phaseInterface/displacedPhaseInterface/displacedPhaseInterface.H: In constructor ‘Foam::displacedPhaseInterface::displacedPhaseInterface(const Foam::phaseSystem&, const Foam::word&)’:
+phaseInterface/displacedPhaseInterface/displacedPhaseInterface.H:59:27: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   59 |         const phaseModel& displacing_;
+      |                           ^~~~~~~~~~~
+In file included from phaseInterface/dispersedPhaseInterface/dispersedPhaseInterface.C:26:
+phaseInterface/dispersedPhaseInterface/dispersedPhaseInterface.H: In constructor ‘Foam::dispersedPhaseInterface::dispersedPhaseInterface(const Foam::phaseSystem&, const Foam::word&)’:
+phaseInterface/dispersedPhaseInterface/dispersedPhaseInterface.H:59:27: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+   59 |         const phaseModel& dispersed_;
+      |                           ^~~~~~~~~~
+phaseInterface/displacedPhaseInterface/displacedPhaseInterface.C:68:66: note: the temporary was destroyed at the end of the full expression ‘Foam::phaseInterface::identifyPhases((* & fluid), (* & name), Foam::List<Foam::word>(std::initializer_list<Foam::word>{((const Foam::word*)(& const Foam::word [1]{Foam::displacedPhaseInterface::separator()()})), 1})).Foam::Tuple2<const Foam::phaseModel&, const Foam::phaseModel&>::second()’
+   68 |     displacing_(identifyPhases(fluid, name, {separator()}).second())
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+phaseInterface/dispersedPhaseInterface/dispersedPhaseInterface.C:76:64: note: the temporary was destroyed at the end of the full expression ‘Foam::phaseInterface::identifyPhases((* & fluid), (* & name), Foam::List<Foam::word>(std::initializer_list<Foam::word>{((const Foam::word*)(& const Foam::word [1]{Foam::dispersedPhaseInterface::separator()()})), 1})).Foam::Tuple2<const Foam::phaseModel&, const Foam::phaseModel&>::first()’
+   76 |     dispersed_(identifyPhases(fluid, name, {separator()}).first())
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+foamSetupCHT.C:114:5: warning: multi-line comment [-Wcomment]
+  114 |     // grep -rwl thermo $FOAM_MODULES | \
+      |     ^

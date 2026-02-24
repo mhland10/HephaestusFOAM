@@ -13,8 +13,8 @@ mkdir -p $INSTALL_DIR && cd $INSTALL_DIR
 git clone https://github.com/Cantera/cantera.git
 cd cantera
 git fetch --tags
-echo "Available Git tags for Cantera:"
-git tag
+##echo "Available Git tags for Cantera:"
+##git tag
 echo "Trying to check out $CANTERA_VERSION"
 git checkout "$CANTERA_VERSION" 
 echo "Cantera version:"
@@ -28,7 +28,14 @@ git status
 #
 #==================================================================================================
 
+export BUILD_DIR="$CANT_HOME"
 mkdir -p $BUILD_DIR
+
+# Activate the conda environment for Cantera
+echo "Opening miniconda "
+source "$HOME/miniconda3/etc/profile.d/conda.sh"
+conda activate cantera
+echo " "
 
 # --- Configure Build ---
 # Disable Python module if only C++ is needed (set yes if needed)
@@ -45,10 +52,11 @@ scons build \
     f90_interface=n \
     system_eigen=y \
     extra_inc_dirs=$TACC_EIGEN_DIR/include/eigen3 \
-    boost_inc_dir=$TACC_BOOST_DIR/include
+    boost_inc_dir=$TACC_BOOST_DIR/include > ~/hephaestusfoam/cantera_build.log
 
 
 # --- Install ---
+echo "Installing Cantera"
 scons install > ~/hephaestusfoam/cantera_install.log
 
 #==================================================================================================
@@ -64,15 +72,6 @@ strings $CANT_HOME/lib/libcantera.so | grep std=
 grep CANTERA_VERSION $CANT_HOME/include/cantera/base/config.h
 # should show: 2.6.0
 
-# --- Environment Setup ---
-echo "
-# ===== Cantera $CANTERA_VERSION =====
-export CANTERA_ROOT=$INSTALL_DIR
-export PATH=\$CANTERA_ROOT/bin:\$PATH
-export LD_LIBRARY_PATH=\$CANTERA_ROOT/lib/x86_64-linux-gnu:\$CANTERA_ROOT/lib:\$LD_LIBRARY_PATH
-export PYTHONPATH=\$CANTERA_ROOT/lib/python3/site-packages:\$PYTHONPATH
-" >> ~/.bashrc
-
-echo "? Cantera $CANTERA_VERSION installed to $INSTALL_DIR"
+echo "Cantera $CANTERA_VERSION installed to $BUILD_DIR"
 
 rm -rf $INSTALL_DIR

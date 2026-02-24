@@ -1,0 +1,121 @@
+scons: Reading SConscript files ...
+INFO: SCons 4.4.0 is using the following Python interpreter:
+/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python (Python 3.9)
+INFO: Building Cantera from git commit '9573e6b1e'
+INFO: Configuration variables read from 'cantera.conf' and command line:
+    prefix = '/work/09629/m_hland10/ls6/cantera'
+    python_package = 'n'
+    f90_interface = 'n'
+    system_eigen = 'y'
+    debug = False
+    extra_inc_dirs = '/scratch/tacc/apps/intel24/eigen/3.4.0/include/eigen3'
+    boost_inc_dir = '/scratch/tacc/apps/intel24/boost/1.86.0/include'
+
+INFO: Adding conda include and library paths: /home1/09629/m_hland10/miniconda3/envs/cantera
+Checking for C++ header file cmath... yes
+Checking for C++ header file fmt/ostream.h... no
+INFO: Using private installation of fmt library.
+Submodule path 'ext/fmt': checked out '19bd751020a1f3c3363b2eb67a039852f139a8d3'
+INFO: Found fmt version 6.2.1
+Checking for YAML::Node().Mark()... no
+INFO: Using private installation of yaml-cpp library.
+Submodule path 'ext/yaml-cpp': checked out '012269756149ae99745b6dafefd415843d7420bb'
+Checking for C++ header file gtest/gtest.h... no
+Checking for C++ header file gmock/gmock.h... no
+Submodule path 'ext/googletest': checked out '703bd9caab50b139428cea1aaff9974ebee5742e'
+INFO: Using Googletest from Git submodule
+Checking for C++ header file eigen3/Eigen/Dense... no
+Checking for C++ header file Eigen/Dense... yes
+INFO: Using system installation of Eigen.
+INFO: Found Eigen version 3.4.0
+Checking whether __GLIBCXX__ is declared... yes
+Checking whether __clang__ is declared... no
+Checking for C++ library iomp5... no
+Checking for C++ library omp... no
+Checking for C++ library gomp... yes
+INFO: Found Boost version 1.86
+Checking whether boost::core::demangle is declared... yes
+Checking for CVodeCreate(CV_BDF, CV_NEWTON) in C++ library sundials_cvodes... no
+Checking for CVodeCreate(CV_BDF) in C++ library sundials_cvodes... no
+Checking for SUNContext ctx; SUNContext_Create(0, &ctx) in C++ library sundials_cvodes... no
+Submodule path 'ext/sundials': checked out '887af4374af2271db9310d31eaa9b5aeff49e829'
+Checking for double x; log(x) in C library None... no
+INFO: Using private installation of Sundials version 5.3.
+scons: done reading SConscript files.
+scons: Building targets ...
+Copy("build/data/KOH.cti", "data/inputs/KOH.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/KOH.cti build/data/KOH.xml
+Copy("build/data/air.cti", "data/inputs/air.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/air.cti build/data/air.xml
+Copy("build/data/airNASA9.cti", "data/inputs/airNASA9.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/airNASA9.cti build/data/airNASA9.xml
+Copy("build/data/argon.cti", "data/inputs/argon.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/argon.cti build/data/argon.xml
+Copy("build/data/diamond.cti", "data/inputs/diamond.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/diamond.cti build/data/diamond.xml
+Copy("build/data/graphite.cti", "data/inputs/graphite.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/graphite.cti build/data/graphite.xml
+Copy("build/data/gri30.cti", "data/inputs/gri30.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30.cti build/data/gri30.xml
+Copy("build/data/gri30_highT.cti", "data/inputs/gri30_highT.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30_highT.cti build/data/gri30_highT.xml
+Copy("build/data/gri30_ion.cti", "data/inputs/gri30_ion.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30_ion.cti build/data/gri30_ion.xml
+Copy("build/data/h2o2.cti", "data/inputs/h2o2.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/h2o2.cti build/data/h2o2.xml
+Copy("build/data/liquidvapor.cti", "data/inputs/liquidvapor.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/liquidvapor.cti build/data/liquidvapor.xml
+Copy("build/data/lithium_ion_battery.cti", "data/inputs/lithium_ion_battery.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/lithium_ion_battery.cti build/data/lithium_ion_battery.xml
+Copy("build/data/methane_pox_on_pt.cti", "data/inputs/methane_pox_on_pt.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/methane_pox_on_pt.cti build/data/methane_pox_on_pt.xml
+Copy("build/data/nDodecane_Reitz.cti", "data/inputs/nDodecane_Reitz.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/nDodecane_Reitz.cti build/data/nDodecane_Reitz.xml
+Copy("build/data/nasa.cti", "data/inputs/nasa.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa.cti build/data/nasa.xml
+Copy("build/data/nasa_condensed.cti", "data/inputs/nasa_condensed.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa_condensed.cti build/data/nasa_condensed.xml
+Copy("build/data/nasa_gas.cti", "data/inputs/nasa_gas.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa_gas.cti build/data/nasa_gas.xml
+Copy("build/data/ohn.cti", "data/inputs/ohn.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/ohn.cti build/data/ohn.xml
+Copy("build/data/ptcombust.cti", "data/inputs/ptcombust.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/ptcombust.cti build/data/ptcombust.xml
+Copy("build/data/silane.cti", "data/inputs/silane.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/silane.cti build/data/silane.xml
+Copy("build/data/silicon.cti", "data/inputs/silicon.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/silicon.cti build/data/silicon.xml
+Copy("build/data/silicon_carbide.cti", "data/inputs/silicon_carbide.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/silicon_carbide.cti build/data/silicon_carbide.xml
+Copy("build/data/sofc.cti", "data/inputs/sofc.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/sofc.cti build/data/sofc.xml
+Copy("build/data/water.cti", "data/inputs/water.cti")
+"/home1/09629/m_hland10/miniconda3/envs/cantera/bin/python" interfaces/cython/cantera/ctml_writer.py data/inputs/water.cti build/data/water.xml
+Copy("build/data/elements.xml", "data/inputs/elements.xml")
+Copy("build/data/KOH.yaml", "data/KOH.yaml")
+Copy("build/data/air.yaml", "data/air.yaml")
+Copy("build/data/airNASA9.yaml", "data/airNASA9.yaml")
+Copy("build/data/critical-properties.yaml", "data/critical-properties.yaml")
+Copy("build/data/diamond.yaml", "data/diamond.yaml")
+Copy("build/data/element-standard-entropies.yaml", "data/element-standard-entropies.yaml")
+Copy("build/data/graphite.yaml", "data/graphite.yaml")
+Copy("build/data/gri30.yaml", "data/gri30.yaml")
+Copy("build/data/gri30_highT.yaml", "data/gri30_highT.yaml")
+Copy("build/data/gri30_ion.yaml", "data/gri30_ion.yaml")
+Copy("build/data/h2o2.yaml", "data/h2o2.yaml")
+Copy("build/data/liquidvapor.yaml", "data/liquidvapor.yaml")
+Copy("build/data/lithium_ion_battery.yaml", "data/lithium_ion_battery.yaml")
+Copy("build/data/methane_pox_on_pt.yaml", "data/methane_pox_on_pt.yaml")
+Copy("build/data/nDodecane_Reitz.yaml", "data/nDodecane_Reitz.yaml")
+Copy("build/data/nasa_condensed.yaml", "data/nasa_condensed.yaml")
+Copy("build/data/nasa_gas.yaml", "data/nasa_gas.yaml")
+Copy("build/data/ohn.yaml", "data/ohn.yaml")
+Copy("build/data/ptcombust.yaml", "data/ptcombust.yaml")
+Copy("build/data/silane.yaml", "data/silane.yaml")
+Copy("build/data/silicon.yaml", "data/silicon.yaml")
+Copy("build/data/silicon_carbide.yaml", "data/silicon_carbide.yaml")
+Copy("build/data/sofc.yaml", "data/sofc.yaml")
+Copy("build/data/water.yaml", "data/water.yaml")
+g++ -o build/ext/googletest/googletest/src/gtest-all.o -c -std=c++11 -pthread -O3 -Wno-inline -w -DGTEST_HAS_PTHREAD=0 -DNDEBUG -Iext/googletest/googletest -Iext/googletest/googletest/include -I/scratch/tacc/apps/intel24/eigen/3.4.0/include/eigen3 -I/home1/09629/m_hland10/miniconda3/envs/cantera/include -I/scratch/tacc/apps/intel24/boost/1.86.0/include ext/googletest/googletest/src/gtest-all.cc
+scons: building terminated because of errors.
+scons: writing .sconsign file.
