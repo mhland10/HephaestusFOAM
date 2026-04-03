@@ -23,12 +23,18 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
+#include "waveFluid.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::fluxPredictor()
+void Foam::solvers::waveFluid::fluxPredictor()
 {
+
+    //================================================================
+    //
+    //  Find the Direction of the Faces
+    //
+    //================================================================
     if (!pos.valid())
     {
         pos = surfaceScalarField::New
@@ -45,16 +51,35 @@ void Foam::solvers::shockFluid::fluxPredictor()
             dimensionedScalar(dimless, -1.0)
         );
     }
+    
+    //================================================================
+    //
+    //  Find the fluxes in the equations
+    //
+    //================================================================
 
     rho_pos = interpolate(rho, pos());
     rho_neg = interpolate(rho, neg());
-
+    
+    //
+    //  Calculate momentum fluxes
+    ///
     const volVectorField rhoU(rho*U);
     rhoU_pos = interpolate(rhoU, pos(), U.name());
     rhoU_neg = interpolate(rhoU, neg(), U.name());
 
     U_pos = surfaceVectorField::New("U_pos", rhoU_pos()/rho_pos());
     U_neg = surfaceVectorField::New("U_neg", rhoU_neg()/rho_neg());
+    
+    //
+    //  Calculate the energy fluxes
+    //
+    const volScalarField rhoHE(rho*he);
+    rhoHE_pos = interpolate(rhoHE, pos(), U.name());
+    rhoHE_neg = interpolate(rhoHE, neg(), U.name());
+
+    HE_pos = surfaceScalarField::New("HE_pos", rhoHE_pos()/max(rho_pos(),SMALL));
+    HE_neg = surfaceScalarField::New("HE_neg", rhoHE_neg()/max(rho_neg(),SMALL));
 
     const volScalarField& T = thermo.T();
 
@@ -64,9 +89,78 @@ void Foam::solvers::shockFluid::fluxPredictor()
 
     p_pos = surfaceScalarField::New("p_pos", rho_pos()*rPsi_pos);
     p_neg = surfaceScalarField::New("p_neg", rho_neg()*rPsi_neg);
+    
+    //
+    //  Calculate the species fluxes
+    //
+    rhoYi_pos.setSize(Y_.size());
+    rhoYi_neg.setSize(Y_.size());
+    
+    forAll(Y_, i)
+    {
+        rhoYi_[i] = rho_ * Y_[i];
+    
+        rhoYi_pos.set
+        (
+            i,
+            new surfaceScalarField
+            (
+                interpolate(rhoYi_[i], pos(), Y_[i].name())
+            )
+        );
+    
+        rhoYi_neg.set
+        (
+            i,
+            new surfaceScalarField
+            (
+                interpolate(rhoYi_[i], neg(), Y_[i].name())
+            )
+        );
+    }
+    
+    Yi_pos.setSize(Y_.size());
+    Yi_neg.setSize(Y_.size());
+    
+    forAll(Y_, i)
+    {
+    
+      Yi_pos.set
+      (
+          i,
+          new surfaceScalarField
+          (
+              "Yi_pos_" + Y_[i].name(),
+              rhoYi_pos[i]()/max(rho_pos(),SMALL)
+          )
+      );
+      
+      Yi_neg.set
+      (
+          i,
+          new surfaceScalarField
+          (
+              "Yi_neg_" + Y_[i].name(),
+              rhoYi_neg[i]()/max(rho_pos(),SMALL)
+          )
+      );
+    
+    }
+    
+    //================================================================
+    //
+    //  Calculate the flux values
+    //
+    //================================================================
 
     surfaceScalarField phiv_pos("phiv_pos", U_pos() & mesh.Sf());
     surfaceScalarField phiv_neg("phiv_neg", U_neg() & mesh.Sf());
+    
+    //================================================================
+    //
+    //  Correct for the mesh motion
+    //
+    //================================================================
 
     // Make fluxes relative to mesh-motion
     if (mesh.moving())
@@ -74,6 +168,12 @@ void Foam::solvers::shockFluid::fluxPredictor()
         phiv_pos -= mesh.phi();
         phiv_neg -= mesh.phi();
     }
+    
+    //================================================================
+    //
+    //  Calculate the wave corrections
+    //
+    //================================================================
 
     const volScalarField c("c", sqrt(thermo.Cp()/thermo.Cv()*rPsi));
     const surfaceScalarField cSf_pos

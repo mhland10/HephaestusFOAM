@@ -1,29 +1,38 @@
 /*---------------------------------------------------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2023-2024 OpenFOAM Foundation
-     \\/     M anipulation  |
+                        |
+        //=\\===\\      |    HephaestusFOAM
+       //   \\   \\     |      OpenFOAM addition for aerothermal chemistry
+      //     \\   \\    |
+      ||      \\   \\   |    From the University of Texas at San Antonio
+      \\       \\===\\  |         the Laboratory for Turbulence, Sensing, 
+       \\      ||   ||  |              and Intelligent Systems
+       /\\    //   //   |
+      /  \\  //   //    |    Author:  Matthew Holland
+     /   /\\//   //     |              matthew.holland@my.utsa.edu
+    /   /  ^-----^      |
+    \__/                |
+                        |
 -------------------------------------------------------------------------------
 License
-    This file is part of OpenFOAM.
+    This file is from HephaestusFOAM.
 
-    OpenFOAM is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by
+    HephaestusFOAM is free software: you can redistribute it and/or modify 
+    it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-    for more details.
+    HephaestusFOAM is distributed in the hope that it will be useful, but 
+    WITHOUT ANY WARRANTY; without even the implied warranty of 
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+    General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+    along with HephaestusFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
+#include "waveHephaestus.H"
+
 #include "fvMeshStitcher.H"
 #include "localEulerDdtScheme.H"
 #include "hydrostaticInitialisation.H"
@@ -39,15 +48,15 @@ namespace Foam
 {
 namespace solvers
 {
-    defineTypeNameAndDebug(shockFluid, 0);
-    addToRunTimeSelectionTable(solver, shockFluid, fvMesh);
+    defineTypeNameAndDebug(waveFluid, 0);
+    addToRunTimeSelectionTable(solver, waveFluid, fvMesh);
 }
 }
 
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::correctCoNum(const surfaceScalarField& amaxSf)
+void Foam::solvers::waveFluid::correctCoNum(const surfaceScalarField& amaxSf)
 {
     const scalarField sumAmaxSf(fvc::surfaceSum(amaxSf)().primitiveField());
 
@@ -66,7 +75,7 @@ void Foam::solvers::shockFluid::correctCoNum(const surfaceScalarField& amaxSf)
 
 // * * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::clearTemporaryFields()
+void Foam::solvers::waveFluid::clearTemporaryFields()
 {
     rho_pos.clear();
     rho_neg.clear();
@@ -89,19 +98,31 @@ void Foam::solvers::shockFluid::clearTemporaryFields()
     aphiv_neg.clear();
 
     devTau.clear();
+    
+    rhoHE_pos.clear();
+    rhoHE_neg.clear();
+    
+    rhoYi_pos.clear();
+    rhoYi_neg.clear();
 }
 
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-Foam::solvers::shockFluid::shockFluid(fvMesh& mesh)
+Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
 :
     fluidSolver(mesh),
-
-    thermoPtr_(psiThermo::New(mesh)),
+    
+    //
+    //  Thermo data structure
+    //
+    thermoPtr_(fluidMulticomponentThermo::New(mesh)),
 
     thermo_(thermoPtr_()),
-
+    
+    //
+    //  CFD Data
+    //
     p_(thermo_.p()),
 
     rho_
@@ -129,7 +150,14 @@ Foam::solvers::shockFluid::shockFluid(fvMesh& mesh)
         ),
         mesh
     ),
-
+    
+    Y_(thermo_.Y()),
+    
+    rhoYi_(Y_.size()),
+    
+    //    
+    //  Solution data
+    //
     phi_
     (
         IOobject
@@ -144,14 +172,17 @@ Foam::solvers::shockFluid::shockFluid(fvMesh& mesh)
     ),
 
     K("K", 0.5*magSqr(U_)),
-
+    
+    //
+    //  Transport data
+    //
     inviscid
     (
         max(thermo_.mu().primitiveField()) > 0
       ? false
       : true
     ),
-
+    
     momentumTransport
     (
         inviscid
@@ -168,35 +199,79 @@ Foam::solvers::shockFluid::shockFluid(fvMesh& mesh)
     thermophysicalTransport
     (
         inviscid
-      ? autoPtr<fluidThermoThermophysicalTransportModel>(nullptr)
-      : fluidThermoThermophysicalTransportModel::New
+      ? autoPtr<fluidMulticomponentThermophysicalTransportModel>(nullptr)
+      : fluidMulticomponentThermophysicalTransportModel::New
         (
             momentumTransport(),
             thermo_
         )
     ),
-
+    
+    //
+    //  Formulation data
+    //
     fluxScheme
     (
         mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
     ),
-
+    
+    //
+    //  Stored field data
+    //
     thermo(thermo_),
     p(p_),
     rho(rho_),
     U(U_),
+    Y(Y_),
+    he(thermo_.he()),
     phi(phi_)
+    
 {
-    thermo.validate(type(), "e");
-
+    //
+    //  Check the thermodynamics type
+    //
+    thermo.validate(type(), "he");
+    
+    //
+    //  Check momentum transport model  
+    //
     if (momentumTransport.valid())
     {
         momentumTransport->validate();
         mesh.schemes().setFluxRequired(U.name());
     }
-
+    
+    //
+    //  Initialize the species
+    //
+    forAll(Y_, i)
+    {
+        rhoYi_.set
+        (
+            i,
+            new volScalarField
+            (
+                IOobject
+                (
+                    "rhoY_" + Y_[i].name(),
+                    runTime.name(),
+                    mesh,
+                    IOobject::NO_READ,
+                    IOobject::AUTO_WRITE
+                ),
+                rho_ * Y_[i]
+            )
+        );
+    }
+    
+    //
+    //   Set up initial calculation
+    //
+    
+    // Create initial flux set
     fluxPredictor();
-
+    
+    // Calculate the maximum wave speed
     if (transient())
     {
         const surfaceScalarField amaxSf
@@ -233,13 +308,13 @@ Foam::solvers::shockFluid::shockFluid(fvMesh& mesh)
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
-Foam::solvers::shockFluid::~shockFluid()
+Foam::solvers::waveFluid::~waveFluid()
 {}
 
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::preSolve()
+void Foam::solvers::waveFluid::preSolve()
 {
     {
         const surfaceScalarField amaxSf
@@ -272,7 +347,7 @@ void Foam::solvers::shockFluid::preSolve()
 }
 
 
-void Foam::solvers::shockFluid::postCorrector()
+void Foam::solvers::waveFluid::postCorrector()
 {
     if (!inviscid && pimple.correctTransport())
     {
@@ -282,7 +357,7 @@ void Foam::solvers::shockFluid::postCorrector()
 }
 
 
-void Foam::solvers::shockFluid::postSolve()
+void Foam::solvers::waveFluid::postSolve()
 {}
 
 

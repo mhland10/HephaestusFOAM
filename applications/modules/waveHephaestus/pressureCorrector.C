@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2023 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2023-2024 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -23,55 +23,16 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
-#include "fvmDdt.H"
-#include "fvcDiv.H"
+#include "waveFluid.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::momentumPredictor()
+void Foam::solvers::waveFluid::pressureCorrector()
 {
-    volVectorField& U(U_);
-
-    const surfaceVectorField phiUp
-    (
-        (aphiv_pos()*rhoU_pos() + aphiv_neg()*rhoU_neg())
-      + (a_pos()*p_pos() + a_neg()*p_neg())*mesh.Sf()
-    );
-
-    // Construct the divDevTau matrix first
-    // so that the maxwellSlipU BC can access the explicit part
-    tmp<fvVectorMatrix> divDevTau;
-    if (!inviscid)
-    {
-        divDevTau = momentumTransport->divDevTau(U);
-    }
-
-    fvVectorMatrix UEqn
-    (
-        fvm::ddt(rho, U) + fvc::div(phiUp)
-      ==
-        fvModels().source(rho, U)
-    );
-
-    if (!inviscid)
-    {
-        UEqn += divDevTau();
-    }
-
-    UEqn.relax();
-
-    fvConstraints().constrain(UEqn);
-
-    solve(UEqn);
-
-    fvConstraints().constrain(U);
-    K = 0.5*magSqr(U);
-
-    if (!inviscid)
-    {
-        devTau = divDevTau->flux();
-    }
+    const volScalarField& psi = thermo.psi();
+    p_.internalFieldRef() = rho()/psi();
+    p_.correctBoundaryConditions();
+    rho_.boundaryFieldRef() == psi.boundaryField()*p.boundaryField();
 }
 
 

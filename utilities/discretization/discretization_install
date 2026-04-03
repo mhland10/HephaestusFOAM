@@ -1,27 +1,27 @@
 #!/bin/bash
-set -e
 
-echo "Beginning installation of HephaestusFOAM application"
+echo " "
+echo "**Installing Discretization Schemes**"
+echo " "
 
-#==================================================================================================
-#
-#  Install hephaestusFoam
-#
-#==================================================================================================
-
-cd hephaestusFoam
-wmake > build.log
-cd ../
-echo "    HephaestusFOAM completed, view build.log for results"
+export disc_utilsDir="$PWD"
 
 #==================================================================================================
 #
-#  Install hephaestusRKFoam
+#  Create dynamic links for RK Tableau
 #
 #==================================================================================================
 
-cd hephaestusRKFoam
-wmake > build.log
-cd ../
-echo "    HephaestusRK.FOAM completed, view build.log for results"
+echo "Creating dynamic links..."
+ln -sf "$disc_utilsDir/RKTimeIntegration"/* lnInclude
 
+#==================================================================================================
+#
+#  Install the RK Tableau
+#
+#==================================================================================================
+
+cd RKTimeIntegration
+
+echo "Building RK Tableau..."
+wmake libso > rkTableau_make.log 2>&1

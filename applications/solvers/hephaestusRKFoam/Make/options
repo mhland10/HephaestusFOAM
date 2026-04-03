@@ -1,0 +1,12 @@
+EXE_INC = \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(CANT_HOME)/include   \
+    -I$(HEPH_APP)/modules/gasHephaestus \
+    -I$(HEPH_UTIL)/discretization/lnInclude \
+    
+
+EXE_LIBS = \
+    -lfiniteVolume \
+    -L$(CANT_HOME)/lib \
+    -lcantera \
+    -lHephaestusDiscretizations

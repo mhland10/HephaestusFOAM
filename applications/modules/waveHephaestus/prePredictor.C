@@ -23,62 +23,21 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
-#include "fvmDdt.H"
-#include "fvcDiv.H"
-#include "fvcDdt.H"
+#include "waveFluid.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::thermophysicalPredictor()
+void Foam::solvers::waveFluid::prePredictor()
 {
-    volScalarField& e = thermo_.he();
+    fluxPredictor();
 
-    const surfaceScalarField e_pos(interpolate(e, pos, thermo.T().name()));
-    const surfaceScalarField e_neg(interpolate(e, neg, thermo.T().name()));
+    correctDensity();
 
-    surfaceScalarField phiEp
-    (
-        "phiEp",
-        aphiv_pos()*(rho_pos()*(e_pos + 0.5*magSqr(U_pos())) + p_pos())
-      + aphiv_neg()*(rho_neg()*(e_neg + 0.5*magSqr(U_neg())) + p_neg())
-      + aSf()*(p_pos() - p_neg())
-    );
-
-    // Make flux for pressure-work absolute
-    if (mesh.moving())
+    if (!inviscid && pimple.predictTransport())
     {
-        phiEp += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
+        momentumTransport->predict();
+        thermophysicalTransport->predict();
     }
-
-    fvScalarMatrix EEqn
-    (
-        fvm::ddt(rho, e) + fvc::div(phiEp)
-      + fvc::ddt(rho, K)
-     ==
-        fvModels().source(rho, e)
-    );
-
-    if (!inviscid)
-    {
-        const surfaceScalarField devTauDotU
-        (
-            "devTauDotU",
-            devTau() & (a_pos()*U_pos() + a_neg()*U_neg())
-        );
-
-        EEqn += thermophysicalTransport->divq(e) + fvc::div(devTauDotU);
-    }
-
-    EEqn.relax();
-
-    fvConstraints().constrain(EEqn);
-
-    EEqn.solve();
-
-    fvConstraints().constrain(e);
-
-    thermo_.correct();
 }
 
 

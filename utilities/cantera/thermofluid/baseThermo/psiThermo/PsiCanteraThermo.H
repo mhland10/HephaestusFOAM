@@ -13,11 +13,6 @@
     \__/                |
                         |
 -------------------------------------------------------------------------------
-Control
-    Aspects of this software may be subject to CUI//EXPT restrictions. 
-    Ensure you are using the public version, or confirm you are a U.S. 
-    citizen or otherwise authorized under 22 CFR 120.62.
-
 License
     This file is from HephaestusFOAM.
 

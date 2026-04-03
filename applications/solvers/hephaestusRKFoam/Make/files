@@ -1,0 +1,4 @@
+setDeltaT.C
+hephaestusRKFoam.C
+
+EXE = $(FOAM_APPBIN)/hephaestusRKFoam

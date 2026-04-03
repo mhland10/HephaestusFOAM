@@ -9,35 +9,20 @@ export CANTERA_VERSION="v2.6.0"          # or "2.6.1", "2.6.2"
 export INSTALL_DIR="$HOME/cantera-$CANTERA_VERSION"
 
 # --- C++ & Build Flags ---
-export CXXFLAGS="-std=c++14 -I/scratch/tacc/apps/intel24/eigen/3.4.0/include/eigen3"
+export CXXFLAGS="-std=c++14"
 export CC=gcc
 export CXX=g++
 
 # Add in the Cantera location
-export CANT_HOME=$WORK/cantera
+export CANT_HOME=/opt/cantera
 export BUILD_DIR=$CANT_HOME
 
-# Add in the eigen location
-export EIG_LOC=$TACC_EIGEN_DIR
-module load eigen/3.4.0
-##export CPATH=$TACC_EIGEN_DIR/include:$CPATH
-
-# Add in the boot module 
-module load gcc/11.2.0
-module load intel/19.1.1
-module load boost/1.83.0
-export CXXFLAGS="$CXXFLAGS -I$TACC_BOOST_DIR/include"
-export CPATH=$TACC_BOOST_INC:$CPATH
-export LD_LIBRARY_PATH=$TACC_BOOST_LIB:$LD_LIBRARY_PATH
-
 # Add Cantera-related paths
-export CPATH=$TACC_EIGEN_DIR/include/eigen3:$HOME/hephaestusfoam/utilities/cantera/thermofluid/lnInclude:$HOME/hephaestusfoam/utilities/cantera/thermofluid:$CPATH
+export CPATH=$HOME/hephaestusfoam/utilities/cantera/thermofluid/lnInclude:$HOME/hephaestusfoam/utilities/cantera/thermofluid:$CPATH
 export LD_LIBRARY_PATH=$HOME/hephaestusfoam/utilities/cantera:$LD_LIBRARY_PATH
 
 # Optional: point to your custom solvers/utilities
 export PATH=$HOME/hephaestusfoam/utilities/cantera:$PATH
-export FOAM_USER_APPBIN=$HOME/hephaestusfoam/platforms/linux64GccDPInt32Opt/bin
-export FOAM_USER_LIBBIN=$HOME/hephaestusfoam/platforms/linux64GccDPInt32Opt/lib
 
 # Add in locations of different portions
 export HEPH_APP=$HOME/hephaestusfoam/applications
@@ -45,11 +30,6 @@ export HEPH_UTIL=$HOME/hephaestusfoam/utilities
 export HEPH_CANT=$HOME/hephaestusfoam/utilities/cantera
 export HEPH_TUT=$HOME/hephaestusfoam/tutorials
 
-# OpenFOAM modules
-module load intel/24.1
-module load impi/21.12
-module load ptscotch/7.0.7-i64
-export LD_LIBRARY_PATH=/opt/apps/gcc/11.2.0/lib64:$LD_LIBRARY_PATH
 
 
 

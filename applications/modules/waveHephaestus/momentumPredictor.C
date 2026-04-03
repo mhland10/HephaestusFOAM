@@ -23,20 +23,54 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
+#include "waveFluid.H"
+#include "fvmDdt.H"
+#include "fvcDiv.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::prePredictor()
+void Foam::solvers::waveFluid::momentumPredictor()
 {
-    fluxPredictor();
+    volVectorField& U(U_);
 
-    correctDensity();
+    const surfaceVectorField phiUp
+    (
+        (aphiv_pos()*rhoU_pos() + aphiv_neg()*rhoU_neg())
+      + (a_pos()*p_pos() + a_neg()*p_neg())*mesh.Sf()
+    );
 
-    if (!inviscid && pimple.predictTransport())
+    // Construct the divDevTau matrix first
+    // so that the maxwellSlipU BC can access the explicit part
+    tmp<fvVectorMatrix> divDevTau;
+    if (!inviscid)
     {
-        momentumTransport->predict();
-        thermophysicalTransport->predict();
+        divDevTau = momentumTransport->divDevTau(U);
+    }
+
+    fvVectorMatrix UEqn
+    (
+        fvm::ddt(rho, U) + fvc::div(phiUp)
+      ==
+        fvModels().source(rho, U)
+    );
+
+    if (!inviscid)
+    {
+        UEqn += divDevTau();
+    }
+
+    UEqn.relax();
+
+    fvConstraints().constrain(UEqn);
+
+    solve(UEqn);
+
+    fvConstraints().constrain(U);
+    K = 0.5*magSqr(U);
+
+    if (!inviscid)
+    {
+        devTau = divDevTau->flux();
     }
 }
 

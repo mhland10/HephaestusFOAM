@@ -2,7 +2,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2023-2024 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2023 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -27,12 +27,30 @@ License
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::pressureCorrector()
+void Foam::solvers::waveFluid::moveMesh()
 {
-    const volScalarField& psi = thermo.psi();
-    p_.internalFieldRef() = rho()/psi();
-    p_.correctBoundaryConditions();
-    rho_.boundaryFieldRef() == psi.boundaryField()*p.boundaryField();
+    if (pimple.firstIter() || pimple.moveMeshOuterCorrectors())
+    {
+        // Move the mesh
+        mesh_.move();
+    }
+}
+
+
+void Foam::solvers::waveFluid::motionCorrector()
+{
+    if (pimple.firstIter() || pimple.moveMeshOuterCorrectors())
+    {
+        if (mesh.changing())
+        {
+            if (mesh.topoChanged())
+            {
+                // ...
+            }
+
+            meshCourantNo();
+        }
+    }
 }
 
 

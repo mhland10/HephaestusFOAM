@@ -23,13 +23,13 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
+#include "waveFluid.H"
 #include "fvmDdt.H"
 #include "fvcDiv.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::correctDensity()
+void Foam::solvers::waveFluid::correctDensity()
 {
     volScalarField& rho(rho_);
 

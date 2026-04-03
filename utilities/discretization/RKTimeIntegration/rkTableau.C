@@ -13,11 +13,6 @@
     \__/                |
                         |
 -------------------------------------------------------------------------------
-Control
-    Aspects of this software may be subject to CUI//EXPT restrictions. 
-    Ensure you are using the public version, or confirm you are a U.S. 
-    citizen or otherwise authorized under 22 CFR 120.62.
-
 License
     This file is from HephaestusFOAM.
 
@@ -38,7 +33,7 @@ License
 
 #include <stdexcept>
 #include <cmath> // for std::abs
-#include rkTableau.H
+#include "rkTableau.H"
 
 // * * * * * * * * * * * * *  Constructors * * * * * * * * * * * * * * * * * //
 
@@ -92,6 +87,16 @@ rkTableau::rkTableau(const std::vector<std::vector<double>>& a)
     }
 
     // b_ still needs to be set for complete RK
+}
+
+// Constructor from number of stages
+rkTableau::rkTableau(const int stages)
+    : stages_(stages), a_(stages), b_(stages), c_(stages),
+      alpha_(stages), beta_(stages), explicit_(true)
+{
+    // Initialize the vectors
+    for (int i = 0; i < stages_; ++i)
+        a_[i].resize(stages_, 0.0);
 }
 
 // * * * * * * * * * * * * * *  Factories  * * * * * * * * * * * * * * * * * //
@@ -189,4 +194,63 @@ rkTableau rkTableau::RK4()
 
     // Return the object
     return tableau;
+}
+
+rkTableau rkTableau::CarpenterLSRK33()
+{
+    rkTableau rk(3);
+
+    rk.alpha_ = {
+                0.0,
+               -5.0/9.0,
+               -153.0/128.0
+            };
+
+    rk.beta_ = {
+                1.0/3.0,
+                15.0/16.0,
+                8.0/15.0
+            };
+    
+    rk.c_ = {
+                0.0,                // stage 1
+                1.0/3.0,            // stage 2
+                5.0/9.0             // stage 3
+            };
+    rk.c_[0] = 1.0 - rk.c_[1] - rk.c_[2];
+
+    return rk;
+}
+
+rkTableau rkTableau::CarpenterLSRK54()
+{
+    rkTableau rk(5);
+
+    rk.alpha_ = {
+        0.0,
+       -567301805773.0/1357537059087.0,
+       -2404267990393.0/2016746695238.0,
+       -3550918686646.0/2091501179385.0,
+       -1275806237668.0/842570457699.0
+    };
+
+    rk.beta_ = {
+        1432997174477.0/9575080441755.0,
+        5161836677717.0/13612068292357.0,
+        1720146321549.0/2090206949498.0,
+        3134564353537.0/4481467310338.0,
+        2277821191437.0/14882151754819.0
+    };
+    
+    // Hard-coded stage times (c coefficients)
+    rk.c_ = {
+        0.0,                                     // stage 1
+        1432997174477.0/9575080441755.0,        // stage 2
+        2526269341429.0/6820363962896.0,        // stage 3
+        2006345519317.0/3224310063776.0,        // stage 4
+        2802321613138.0/2924317926251.0         // stage 5
+    };
+    rk.c_[0] = 1.0 - rk.c_[1] - rk.c_[2] - rk.c_[3] - rk.c_[4];
+
+    return rk;
 }

@@ -13,11 +13,6 @@
     \__/                |
                         |
 -------------------------------------------------------------------------------
-Control
-    Aspects of this software may be subject to CUI//EXPT restrictions. 
-    Ensure you are using the public version, or confirm you are a U.S. 
-    citizen or otherwise authorized under 22 CFR 120.62.
-
 License
     This file is from HephaestusFOAM.
 
@@ -105,6 +100,9 @@ class rkTableau
     // Construct from the A: Explicit ONLY
     rkTableau(const std::vector<std::vector<double>>& a);
     
+    // Construct from Null to let the factory functions buld
+    rkTableau():stages_(0), alpha_(), beta_(){   }
+    
     //
     // Functions
     //
@@ -121,6 +119,10 @@ class rkTableau
     // Access to the c nodes
     const std::vector<double>& c() const { return c_; }
     
+    // Access the low storage coefficients
+    const std::vector<double>& alpha() const { return alpha_; }
+    const std::vector<double>& beta() const { return beta_; }
+    
     // Calculate the standard explicit RK-2 schemes in factory methods
     static rkTableau RK2_Heun();
     static rkTableau RK2_Midpoint();
@@ -128,6 +130,10 @@ class rkTableau
     
     // Calculate the standard explicit RK-4 scheme in factory methods
     static rkTableau RK4();
+    
+    // Calculate the standard explicit Carpenter low-storage schemes in factory methods
+    static rkTableau CarpenterLSRK33();
+    static rkTableau CarpenterLSRK54();
     
 
 

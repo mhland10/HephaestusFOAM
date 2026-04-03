@@ -1,0 +1,4 @@
+RKTimeIntegration/rkTableau.C
+
+
+LIB = $(FOAM_LIBBIN)/libHephaestusDiscretizations

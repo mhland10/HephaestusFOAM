@@ -23,12 +23,12 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "shockFluid.H"
+#include "waveFluid.H"
 #include "fvcSmooth.H"
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
-void Foam::solvers::shockFluid::setRDeltaT(const surfaceScalarField& amaxSf)
+void Foam::solvers::waveFluid::setRDeltaT(const surfaceScalarField& amaxSf)
 {
     volScalarField& rDeltaT = trDeltaT.ref();
 
