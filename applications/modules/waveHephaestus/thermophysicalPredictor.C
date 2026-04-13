@@ -23,84 +23,33 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "waveFluid.H"
+#include "waveHephaestus.H"
 #include "fvmDdt.H"
 #include "fvcDiv.H"
 #include "fvcDdt.H"
 
-// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * //
 
-/*
-  TODO: Implement the multicomponent thermophysicalPredictor() method and
-        modify to include the flux splitting methods.
-*/
-
-void Foam::solvers::waveFluid::thermophysicalPredictor()
+Foam::tmp<Foam::volScalarField::Internal>
+Foam::solvers::waveFluid::pressureWork
+(
+    const tmp<volScalarField::Internal>& work
+) const
 {
-    speciesPredictor()
-
-    volScalarField& he = thermo_.he();
-    
-    // Define the total energy flux term
-    surfaceScalarField phiHE
-    (
-        "phiHE",
-        aphiv_pos()*(rho_pos()*(HE_pos + 0.5*magSqr(U_pos())))
-      + aphiv_neg()*(rho_neg()*(HE_neg + 0.5*magSqr(U_neg())))
-    );
-    
-    // Pressure jump term
-    surfaceScalarField phiP_jump("phiP_jump", aSf()*(p_pos() - p_neg()));
-    
-    // Pressure upwind term
-    surfaceScalarField phiP_upwind("phiP_upwind", aphiv_pos()*p_pos() + aphiv_neg()*p_neg());
-    
-    // Combine
-    surfaceScalarField phiP = phiP_jump + phiP_upwind;
-    
-    // Apply moving mesh correction
     if (mesh.moving())
     {
-        phiP += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
-    }
     
-    //
-    //  Energy equation definition
-    //
-    fvScalarMatrix EEqn
-    (
-        fvm::ddt(rho, he) + fvc::div(phiHE)
-      + fvc::ddt(rho, K)
-      + pressureWork(he.name() == "e" ? fvc::div(phiP) : -dpdt)
-     ==
-        fvModels().source(rho, he)
-      + reaction->Qdot()
-    );
-
-    if (!inviscid)
+        surfaceScalarField workPhi = fvc::interpolate(rho)*(fvc::interpolate(U) & mesh.Sf());
+        
+        return work + fvc::div(workPhi, p/rho, "div(workPhi,(p|rho))")();
+    }
+    else
     {
-        const surfaceScalarField devTauDotU
-        (
-            "devTauDotU",
-            devTau() & (a_pos()*U_pos() + a_neg()*U_neg())
-        );
-
-        EEqn += thermophysicalTransport->divq(he) + fvc::div(devTauDotU);
+        return move(work);
     }
-    
-    //
-    //  Energy equation solve
-    //
-    EEqn.relax();
-
-    fvConstraints().constrain(EEqn);
-
-    EEqn.solve();
-
-    fvConstraints().constrain(he);
-
-    thermo_.correct();
 }
+
+// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 void Foam::solvers::waveFluid::speciesPredictor()
 {
@@ -159,6 +108,87 @@ void Foam::solvers::waveFluid::speciesPredictor()
 
     thermo_.normaliseY();
 }
+
+void Foam::solvers::waveFluid::thermophysicalPredictor()
+{
+    speciesPredictor();
+
+    volScalarField& he = thermo_.he();
+    
+    // Define the total energy flux term
+    surfaceScalarField phiHE
+    (
+        "phiHE",
+        aphiv_pos()*(rho_pos()*(HE_pos + 0.5*magSqr(U_pos())))
+      + aphiv_neg()*(rho_neg()*(HE_neg + 0.5*magSqr(U_neg())))
+    );
+    
+    // Pressure jump term
+    surfaceScalarField phiP_jump("phiP_jump", aSf()*(p_pos() - p_neg()));
+    
+    // Pressure upwind term
+    surfaceScalarField phiP_upwind("phiP_upwind", aphiv_pos()*p_pos() + aphiv_neg()*p_neg());
+    
+    // Combine
+    surfaceScalarField phiP = phiP_jump + phiP_upwind;
+    
+    // Apply moving mesh correction
+    if (mesh.moving())
+    {
+        phiP += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
+    }
+    
+    //  Create pressure work term
+    tmp<volScalarField::Internal> pw;
+
+    if (he.name() == "e")
+    {
+        pw = fvc::div(phiP)().internalField();  // unwrap tmp and get Internal
+    }
+    else
+    {
+        pw = (-dpdt)();  // unwrap tmp to get Internal
+    }
+    
+    //
+    //  Energy equation definition
+    //
+    fvScalarMatrix EEqn
+    (
+        fvm::ddt(rho, he) + fvc::div(phiHE)
+      + fvc::ddt(rho, K)
+      + pressureWork(pw)
+     ==
+        fvModels().source(rho, he)
+      + reaction->Qdot()
+    );
+
+    if (!inviscid)
+    {
+        const surfaceScalarField devTauDotU
+        (
+            "devTauDotU",
+            devTau() & (a_pos()*U_pos() + a_neg()*U_neg())
+        );
+
+        EEqn += thermophysicalTransport->divq(he) + fvc::div(devTauDotU);
+    }
+    
+    //
+    //  Energy equation solve
+    //
+    EEqn.relax();
+
+    fvConstraints().constrain(EEqn);
+
+    EEqn.solve();
+
+    fvConstraints().constrain(he);
+
+    thermo_.correct();
+}
+
+
 
 
 // ************************************************************************* //

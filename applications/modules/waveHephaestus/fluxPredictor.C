@@ -23,12 +23,20 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "waveFluid.H"
+#include "waveHephaestus.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
 void Foam::solvers::waveFluid::fluxPredictor()
 {
+
+    //================================================================
+    //
+    //  Initialize references
+    //
+    //================================================================
+    
+    volScalarField& he = thermo_.he();
 
     //================================================================
     //
@@ -100,23 +108,9 @@ void Foam::solvers::waveFluid::fluxPredictor()
     {
         rhoYi_[i] = rho_ * Y_[i];
     
-        rhoYi_pos.set
-        (
-            i,
-            new surfaceScalarField
-            (
-                interpolate(rhoYi_[i], pos(), Y_[i].name())
-            )
-        );
+        rhoYi_pos[i] = interpolate(rhoYi_[i], pos(), Y_[i].name());
     
-        rhoYi_neg.set
-        (
-            i,
-            new surfaceScalarField
-            (
-                interpolate(rhoYi_[i], neg(), Y_[i].name())
-            )
-        );
+        rhoYi_neg[i] = interpolate(rhoYi_[i], neg(), Y_[i].name());
     }
     
     Yi_pos.setSize(Y_.size());
@@ -125,25 +119,21 @@ void Foam::solvers::waveFluid::fluxPredictor()
     forAll(Y_, i)
     {
     
-      Yi_pos.set
-      (
-          i,
-          new surfaceScalarField
-          (
-              "Yi_pos_" + Y_[i].name(),
-              rhoYi_pos[i]()/max(rho_pos(),SMALL)
-          )
-      );
+      Yi_pos[i] = 
+        new surfaceScalarField
+            (
+                "Yi_pos_" + Y_[i].name(),
+                rhoYi_pos[i]()/max(rho_pos(),SMALL)
+            )
+          ;
       
-      Yi_neg.set
-      (
-          i,
-          new surfaceScalarField
-          (
-              "Yi_neg_" + Y_[i].name(),
-              rhoYi_neg[i]()/max(rho_pos(),SMALL)
-          )
-      );
+      Yi_neg[i] = 
+        new surfaceScalarField
+            (
+                "Yi_neg_" + Y_[i].name(),
+                rhoYi_neg[i]()/max(rho_neg(),SMALL)
+            )
+          ;
     
     }
     

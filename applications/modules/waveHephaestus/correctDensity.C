@@ -23,7 +23,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "waveFluid.H"
+#include "waveHephaestus.H"
 #include "fvmDdt.H"
 #include "fvcDiv.H"
 

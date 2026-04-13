@@ -114,64 +114,21 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     fluidSolver(mesh),
     
     //
+    //  Formulation data
+    //
+    fluxScheme
+    (
+        mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
+    ),
+    
+    //
     //  Thermo data structure
     //
     thermoPtr_(fluidMulticomponentThermo::New(mesh)),
 
-    thermo_(thermoPtr_()),
+    thermo_(*thermoPtr_),
     
-    //
-    //  CFD Data
-    //
-    p_(thermo_.p()),
-
-    rho_
-    (
-        IOobject
-        (
-            "rho",
-            runTime.name(),
-            mesh,
-            IOobject::READ_IF_PRESENT,
-            IOobject::AUTO_WRITE
-        ),
-        thermo_.renameRho()
-    ),
-
-    U_
-    (
-        IOobject
-        (
-            "U",
-            runTime.name(),
-            mesh,
-            IOobject::MUST_READ,
-            IOobject::AUTO_WRITE
-        ),
-        mesh
-    ),
-    
-    Y_(thermo_.Y()),
-    
-    rhoYi_(Y_.size()),
-    
-    //    
-    //  Solution data
-    //
-    phi_
-    (
-        IOobject
-        (
-            "phi",
-            runTime.name(),
-            mesh,
-            IOobject::READ_IF_PRESENT,
-            IOobject::AUTO_WRITE
-        ),
-        linearInterpolate(rho_*U_) & mesh.Sf()
-    ),
-
-    K("K", 0.5*magSqr(U_)),
+    reaction(combustionModel::New(thermo_, momentumTransport())),
     
     //
     //  Transport data
@@ -207,13 +164,68 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         )
     ),
     
+    
     //
-    //  Formulation data
+    //  CFD Data
     //
-    fluxScheme
+    p_(thermo_.p()),
+
+    rho_
     (
-        mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
+        IOobject
+        (
+            "rho",
+            runTime.name(),
+            mesh,
+            IOobject::READ_IF_PRESENT,
+            IOobject::AUTO_WRITE
+        ),
+        thermo_.renameRho()
     ),
+    
+    Y_(thermo_.Y()),    
+    
+    rhoYi_(Y_.size()),
+    
+    dpdt
+    (
+        IOobject
+        (
+            "dpdt",
+            runTime.name(),
+            mesh
+        ),
+        mesh,
+        dimensionedScalar(p_.dimensions()/dimTime, 0)
+    ),
+    
+    U_
+    (
+        IOobject
+        (
+            "U",
+            runTime.name(),
+            mesh,
+            IOobject::MUST_READ,
+            IOobject::AUTO_WRITE
+        ),
+        mesh
+    ),
+
+    phi_
+    (
+        IOobject
+        (
+            "phi",
+            runTime.name(),
+            mesh,
+            IOobject::READ_IF_PRESENT,
+            IOobject::AUTO_WRITE
+        ),
+        linearInterpolate(rho_*U_) & mesh.Sf()
+    ),
+
+    K("K", 0.5*magSqr(U_)),
     
     //
     //  Stored field data
@@ -222,10 +234,8 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     p(p_),
     rho(rho_),
     U(U_),
-    Y(Y_),
-    he(thermo_.he()),
-    phi(phi_)
-    
+    phi(phi_),
+    Y(Y_)
 {
     //
     //  Check the thermodynamics type

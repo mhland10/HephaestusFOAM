@@ -23,7 +23,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "waveFluid.H"
+#include "waveHephaestus.H"
 #include "fvcSmooth.H"
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //

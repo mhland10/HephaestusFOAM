@@ -55,7 +55,7 @@ SourceFiles
 
 See also
     Foam::solvers::fluidSolver
-    Foam::solvers::incompressibleFluid
+    Foam::solvers::shockFluid
 
 \*---------------------------------------------------------------------------*/
 
@@ -89,27 +89,24 @@ class waveFluid
     public fluidSolver
 {
 
-protected:
+protected:        
 
-    // Thermophysical properties
+    // Controls
 
+        word fluxScheme;
+        /*
+          TODO: in the future when the flux scheme is broken into its
+        own class, this will end up being a pointer to that class.
+        
+        */
+
+    // Thermophysical models
+    
         //- Pointer to the fluid thermophysical properties
         autoPtr<fluidMulticomponentThermo> thermoPtr_;
 
         //- Reference to the fluid thermophysical properties
         fluidMulticomponentThermo& thermo_;
-
-        //- Reference to the pressure field
-        volScalarField& p_;
-
-        //- The continuity density field
-        volScalarField rho_;
-        
-        //- Reference to the species fraction fields
-        PtrList<volScalarField>& Y_;
-        
-        //- The species concentrations
-        PtrList<volScalarField> rhoYi_;
         
         //- Pointer to the combustion model  
         autoPtr<combustionModel> reaction;
@@ -127,9 +124,37 @@ protected:
         
         */
         
+        bool inviscid;
+        
         //- The thermophysical transport model
         autoPtr<fluidMulticomponentThermophysicalTransportModel>
             thermophysicalTransport;
+            
+        //- Pointer to the momentum transport model
+        autoPtr<compressible::momentumTransportModel> momentumTransport;
+        /*
+          TODO: at some point we should generate some helper modules
+        for this variable.
+        
+        */
+
+    // Thermophysical properties
+
+        //- Reference to the pressure field
+        volScalarField& p_;
+
+        //- The continuity density field
+        volScalarField rho_;
+        
+        //- Reference to the species fraction fields
+        PtrList<volScalarField>& Y_;
+        
+        //- The species concentrations
+        PtrList<volScalarField> rhoYi_;
+            
+        //- Rate of change of the pressure
+        //  Used in the enthalpy equation
+        volScalarField::Internal dpdt;
 
 
     // Kinematic properties
@@ -145,26 +170,7 @@ protected:
         volScalarField K;
 
 
-    // Momentum transport
-
-        bool inviscid;
-
-        //- Pointer to the momentum transport model
-        autoPtr<compressible::momentumTransportModel> momentumTransport;
-        /*
-          TODO: at some point we should generate some helper modules
-        for this variable.
-        
-        */
-
-    // Controls
-
-        word fluxScheme;
-        /*
-          TODO: in the future when the flux scheme is broken into its
-        own class, this will end up being a pointer to that class.
-        
-        */
+    
 
 
     // Cached temporary fields
@@ -258,6 +264,14 @@ private:
         */
 
         void clearTemporaryFields();
+        
+protected:
+
+        //- Adds the mesh-motion work to the pressure work term provided
+        tmp<volScalarField::Internal> pressureWork
+        (
+            const tmp<volScalarField::Internal>&
+        ) const;
 
 
 public:
@@ -281,10 +295,6 @@ public:
         
         //- Reference to the composition
         const PtrList<volScalarField>& Y;
-        
-        //- Reference to total energy density (optional for public API)
-        const volScalarField& he;
-
 
     //- Runtime type information
     TypeName("waveHephaestus");
@@ -324,6 +334,8 @@ public:
         //  convert to temperature
         //  and update thermophysical and transport properties
         virtual void thermophysicalPredictor();
+        
+        virtual void speciesPredictor();
 
         //- Construct and solve the pressure equation in the PISO loop
         virtual void pressureCorrector();
