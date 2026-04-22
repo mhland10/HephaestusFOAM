@@ -32,7 +32,10 @@ void Foam::solvers::waveFluid::pressureCorrector()
     const volScalarField& psi = thermo.psi();
     p_.internalFieldRef() = rho()/psi();
     p_.correctBoundaryConditions();
-    rho_.boundaryFieldRef() == psi.boundaryField()*p.boundaryField();
+    //rho_.boundaryFieldRef() == psi.boundaryField()*p.boundaryField();
+    
+    //thermo_.normaliseY();
+    //thermo_.correct();
 }
 
 

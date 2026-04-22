@@ -161,7 +161,6 @@ int main(int argc, char *argv[])
             solver.fvModels().correct();
             solver.prePredictor();
             solver.momentumPredictor();
-            //solver.prePredictor();
             solver.thermophysicalPredictor();
             solver.pressureCorrector();
             solver.postCorrector();
