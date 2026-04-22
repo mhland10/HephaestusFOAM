@@ -13,4 +13,4 @@ derivedFvPatchFields/U/maxwellSlipUFvPatchVectorField.C
 derivedFvPatchFields/T/smoluchowskiJumpTFvPatchScalarField.C
 derivedFvPatchFields/rho/fixedRhoFvPatchScalarField.C
 
-LIB = $(FOAM_LIBBIN)/libWaveHephaestus
+LIB = $(FOAM_LIBBIN)/libwaveHephaestus

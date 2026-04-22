@@ -114,61 +114,27 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     fluidSolver(mesh),
     
     //
-    //  Formulation data
-    //
-    fluxScheme
-    (
-        mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
-    ),
-    
-    //
-    //  Thermo data structure
+    //  Thermodynamics
     //
     thermoPtr_(fluidMulticomponentThermo::New(mesh)),
 
     thermo_(*thermoPtr_),
     
-    reaction(combustionModel::New(thermo_, momentumTransport())),
-    
-    //
-    //  Transport data
-    //
-    inviscid
-    (
-        max(thermo_.mu().primitiveField()) > 0
-      ? false
-      : true
-    ),
-    
-    momentumTransport
-    (
-        inviscid
-      ? autoPtr<compressibleMomentumTransportModel>(nullptr)
-      : compressible::momentumTransportModel::New
-        (
-            rho_,
-            U_,
-            phi_,
-            thermo_
-        )
-    ),
-
-    thermophysicalTransport
-    (
-        inviscid
-      ? autoPtr<fluidMulticomponentThermophysicalTransportModel>(nullptr)
-      : fluidMulticomponentThermophysicalTransportModel::New
-        (
-            momentumTransport(),
-            thermo_
-        )
-    ),
-    
-    
     //
     //  CFD Data
     //
-    p_(thermo_.p()),
+    U_
+    (
+        IOobject
+        (
+            "U",
+            runTime.name(),
+            mesh,
+            IOobject::MUST_READ,
+            IOobject::AUTO_WRITE
+        ),
+        mesh
+    ),
 
     rho_
     (
@@ -183,35 +149,13 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         thermo_.renameRho()
     ),
     
+    p_(thermo_.p()),
+    
     Y_(thermo_.Y()),    
     
-    rhoYi_(Y_.size()),
-    
-    dpdt
-    (
-        IOobject
-        (
-            "dpdt",
-            runTime.name(),
-            mesh
-        ),
-        mesh,
-        dimensionedScalar(p_.dimensions()/dimTime, 0)
-    ),
-    
-    U_
-    (
-        IOobject
-        (
-            "U",
-            runTime.name(),
-            mesh,
-            IOobject::MUST_READ,
-            IOobject::AUTO_WRITE
-        ),
-        mesh
-    ),
-
+    //
+    //  Derived Data
+    //   
     phi_
     (
         IOobject
@@ -224,8 +168,73 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         ),
         linearInterpolate(rho_*U_) & mesh.Sf()
     ),
+     
+    dpdt
+    (
+        IOobject
+        (
+            "dpdt",
+            runTime.name(),
+            mesh
+        ),
+        mesh,
+        dimensionedScalar(p_.dimensions()/dimTime, 0)
+    ),
+    
+    rhoYi_(Y_.size()),
 
     K("K", 0.5*magSqr(U_)),
+    
+    //
+    //  Formulation data
+    //
+    fluxScheme
+    (
+        mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
+    ),
+    
+    //
+    //  Thermophysical data structure
+    //    
+    physicalProperties_
+    (
+        IOobject
+        (
+            "physicalProperties",
+            runTime.constant(),
+            mesh,
+            IOobject::MUST_READ,
+            IOobject::NO_WRITE
+        )
+    ),
+    
+    inviscid(physicalProperties_.lookupOrDefault<bool>("inviscid", false)),
+    
+    momentumTransport
+    (
+        inviscid
+      ? autoPtr<compressibleMomentumTransportModel>(nullptr)
+      : compressible::momentumTransportModel::New
+        (
+            rho_,
+            U_,
+            phi_,
+            thermo_
+        )
+    ),
+    
+    thermophysicalTransport
+    (
+        inviscid
+      ? autoPtr<fluidMulticomponentThermophysicalTransportModel>(nullptr)
+      : fluidMulticomponentThermophysicalTransportModel::New
+        (
+            momentumTransport(),
+            thermo_
+        )
+    ),
+    
+    reaction(combustionModel::New(thermo_, momentumTransport())),
     
     //
     //  Stored field data
@@ -237,10 +246,15 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     phi(phi_),
     Y(Y_)
 {
+
+    Info<< "\n\n[waveFluid] Constructor START\n" << endl;
+    
     //
     //  Check the thermodynamics type
     //
-    thermo.validate(type(), "he");
+    thermo.validate(type(), "h", "e");
+    
+    Info<< "[waveFluid] Thermodynamics model validated..." << endl;
     
     //
     //  Check momentum transport model  
@@ -250,6 +264,8 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         momentumTransport->validate();
         mesh.schemes().setFluxRequired(U.name());
     }
+    
+    Info<< "[waveFluid] momentum transport model validated..." << endl;
     
     //
     //  Initialize the species
@@ -273,6 +289,8 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
             )
         );
     }
+    
+    Info<< "[waveFluid] species initialized..." << endl;
     
     //
     //   Set up initial calculation
@@ -313,6 +331,8 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
             )
         );
     }
+    
+    Info<< "[waveFluid] fluxes initialized..." << endl;
 }
 
 

@@ -55,53 +55,67 @@ void Foam::solvers::waveFluid::speciesPredictor()
 {
 
     reaction->correct();
+    
+    //
+    //  Species equation fluxes
+    //
+    List<tmp<surfaceScalarField>> phiYi;
+    phiYi.setSize(Y_.size());
+    forAll(Y_, i)
+    {
+        phiYi[i] =
+        aphiv_pos()*rhoYi_pos[i]
+      + aphiv_neg()*rhoYi_neg[i];
+    }
 
-    forAll(Y, i)
+    forAll(Y_, i)
     {
         // Define the species volume scalar field
+        //volScalarField Yi = rhoYi_[i] / rho_;
+        //volScalarField Yi = Y_[i];
         volScalarField& Yi = Y_[i];
-        
-        // Define the species concentration fluxes
-        surfaceScalarField phiYi
-        ( 
-          "phiYi", 
-          aphiv_pos()*(rho_pos()*Yi_pos[i])
-        + aphiv_neg()*(rho_neg()*Yi_neg[i]) 
-        );
-        
         
         if (thermo_.solveSpecie(i))
         {
             //
             //  Species equation
             //
-            fvScalarMatrix YiEqn
+            fvScalarMatrix rhoYiEqn
             (
+                //fvm::ddt(rhoYi_[i])
                 fvm::ddt(rho, Yi)
-              + fvc::div(phiYi)
+              + fvc::div(phiYi[i])
              ==
-                reaction->R(Yi)
-              + fvModels().source(rho, Yi)
+                //fvModels().source(rhoYi_[i])
+                fvModels().source(rho, Yi)
+              + reaction->R(Yi)
             );
             
             if (!inviscid)
             {
-                YiEqn -= thermophysicalTransport->divj(Yi); 
+                rhoYiEqn -= thermophysicalTransport->divj(Yi);
             }
             
             //
             //  Species equation solve
             //
-            YiEqn.relax();
+            rhoYiEqn.relax();
 
-            fvConstraints().constrain(YiEqn);
-
-            YiEqn.solve("Yi");
-
-            fvConstraints().constrain(Yi);
+            fvConstraints().constrain(rhoYiEqn);
+            
+            rhoYiEqn.solve("Yi");
+            //rhoYiEqn.solve();
+            
+            //fvConstraints().constrain(rhoYi_[i]);   // apply BCs / limits FIRST
+            fvConstraints().constrain(Yi); 
+            
+            //Y_[i] = rhoYi_[i] / rho_;                  // THEN recover primitive
+            //Y_[i].correctBoundaryConditions();
+            Yi.correctBoundaryConditions();
         }
         else
         {
+            //Y_[i].correctBoundaryConditions();
             Yi.correctBoundaryConditions();
         }
     }
@@ -115,49 +129,48 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
 
     volScalarField& he = thermo_.he();
     
-    // Define the total energy flux term
-    surfaceScalarField phiHE
+    //volScalarField HE("HE", he + K);  
+    
+    //
+    //  Energy equation fluxes
+    //
+    surfaceScalarField phiHEp
     (
-        "phiHE",
-        aphiv_pos()*(rho_pos()*(HE_pos + 0.5*magSqr(U_pos())))
-      + aphiv_neg()*(rho_neg()*(HE_neg + 0.5*magSqr(U_neg())))
+        "phiHEp",
+        aphiv_pos()*rhoHE_pos
+      + aphiv_neg()*rhoHE_neg
     );
     
-    // Pressure jump term
-    surfaceScalarField phiP_jump("phiP_jump", aSf()*(p_pos() - p_neg()));
     
-    // Pressure upwind term
-    surfaceScalarField phiP_upwind("phiP_upwind", aphiv_pos()*p_pos() + aphiv_neg()*p_neg());
-    
-    // Combine
-    surfaceScalarField phiP = phiP_jump + phiP_upwind;
-    
-    // Apply moving mesh correction
-    if (mesh.moving())
-    {
-        phiP += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
-    }
-    
-    //  Create pressure work term
-    tmp<volScalarField::Internal> pw;
-
     if (he.name() == "e")
     {
-        pw = fvc::div(phiP)().internalField();  // unwrap tmp and get Internal
-    }
-    else
-    {
-        pw = (-dpdt)();  // unwrap tmp to get Internal
-    }
+    
+      // Pressure jump term
+      surfaceScalarField phiP_jump("phiP_jump", aSf()*(p_pos() - p_neg()));
+      
+      // Pressure upwind term
+      surfaceScalarField phiP_upwind("phiP_upwind", aphiv_pos()*p_pos() + aphiv_neg()*p_neg());
+      
+      // Combine
+      surfaceScalarField phiP = phiP_upwind + phiP_jump ;
+      
+      // Apply moving mesh correction
+      if (mesh.moving())
+      {
+          phiP += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
+      }
+
+      phiHEp += phiP;
+        
+    }   
     
     //
     //  Energy equation definition
     //
     fvScalarMatrix EEqn
     (
-        fvm::ddt(rho, he) + fvc::div(phiHE)
+        fvm::ddt(rho, he) + fvc::div(phiHEp)
       + fvc::ddt(rho, K)
-      + pressureWork(pw)
      ==
         fvModels().source(rho, he)
       + reaction->Qdot()
@@ -182,6 +195,9 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
     fvConstraints().constrain(EEqn);
 
     EEqn.solve();
+    
+    // Pull out kinetic energy
+    //he = HE - K;
 
     fvConstraints().constrain(he);
 

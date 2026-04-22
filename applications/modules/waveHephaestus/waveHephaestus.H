@@ -89,7 +89,47 @@ class waveFluid
     public fluidSolver
 {
 
-protected:        
+protected:     
+    
+    // Thermo models
+    
+        //- Pointer to the fluid thermophysical properties
+        autoPtr<fluidMulticomponentThermo> thermoPtr_;
+
+        //- Reference to the fluid thermophysical properties
+        fluidMulticomponentThermo& thermo_;   
+
+    // Thermophysical properties
+    
+        //- Velocity field
+        volVectorField U_;
+        
+        //- The continuity density field
+        volScalarField rho_;
+
+        //- Reference to the pressure field
+        volScalarField& p_;
+        
+        //- Reference to the species fraction fields
+        PtrList<volScalarField>& Y_;
+
+    // Derived properties
+
+        //- Mass-flux field
+        surfaceScalarField phi_;
+        
+        //- Rate of change of the pressure
+        //  Used in the enthalpy equation
+        volScalarField::Internal dpdt;
+        
+        //- The species concentrations
+        PtrList<volScalarField> rhoYi_;
+
+        //- Kinetic energy field
+        //  Used in the energy equation
+        volScalarField K;
+        
+        
 
     // Controls
 
@@ -102,11 +142,21 @@ protected:
 
     // Thermophysical models
     
-        //- Pointer to the fluid thermophysical properties
-        autoPtr<fluidMulticomponentThermo> thermoPtr_;
-
-        //- Reference to the fluid thermophysical properties
-        fluidMulticomponentThermo& thermo_;
+        IOdictionary physicalProperties_;
+        
+        bool inviscid;
+        
+        //- Pointer to the momentum transport model
+        autoPtr<compressible::momentumTransportModel> momentumTransport;
+        
+        /*
+          TODO: at some point we should generate some helper modules
+        for this variable.
+        
+        */
+        //- The thermophysical transport model
+        autoPtr<fluidMulticomponentThermophysicalTransportModel>
+            thermophysicalTransport;
         
         //- Pointer to the combustion model  
         autoPtr<combustionModel> reaction;
@@ -122,55 +172,7 @@ protected:
         reconstruction of velocity, it could greatly throw off other
         models trying to interact with the data.
         
-        */
-        
-        bool inviscid;
-        
-        //- The thermophysical transport model
-        autoPtr<fluidMulticomponentThermophysicalTransportModel>
-            thermophysicalTransport;
-            
-        //- Pointer to the momentum transport model
-        autoPtr<compressible::momentumTransportModel> momentumTransport;
-        /*
-          TODO: at some point we should generate some helper modules
-        for this variable.
-        
-        */
-
-    // Thermophysical properties
-
-        //- Reference to the pressure field
-        volScalarField& p_;
-
-        //- The continuity density field
-        volScalarField rho_;
-        
-        //- Reference to the species fraction fields
-        PtrList<volScalarField>& Y_;
-        
-        //- The species concentrations
-        PtrList<volScalarField> rhoYi_;
-            
-        //- Rate of change of the pressure
-        //  Used in the enthalpy equation
-        volScalarField::Internal dpdt;
-
-
-    // Kinematic properties
-
-        //- Velocity field
-        volVectorField U_;
-
-        //- Mass-flux field
-        surfaceScalarField phi_;
-
-        //- Kinetic energy field
-        //  Used in the energy equation
-        volScalarField K;
-
-
-    
+        */    
 
 
     // Cached temporary fields
@@ -202,9 +204,6 @@ protected:
         
         tmp<surfaceScalarField> rhoHE_pos;
         tmp<surfaceScalarField> rhoHE_neg;
-        
-        tmp<surfaceScalarField> HE_pos;
-        tmp<surfaceScalarField> HE_neg;
         
         List<tmp<surfaceScalarField>> rhoYi_pos;
         List<tmp<surfaceScalarField>> rhoYi_neg;

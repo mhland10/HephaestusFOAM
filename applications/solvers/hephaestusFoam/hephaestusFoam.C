@@ -93,9 +93,13 @@ int main(int argc, char *argv[])
     (
         runTime.controlDict().lookupOrDefault("solver", word::null)
     );
+    
+    Info<< "[HephaestusFoam] control dictionary loaded" << endl;
 
     // Optionally reset the solver name from the -solver command-line argument
     args.optionReadIfPresent("solver", solverName);
+    
+    Info<< "[HephaestusFoam] solver identified" << endl;
 
     // Check the solverName has been set
     if (solverName == word::null)
@@ -110,6 +114,8 @@ int main(int argc, char *argv[])
     {
         // Load the solver library
         solver::load(solverName);
+        
+        Info<< "[HephaestusFoam] solver loaded" << endl;
     }
 
     // Create the default single region mesh
@@ -118,12 +124,16 @@ int main(int argc, char *argv[])
     // Instantiate the selected solver
     autoPtr<solver> solverPtr(solver::New(solverName, mesh));
     solver& solver = solverPtr();
+    
+    Info<< "[HephaestusFoam] solver instantiated" << endl;
 
     // Create the outer PIMPLE loop and control structure
     pimpleSingleRegionControl pimple(solver.pimple);
 
     // Set the initial time-step
     setDeltaT(runTime, solver);
+    
+    Info<< "[HephaestusFoam] time set" << endl;
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -151,6 +161,7 @@ int main(int argc, char *argv[])
             solver.fvModels().correct();
             solver.prePredictor();
             solver.momentumPredictor();
+            //solver.prePredictor();
             solver.thermophysicalPredictor();
             solver.pressureCorrector();
             solver.postCorrector();

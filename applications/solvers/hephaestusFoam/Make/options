@@ -5,5 +5,4 @@ EXE_INC = \
 
 EXE_LIBS = \
     -lfiniteVolume \
-    -L$(CANT_HOME)/lib \
-    -lcantera
+    -L$(CANT_HOME)/lib

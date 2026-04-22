@@ -3,7 +3,6 @@ EXE_INC = \
     -I$(HEPH_UTIL)/cantera/thermofluid/lnInclude \
     -I$(HEPH_UTIL)/cantera/thermofluid/baseThermo/lnInclude \
     -I$(HEPH_UTIL)/cantera/thermofluid/multicomponentThermo/lnInclude \
-    -I$(HEPH_APP)/modules/waveHephaestus \
     -I$(FOAM_MODULES)/fluidSolver/lnInclude \
     -I$(LIB_SRC)/physicalProperties/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
@@ -27,13 +26,19 @@ EXE_INC = \
 
 LIB_LIBS = \
     -lcanteraThermophysicalModels \
-    -lWaveHephaestus \
     -lfluidSolver \
     -lfluidThermophysicalModels \
+    -lspecie \
+    -lchemistryModel \
+    -lODE \
+    -lcombustionModels \
+    -lmulticomponentThermophysicalModels \
     -lmomentumTransportModels \
     -lcompressibleMomentumTransportModels \
     -lcoupledThermophysicalTransportModels \
+    -lfluidMulticomponentThermophysicalTransportModels \
     -lfiniteVolume \
-    -lmeshTools \
     -lfvModels \
-    -lfvConstraints
+    -lfvConstraints \
+    -lmeshTools \
+    -lsampling

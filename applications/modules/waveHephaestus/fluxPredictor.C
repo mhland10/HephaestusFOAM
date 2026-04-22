@@ -66,8 +66,12 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //
     //================================================================
 
-    rho_pos = interpolate(rho, pos());
-    rho_neg = interpolate(rho, neg());
+    //rho_pos = interpolate(rho, pos());
+    rho_pos = interpolate(rho, pos(), rho.name());
+    //rho_neg = interpolate(rho, neg());
+    rho_neg = interpolate(rho, neg(), rho.name());
+    
+    const dimensionedScalar rhoSmall("rhoSmall", rho_.dimensions(), SMALL);
     
     //
     //  Calculate momentum fluxes
@@ -76,27 +80,31 @@ void Foam::solvers::waveFluid::fluxPredictor()
     rhoU_pos = interpolate(rhoU, pos(), U.name());
     rhoU_neg = interpolate(rhoU, neg(), U.name());
 
-    U_pos = surfaceVectorField::New("U_pos", rhoU_pos()/rho_pos());
-    U_neg = surfaceVectorField::New("U_neg", rhoU_neg()/rho_neg());
+    //U_pos = surfaceVectorField::New("U_pos", rhoU_pos()/rho_pos());
+    U_pos   = interpolate(U, pos(), U.name());
+    //U_neg = surfaceVectorField::New("U_neg", rhoU_neg()/rho_neg());
+    U_neg   = interpolate(U, neg(), U.name());
     
     //
     //  Calculate the energy fluxes
     //
-    const volScalarField rhoHE(rho*he);
+    const volScalarField rhohe(rho*he);
+    const volScalarField rhoHE(rhohe+rho*K);
+    const volScalarField HE(he+K);    
+    
     rhoHE_pos = interpolate(rhoHE, pos(), U.name());
-    rhoHE_neg = interpolate(rhoHE, neg(), U.name());
-
-    HE_pos = surfaceScalarField::New("HE_pos", rhoHE_pos()/max(rho_pos(),SMALL));
-    HE_neg = surfaceScalarField::New("HE_neg", rhoHE_neg()/max(rho_neg(),SMALL));
-
+    rhoHE_neg = interpolate(rhoHE, neg(), U.name());  
+    
     const volScalarField& T = thermo.T();
 
     const volScalarField rPsi("rPsi", 1.0/thermo.psi());
     const surfaceScalarField rPsi_pos(interpolate(rPsi, pos(), T.name()));
     const surfaceScalarField rPsi_neg(interpolate(rPsi, neg(), T.name()));
 
-    p_pos = surfaceScalarField::New("p_pos", rho_pos()*rPsi_pos);
-    p_neg = surfaceScalarField::New("p_neg", rho_neg()*rPsi_neg);
+    //p_pos = surfaceScalarField::New("p_pos", rho_pos()*rPsi_pos);
+    p_pos   = interpolate(p, pos(), p.name());
+    //p_neg = surfaceScalarField::New("p_neg", rho_neg()*rPsi_neg);
+    p_neg   = interpolate(p, neg(), p.name());
     
     //
     //  Calculate the species fluxes
@@ -109,7 +117,6 @@ void Foam::solvers::waveFluid::fluxPredictor()
         rhoYi_[i] = rho_ * Y_[i];
     
         rhoYi_pos[i] = interpolate(rhoYi_[i], pos(), Y_[i].name());
-    
         rhoYi_neg[i] = interpolate(rhoYi_[i], neg(), Y_[i].name());
     }
     
@@ -117,25 +124,10 @@ void Foam::solvers::waveFluid::fluxPredictor()
     Yi_neg.setSize(Y_.size());
     
     forAll(Y_, i)
-    {
-    
-      Yi_pos[i] = 
-        new surfaceScalarField
-            (
-                "Yi_pos_" + Y_[i].name(),
-                rhoYi_pos[i]()/max(rho_pos(),SMALL)
-            )
-          ;
-      
-      Yi_neg[i] = 
-        new surfaceScalarField
-            (
-                "Yi_neg_" + Y_[i].name(),
-                rhoYi_neg[i]()/max(rho_neg(),SMALL)
-            )
-          ;
-    
-    }
+    {    
+        Yi_pos[i] = interpolate(Y_[i], pos(), Y_[i].name());
+        Yi_neg[i] = interpolate(Y_[i], neg(), Y_[i].name());
+    }        
     
     //================================================================
     //
@@ -143,8 +135,8 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //
     //================================================================
 
-    surfaceScalarField phiv_pos("phiv_pos", U_pos() & mesh.Sf());
-    surfaceScalarField phiv_neg("phiv_neg", U_neg() & mesh.Sf());
+    surfaceScalarField phiv_pos("phiv_pos", 1.0* ( U_pos() & mesh.Sf()) );
+    surfaceScalarField phiv_neg("phiv_neg", 1.0* ( U_neg() & mesh.Sf()) );
     
     //================================================================
     //
@@ -164,8 +156,10 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //  Calculate the wave corrections
     //
     //================================================================
-
+    
+    
     const volScalarField c("c", sqrt(thermo.Cp()/thermo.Cv()*rPsi));
+    
     const surfaceScalarField cSf_pos
     (
         "cSf_pos",
@@ -176,9 +170,16 @@ void Foam::solvers::waveFluid::fluxPredictor()
         "cSf_neg",
         interpolate(c, neg(), T.name())*mesh.magSf()
     );
+    
+    /*
+    const dimensionedScalar c0("c0", U.dimensions(), 343.0); // or whatever scale is reasonable
+    const surfaceScalarField cSf_pos = c0 * mesh.magSf();
+    const surfaceScalarField cSf_neg = c0 * mesh.magSf();
+    */
 
     const dimensionedScalar v_zero("v_zero", dimVolume/dimTime, 0);
-
+    
+    
     const surfaceScalarField ap
     (
         "ap",
@@ -189,7 +190,11 @@ void Foam::solvers::waveFluid::fluxPredictor()
         "am",
         min(min(phiv_pos - cSf_pos, phiv_neg - cSf_neg), v_zero)
     );
-
+    
+    //const surfaceScalarField ap( "ap", c0 * mesh.magSf() );
+    //const surfaceScalarField am( "am", c0 * mesh.magSf() );
+    
+    
     a_pos = surfaceScalarField::New
     (
         "a_pos",
@@ -197,12 +202,15 @@ void Foam::solvers::waveFluid::fluxPredictor()
           ? surfaceScalarField::New("a_pos", mesh, 0.5)
           : ap/(ap - am)
     );
-
     a_neg = surfaceScalarField::New("a_neg", 1.0 - a_pos());
+    
+    //a_pos = surfaceScalarField::New("a_pos", surfaceScalarField::New("a_pos", mesh, 0.5));
+    //a_neg = surfaceScalarField::New("a_neg", surfaceScalarField::New("a_neg", mesh, 0.5));
 
     phiv_pos *= a_pos();
     phiv_neg *= a_neg();
-
+    
+    
     aSf = surfaceScalarField::New
     (
         "aSf",
@@ -210,11 +218,14 @@ void Foam::solvers::waveFluid::fluxPredictor()
           ? -0.5*max(mag(am), mag(ap))
           : am*a_pos()
     );
+      
+    //aSf = surfaceScalarField::New("aSf",0.0*max(mag(am), mag(ap)));
 
     aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
     aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
 
     phi_ = aphiv_pos()*rho_pos() + aphiv_neg()*rho_neg();
+    
 }
 
 

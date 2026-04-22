@@ -32,9 +32,13 @@ License
 void Foam::solvers::waveFluid::momentumPredictor()
 {
     volVectorField& U(U_);
-
-    const surfaceVectorField phiUp
+    
+    //
+    //  Momentum equation fluxes
+    //
+    surfaceVectorField phiUp
     (
+        "phiUp",
         (aphiv_pos()*rhoU_pos() + aphiv_neg()*rhoU_neg())
       + (a_pos()*p_pos() + a_neg()*p_neg())*mesh.Sf()
     );
@@ -72,6 +76,8 @@ void Foam::solvers::waveFluid::momentumPredictor()
     {
         devTau = divDevTau->flux();
     }
+    
+    //fluxPredictor();
 }
 
 
