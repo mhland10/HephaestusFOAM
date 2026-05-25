@@ -73,6 +73,12 @@ See also
 #include "fluidMulticomponentThermophysicalTransportModel.H"
 #include "multivariateScheme.H"
 
+// Cantera headers
+#include "cantera/thermo/IdealGasPhase.h" // defines class IdealGasPhase
+#include "cantera/base/Solution.h"
+#include "cantera/transport.h" // transport properties
+#include <iostream>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace Foam
@@ -174,6 +180,8 @@ protected:
         
         */    
 
+    
+
 
     // Cached temporary fields
 
@@ -191,9 +199,18 @@ protected:
 
         tmp<surfaceScalarField> p_pos;
         tmp<surfaceScalarField> p_neg;
+        
+        tmp<surfaceScalarField> T_pos;
+        tmp<surfaceScalarField> T_neg;
+
+        tmp<surfaceScalarField> he_pos;
+        tmp<surfaceScalarField> he_neg;
 
         tmp<surfaceScalarField> a_pos;
         tmp<surfaceScalarField> a_neg;
+
+        tmp<surfaceScalarField> c_pos;
+        tmp<surfaceScalarField> c_neg;
 
         tmp<surfaceScalarField> aSf;
 
@@ -345,11 +362,35 @@ public:
         //- Called after the PIMPLE loop at the end of the time-step
         virtual void postSolve();
 
+        //- Calculate the specified thermo property at a face set
+        virtual void facePropertyCalculate
+        (
+            const word& propertyName,
+            const surfaceScalarField& pf,
+            const surfaceScalarField& Tf,
+            const PtrList<surfaceScalarField>& Yif,
+            surfaceScalarField& result
+        ) const;
+
 
     // Member Operators
 
         //- Disallow default bitwise assignment
         void operator=(const waveFluid&) = delete;
+
+protected:
+
+    // Cantera data & functions
+
+        // Create pointer for Cantera solution
+        Cantera::shared_ptr<Cantera::Solution> canteraSolution_;
+
+        // Cantera initialization function
+        void initializeCantera();
+
+        // Allow easy switching between enthalpy and internal energy
+        bool useEnthalpy_;
+
 };
 
 

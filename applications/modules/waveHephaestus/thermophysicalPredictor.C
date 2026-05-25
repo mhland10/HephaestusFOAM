@@ -141,7 +141,6 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
       + aphiv_neg()*rhoHE_neg
     );
     
-    
     if (he.name() == "e")
     {
     

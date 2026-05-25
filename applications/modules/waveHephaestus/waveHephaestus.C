@@ -88,9 +88,18 @@ void Foam::solvers::waveFluid::clearTemporaryFields()
 
     p_pos.clear();
     p_neg.clear();
+    
+    T_pos.clear();
+    T_neg.clear();
+
+    he_pos.clear();
+    he_neg.clear();
 
     a_pos.clear();
     a_neg.clear();
+
+    c_pos.clear();
+    c_neg.clear();
 
     aSf.clear();
 
@@ -255,6 +264,23 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     thermo.validate(type(), "h", "e");
     
     Info<< "[waveFluid] Thermodynamics model validated..." << endl;
+
+    if (thermo.he().name()=="h")
+    {
+        useEnthalpy_ = true;
+    }
+    else if (thermo.he().name()=="e")
+    {
+        useEnthalpy_ = false;
+    }
+    else
+    {
+        FatalErrorInFunction
+            << "Unknown energy type: " << thermo.he().name()
+            << exit(FatalError);
+    }
+    
+     Info<< "[waveFluid] Energy type: " << (useEnthalpy_ ? "Enthalpy" : "Internal Energy") << endl;
     
     //
     //  Check momentum transport model  
@@ -291,6 +317,13 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     }
     
     Info<< "[waveFluid] species initialized..." << endl;
+
+    //
+    //  Initialize cantera
+    //
+    initializeCantera();
+
+    Info<< "[waveFluid] Cantera initialized..." << endl;
     
     //
     //   Set up initial calculation
@@ -333,6 +366,8 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     }
     
     Info<< "[waveFluid] fluxes initialized..." << endl;
+
+
 }
 
 
@@ -389,6 +424,29 @@ void Foam::solvers::waveFluid::postCorrector()
 
 void Foam::solvers::waveFluid::postSolve()
 {}
+
+using namespace Cantera;
+
+void Foam::solvers::waveFluid::initializeCantera()
+{
+    Foam::Info << "PsiCanteraThermo constructor from mesh & phaseName" << Foam::nl;
+    
+    // Access the dictionary via the mesh
+    const dictionary& runDict = mesh.lookupObject<dictionary>("physicalProperties");
+    const dictionary& canteraDict = runDict.subDict("cantera");
+    const dictionary& setDict = runDict.subDict("thermoType");
+    Foam::word energyType = setDict.lookupOrDefault<word>("energy", "sensibleEnthalpy");
+    useEnthalpy_ = (energyType == "sensibleEnthalpy" || energyType == "enthalpy");
+    Foam::Info << "Use Enthalpy? " << useEnthalpy_ << Foam::nl;
+    
+    // Read some properties
+    word yamlFile = canteraDict.lookupOrDefault<word>("dataFile", "gri30.yaml");
+    word phase = canteraDict.lookupOrDefault<word>("phaseName", "gri30");
+    Foam::Info << "Cantera YAML file: " << yamlFile << ", phase: " << phase << Foam::nl;
+    
+    // Create the solution with default (ambient) state3
+    canteraSolution_ = newSolution(yamlFile, phase);
+}
 
 
 // ************************************************************************* //
