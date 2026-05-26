@@ -268,13 +268,31 @@ void Foam::solvers::waveFluid::fluxPredictor()
         "am",
         min(min(phiv_pos - cSf_pos, phiv_neg - cSf_neg), v_zero)
     );    
-    
+
+    surfaceScalarField denom
+    (
+        "denom",
+        ap - am
+    );
+
+    const dimensionedScalar denomSmall
+    (
+        "denomSmall",
+        denom.dimensions(),
+        SMALL
+    );
+
+    // Preserve sign while enforcing minimum magnitude
+    denom =
+        sign(denom)
+    *max(mag(denom), denomSmall);
+
     a_pos = surfaceScalarField::New
     (
         "a_pos",
         fluxScheme == "Tadmor"
-          ? surfaceScalarField::New("a_pos", mesh, 0.5)
-          : ap/(ap - am)
+        ? surfaceScalarField::New("a_pos", mesh, 0.5)
+        : ap/denom
     );
     a_neg = surfaceScalarField::New("a_neg", 1.0 - a_pos());
 
