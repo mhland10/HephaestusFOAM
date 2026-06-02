@@ -231,6 +231,12 @@ protected:
         //- Optional LTS reciprocal time-step field
         tmp<volScalarField> trDeltaT;
 
+        //- The flux fields
+        tmp<surfaceVectorField> phiUp;
+        tmp<surfaceScalarField> phiHEp;
+        tmp<surfaceScalarField> phiP;
+        List<tmp<surfaceScalarField>> phiYi;
+
 
 private:
 

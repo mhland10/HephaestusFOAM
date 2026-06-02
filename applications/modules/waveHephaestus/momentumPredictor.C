@@ -33,16 +33,6 @@ void Foam::solvers::waveFluid::momentumPredictor()
 {
     volVectorField& U(U_);
     
-    //
-    //  Momentum equation fluxes
-    //
-    surfaceVectorField phiUp
-    (
-        "phiUp",
-        (aphiv_pos()*rhoU_pos() + aphiv_neg()*rhoU_neg())
-      + (a_pos()*p_pos() + a_neg()*p_neg())*mesh.Sf()
-    );
-
     // Construct the divDevTau matrix first
     // so that the maxwellSlipU BC can access the explicit part
     tmp<fvVectorMatrix> divDevTau;

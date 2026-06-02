@@ -113,6 +113,12 @@ void Foam::solvers::waveFluid::clearTemporaryFields()
     
     rhoYi_pos.clear();
     rhoYi_neg.clear();
+
+    phiUp.clear();
+    phiHEp.clear();
+    phiP.clear();
+    phiYi.clear();
+
 }
 
 

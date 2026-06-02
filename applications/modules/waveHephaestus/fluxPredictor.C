@@ -252,7 +252,58 @@ void Foam::solvers::waveFluid::fluxPredictor()
     aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
     aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
 
+    //================================================================
+    //
+    //  Calculate the flux terms for equations
+    //
+    //================================================================
+
+    //
+    //  Calculate the mass fluxes
+    //
     phi_ = aphiv_pos()*rho_pos + aphiv_neg()*rho_neg;
+
+    //
+    //  Calculate the momentum fluxes
+    //
+    phiUp = aphiv_pos()*rhoU_pos() + aphiv_neg()*rhoU_neg() 
+            + (a_pos()*p_pos() + a_neg()*p_neg())*mesh.Sf();
+
+    //
+    //  Calculate the energy fluxes
+    //
+    phiHEp = aphiv_pos()*rhoHE_pos + aphiv_neg()*rhoHE_neg;
+    
+    if (he.name() == "e")
+    {
+    
+      // Pressure jump term
+      tmp<surfaceScalarField> phiP_jump = aSf()*(p_pos() - p_neg());
+      
+      // Pressure upwind term
+      tmp<surfaceScalarField> phiP_upwind = aphiv_pos()*p_pos() + aphiv_neg()*p_neg();
+      
+      // Combine
+      phiP = phiP_upwind + phiP_jump ;
+      
+      // Apply moving mesh correction
+      if (mesh.moving())
+      {
+          phiP.ref() += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
+      }
+
+      phiHEp.ref() += phiP;
+        
+    }
+
+    //
+    //  Calculate the species fluxes
+    //
+    phiYi.setSize(Y_.size());
+    forAll(Y_, i)
+    {
+        phiYi[i] = aphiv_pos()*rhoYi_pos[i] + aphiv_neg()*rhoYi_neg[i];
+    }
     
 }
 

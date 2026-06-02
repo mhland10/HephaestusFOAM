@@ -54,18 +54,6 @@ Foam::solvers::waveFluid::pressureWork
 void Foam::solvers::waveFluid::speciesPredictor()
 {
 
-    //
-    //  Species equation fluxes
-    //
-    List<tmp<surfaceScalarField>> phiYi;
-    phiYi.setSize(Y_.size());
-    forAll(Y_, i)
-    {
-        phiYi[i] =
-        aphiv_pos()*rhoYi_pos[i]
-      + aphiv_neg()*rhoYi_neg[i];
-    }
-
     forAll(Y_, i)
     {
         volScalarField& Yi = Y_[i];
@@ -116,38 +104,6 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
 {
     
     volScalarField& he = thermo_.he();
-    
-    //
-    //  Energy equation fluxes
-    //
-    surfaceScalarField phiHEp
-    (
-        "phiHEp",
-        aphiv_pos()*rhoHE_pos
-      + aphiv_neg()*rhoHE_neg
-    );
-    
-    if (he.name() == "e")
-    {
-    
-      // Pressure jump term
-      surfaceScalarField phiP_jump("phiP_jump", aSf()*(p_pos() - p_neg()));
-      
-      // Pressure upwind term
-      surfaceScalarField phiP_upwind("phiP_upwind", aphiv_pos()*p_pos() + aphiv_neg()*p_neg());
-      
-      // Combine
-      surfaceScalarField phiP = phiP_upwind + phiP_jump ;
-      
-      // Apply moving mesh correction
-      if (mesh.moving())
-      {
-          phiP += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
-      }
-
-      phiHEp += phiP;
-        
-    }   
     
     //
     //  Energy equation definition
