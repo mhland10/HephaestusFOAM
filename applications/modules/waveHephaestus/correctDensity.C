@@ -31,6 +31,7 @@ License
 
 void Foam::solvers::waveFluid::correctDensity()
 {
+
     volScalarField& rho(rho_);
 
     fvScalarMatrix rhoEqn

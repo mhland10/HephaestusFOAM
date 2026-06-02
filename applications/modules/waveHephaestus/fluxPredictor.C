@@ -32,12 +32,6 @@ void Foam::solvers::waveFluid::fluxPredictor()
 
     //================================================================
     //
-    //  Re-setup boundary conditions references
-    //
-    //================================================================
-
-    //================================================================
-    //
     //  Initialize references
     //
     //================================================================
@@ -170,43 +164,6 @@ void Foam::solvers::waveFluid::fluxPredictor()
     const volScalarField rPsi("rPsi", 1.0/thermo.psi());
     const surfaceScalarField rPsi_pos(interpolate(rPsi, pos(), T.name()));
     const surfaceScalarField rPsi_neg(interpolate(rPsi, neg(), T.name()));
-    
-    //================================================================
-    //
-    //  Correct the flux values
-    //
-    //================================================================
-
-    // Define special  property field for face property evaluation
-    surfaceScalarField rho_posF( "rho_posF", interpolate(rho, pos(), rho.name()) );
-    surfaceScalarField rho_negF( "rho_negF", interpolate(rho, neg(), rho.name()) );
-
-    facePropertyCalculate("rho", p_posF, T_posF, Yi_posF, rho_posF);
-    facePropertyCalculate("rho", p_negF, T_negF, Yi_negF, rho_negF);
-
-    //
-    //  Momentum flux correction
-    //
-    rhoU_pos.ref() = rho_posF*U_pos();
-    rhoU_neg.ref() = rho_negF*U_neg();
-
-    //
-    //  Energy flux correction
-    //
-    facePropertyCalculate("he", p_posF, T_posF, Yi_posF, he_pos.ref());
-    facePropertyCalculate("he", p_negF, T_negF, Yi_negF, he_neg.ref());
-    
-    rhoHE_pos.ref() = rho_posF*( he_pos() + 0.5*magSqr(U_pos()) );
-    rhoHE_neg.ref() = rho_negF*( he_neg() + 0.5*magSqr(U_neg()) );
-
-    //
-    //  Species flux correction
-    //
-    forAll(Y_, i)
-    {   
-        rhoYi_pos[i] = rho_posF*Yi_pos[i];
-        rhoYi_neg[i] = rho_negF*Yi_neg[i];
-    }
 
     //================================================================
     //
@@ -235,26 +192,11 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //  Calculate the wave corrections
     //
     //================================================================
-    
-    c_pos = surfaceScalarField::New
-    (
-        "c_pos",
-        mesh,
-        dimensionedScalar(dimVelocity, 0.0)
-    );
 
-    c_neg = surfaceScalarField::New
-    (
-        "c_neg",
-        mesh,
-        dimensionedScalar(dimVelocity, 0.0)
-    );
-
-    facePropertyCalculate("a", p_posF, T_posF, Yi_posF, c_pos.ref());
-    facePropertyCalculate("a", p_negF, T_negF, Yi_negF, c_neg.ref());
-    
-    const surfaceScalarField cSf_pos( "cSf_pos", c_pos()*mesh.magSf() );
-    const surfaceScalarField cSf_neg( "cSf_neg", c_neg()*mesh.magSf() );
+    volScalarField c("c", sqrt(thermo.Cp()/thermo.Cv()*rPsi));
+        
+    surfaceScalarField cSf_pos("cSf_pos",interpolate(c, pos, T.name())*mesh.magSf());
+    surfaceScalarField cSf_neg("cSf_neg",interpolate(c, neg, T.name())*mesh.magSf());
 
     const dimensionedScalar v_zero("v_zero", dimVolume/dimTime, 0);
     
@@ -283,9 +225,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     );
 
     // Preserve sign while enforcing minimum magnitude
-    denom =
-        sign(denom)
-    *max(mag(denom), denomSmall);
+    denom = sign(denom)*max(mag(denom), denomSmall);
 
     a_pos = surfaceScalarField::New
     (
@@ -312,7 +252,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
     aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
 
-    phi_ = aphiv_pos()*rho_posF + aphiv_neg()*rho_negF;
+    phi_ = aphiv_pos()*rho_pos + aphiv_neg()*rho_neg;
     
 }
 

@@ -54,8 +54,6 @@ Foam::solvers::waveFluid::pressureWork
 void Foam::solvers::waveFluid::speciesPredictor()
 {
 
-    reaction->correct();
-    
     //
     //  Species equation fluxes
     //
@@ -70,9 +68,6 @@ void Foam::solvers::waveFluid::speciesPredictor()
 
     forAll(Y_, i)
     {
-        // Define the species volume scalar field
-        //volScalarField Yi = rhoYi_[i] / rho_;
-        //volScalarField Yi = Y_[i];
         volScalarField& Yi = Y_[i];
         
         if (thermo_.solveSpecie(i))
@@ -82,7 +77,6 @@ void Foam::solvers::waveFluid::speciesPredictor()
             //
             fvScalarMatrix rhoYiEqn
             (
-                //fvm::ddt(rhoYi_[i])
                 fvm::ddt(rho, Yi)
               + fvc::div(phiYi[i])
              ==
@@ -104,18 +98,13 @@ void Foam::solvers::waveFluid::speciesPredictor()
             fvConstraints().constrain(rhoYiEqn);
             
             rhoYiEqn.solve("Yi");
-            //rhoYiEqn.solve();
             
-            //fvConstraints().constrain(rhoYi_[i]);   // apply BCs / limits FIRST
             fvConstraints().constrain(Yi); 
             
-            //Y_[i] = rhoYi_[i] / rho_;                  // THEN recover primitive
-            //Y_[i].correctBoundaryConditions();
             Yi.correctBoundaryConditions();
         }
         else
         {
-            //Y_[i].correctBoundaryConditions();
             Yi.correctBoundaryConditions();
         }
     }
@@ -125,11 +114,8 @@ void Foam::solvers::waveFluid::speciesPredictor()
 
 void Foam::solvers::waveFluid::thermophysicalPredictor()
 {
-    speciesPredictor();
-
-    volScalarField& he = thermo_.he();
     
-    //volScalarField HE("HE", he + K);  
+    volScalarField& he = thermo_.he();
     
     //
     //  Energy equation fluxes
@@ -175,6 +161,11 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
       + reaction->Qdot()
     );
 
+    if (he.name() == "h" )
+    {
+        EEqn -= fvc::ddt(p);
+    }
+
     if (!inviscid)
     {
         const surfaceScalarField devTauDotU
@@ -194,13 +185,15 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
     fvConstraints().constrain(EEqn);
 
     EEqn.solve();
-    
-    // Pull out kinetic energy
-    //he = HE - K;
 
     fvConstraints().constrain(he);
 
+    speciesPredictor();
+
+    he.correctBoundaryConditions();
+
     thermo_.correct();
+    
 }
 
 

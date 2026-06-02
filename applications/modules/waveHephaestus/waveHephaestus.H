@@ -362,17 +362,6 @@ public:
         //- Called after the PIMPLE loop at the end of the time-step
         virtual void postSolve();
 
-        //- Calculate the specified thermo property at a face set
-        virtual void facePropertyCalculate
-        (
-            const word& propertyName,
-            const surfaceScalarField& pf,
-            const surfaceScalarField& Tf,
-            const PtrList<surfaceScalarField>& Yif,
-            surfaceScalarField& result
-        ) const;
-
-
     // Member Operators
 
         //- Disallow default bitwise assignment

@@ -1,7 +1,6 @@
 setRDeltaT.C
 moveMesh.C
 prePredictor.C
-faceEvaluation.C
 fluxPredictor.C
 correctDensity.C
 momentumPredictor.C

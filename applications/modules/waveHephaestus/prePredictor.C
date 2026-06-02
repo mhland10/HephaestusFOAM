@@ -29,7 +29,31 @@ License
 
 void Foam::solvers::waveFluid::prePredictor()
 {
+    //
+    //  Troubleshooting Readout
+    //
+    /*
+    Info<< "min(T)    = " << min(thermo.T()).value() << nl;
+    Info<< "max(T)    = " << max(thermo.T()).value() << nl;
+
+    Info<< "min(p)    = " << min(p).value() << nl;
+    Info<< "max(p)    = " << max(p).value() << nl;
+
+    Info<< "min(rho)  = " << min(rho).value() << nl;
+    Info<< "max(rho)  = " << max(rho).value() << nl;
+
+    forAll(Y, i)
+    {
+        Info<< Y[i].name()
+            << " min=" << min(Y[i]).value()
+            << " max=" << max(Y[i]).value()
+            << nl;
+    }
+            */
+
     fluxPredictor();
+
+    reaction->correct();
 
     correctDensity();
 

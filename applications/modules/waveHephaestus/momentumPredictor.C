@@ -70,7 +70,8 @@ void Foam::solvers::waveFluid::momentumPredictor()
     solve(UEqn);
 
     fvConstraints().constrain(U);
-    
+
+    //K = 0.5*magSqr(U);    
 
     if (!inviscid)
     {

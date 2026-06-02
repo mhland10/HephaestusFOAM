@@ -221,9 +221,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     
     momentumTransport
     (
-        inviscid
-      ? autoPtr<compressibleMomentumTransportModel>(nullptr)
-      : compressible::momentumTransportModel::New
+      compressible::momentumTransportModel::New
         (
             rho_,
             U_,
@@ -234,9 +232,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     
     thermophysicalTransport
     (
-        inviscid
-      ? autoPtr<fluidMulticomponentThermophysicalTransportModel>(nullptr)
-      : fluidMulticomponentThermophysicalTransportModel::New
+      fluidMulticomponentThermophysicalTransportModel::New
         (
             momentumTransport(),
             thermo_
