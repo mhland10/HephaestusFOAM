@@ -296,6 +296,24 @@ void Foam::solvers::waveFluid::fluxPredictor()
         
     }
 
+    
+    if (he.name() == "h")
+    {
+    
+      // Pressure jump term
+      tmp<surfaceScalarField> phiP = aSf()*(p_pos() - p_neg());
+
+      // Apply moving mesh correction
+      if (mesh.moving())
+      {
+          phiP.ref() += mesh.phi()*(a_pos()*p_pos() + a_neg()*p_neg());
+      }
+
+      phiHEp.ref() += phiP;
+        
+    }
+    
+
     //
     //  Calculate the species fluxes
     //

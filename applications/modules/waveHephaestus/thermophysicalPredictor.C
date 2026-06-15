@@ -152,7 +152,4 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
     
 }
 
-
-
-
 // ************************************************************************* //
