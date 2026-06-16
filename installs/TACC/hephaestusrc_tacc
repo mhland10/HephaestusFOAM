@@ -1,5 +1,5 @@
 #!/bin/bash
-# HephaestusFoam environment setup
+# HephaestusFOAM environment setup
 
 ##module purge
 
@@ -48,9 +48,9 @@ export LD_LIBRARY_PATH="$CANT_HOME/lib:$LD_LIBRARY_PATH"
 export PYTHONPATH="$CANT_HOME/lib/python3/site-packages:$PYTHONPATH"
 
 # --------------------------------------------------
-# 7. HephaestusFoam paths
+# 7. HephaestusFOAM paths
 # --------------------------------------------------
-export HEPH_HOME="$HOME/hephaestusfoam"
+export HEPH_HOME="$HOME/HephaestusFOAM"
 
 export FOAM_USER_APPBIN="$HEPH_HOME/platforms/linux64GccDPInt32Opt/bin"
 export FOAM_USER_LIBBIN="$HEPH_HOME/platforms/linux64GccDPInt32Opt/lib"

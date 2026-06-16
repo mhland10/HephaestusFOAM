@@ -20,8 +20,8 @@ echo "    HephaestusFOAM completed, view build.log for results"
 #
 #==================================================================================================
 
-cd hephaestusRKFoam
-wmake > build.log
-cd ../
-echo "    HephaestusRK.FOAM completed, view build.log for results"
+##cd hephaestusRKFoam
+###wmake > build.log
+##cd ../
+##echo "    HephaestusRK.FOAM completed, view build.log for results"
 

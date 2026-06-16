@@ -35,7 +35,8 @@ EXE_INC = \
     -I$(EIG_LOC)/Eigen/src
 
 LIB_LIBS = \
-    -lcanteraThermophysicalModels \
+    -lcanteraBasicThermophysicalModels \
+    -lcanteraMulticomponentThermophysicalModels \
     -lfluidSolver \
     -lfluidThermophysicalModels \
     -lspecie \

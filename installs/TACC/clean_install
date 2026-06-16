@@ -20,7 +20,7 @@ module purge
 ## Append hephaestusFOAM RC to bashrc
 # Temporarily disable exit-on-error
 set +e
-. ~/hephaestusfoam/hephaestusrc
+. ~/HephaestusFOAM/installs/TACC/hephaestusrc_tacc
 rc=$?
 set -e
 
@@ -43,7 +43,7 @@ echo " "
 echo "**Installing Cantera**"
 echo " "
 
-module load intel/24.1
+module load gcc/13.2.0
 module load boost/1.86.0
 export CPATH=$TACC_BOOST_DIR/include:$CPATH
 
@@ -63,7 +63,8 @@ echo " "
 
 echo "Purging modules and reseting"
 module purge
-. ~/hephaestusfoam/hephaestusrc
+. ~/HephaestusFOAM/installs/TACC/hephaestusrc_tacc
+module load gcc/13.2.0
 
 echo "**Installing Utilities**"
 echo " "

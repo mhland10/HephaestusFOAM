@@ -9,6 +9,10 @@ echo "Beginning installation of HephaestusFOAM modules"
 #
 #==================================================================================================
 
+echo " "
+echo "Installing gasHephaestus"
+echo " "
+
 cd gasHephaestus
 wmake > build.log
 cd ../
@@ -18,6 +22,10 @@ cd ../
 #  Install waveHephaestus
 #
 #==================================================================================================
+
+echo " "
+echo "Installing waveHephaestus"
+echo " "
 
 cd waveHephaestus
 wmake > build.log
