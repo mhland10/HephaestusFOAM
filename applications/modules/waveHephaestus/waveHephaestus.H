@@ -94,7 +94,7 @@ class waveFluid
 :
     public fluidSolver
 {
-
+    
 protected:     
     
     // Thermo models
@@ -385,6 +385,16 @@ protected:
 
         // Allow easy switching between enthalpy and internal energy
         bool useEnthalpy_;
+
+        //- Function for face evaluation at the solver level
+        virtual void faceEvaluate
+        (
+            const word& property,
+            const surfaceScalarField& pFace,
+            const surfaceScalarField& TFace,
+            const PtrList<surfaceScalarField>& YFace,
+            surfaceScalarField& field
+        ) const;
 
 };
 

@@ -1,0 +1,3 @@
+fluidMulticomponentThermo/fluidMulticomponentHephaestusThermo.C
+
+LIB = $(FOAM_LIBBIN)/libmulticomponentThermophysicalHephaestusModels

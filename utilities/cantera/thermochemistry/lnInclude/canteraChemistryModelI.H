@@ -1,1 +1,1 @@
-/home1/09629/m_hland10/HephaestusFOAM/utilities/cantera/thermochemistry/chemistryModel/canteraChemistryModelI.H
+/home/mholland/hephaestusfoam/utilities/cantera/thermochemistry/chemistryModel/canteraChemistryModelI.H

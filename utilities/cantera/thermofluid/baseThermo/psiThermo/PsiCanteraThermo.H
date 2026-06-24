@@ -76,16 +76,6 @@ class PsiCanteraThermo
         //- Calculate the thermo variables
         virtual void calculate();
         
-        //- Calculate the specified thermo property at a face set
-        virtual void facePropertyCalculate
-        (
-            const word& propertyName,
-            const surfaceScalarField& pf,
-            const surfaceScalarField& Tf,
-            const PtrList<surfaceScalarField>& Yif,
-            surfaceScalarField& result
-        ) const;
-        
         bool useEnthalpy_;
         
 protected:

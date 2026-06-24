@@ -37,6 +37,8 @@ EXE_INC = \
 LIB_LIBS = \
     -lcanteraBasicThermophysicalModels \
     -lcanteraMulticomponentThermophysicalModels \
+    -L$(CANT_HOME)/lib \
+    -lcantera \
     -lfluidSolver \
     -lfluidThermophysicalModels \
     -lspecie \
@@ -52,6 +54,4 @@ LIB_LIBS = \
     -lfvModels \
     -lfvConstraints \
     -lmeshTools \
-    -lsampling \
-    -L$(CANT_HOME)/lib \
-    -lcantera
+    -lsampling 

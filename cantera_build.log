@@ -11,292 +11,36 @@ INFO: Configuration variables read from 'cantera.conf' and command line:
     extra_inc_dirs = '/include/eigen3'
     boost_inc_dir = '/include'
 
-Checking for C++ header file cmath... yes
-Checking for C++ header file fmt/ostream.h... yes
+Checking for C++ header file cmath... (cached) yes
+Checking for C++ header file fmt/ostream.h... (cached) yes
 INFO: Using system installation of fmt library.
 INFO: Found fmt version 8.1.1
-Checking for YAML::Node().Mark()... no
+Checking for YAML::Node().Mark()... (cached) no
 INFO: Using private installation of yaml-cpp library.
-Submodule path 'ext/yaml-cpp': checked out '012269756149ae99745b6dafefd415843d7420bb'
-Checking for C++ header file gtest/gtest.h... no
-Checking for C++ header file gmock/gmock.h... no
-Submodule path 'ext/googletest': checked out '703bd9caab50b139428cea1aaff9974ebee5742e'
+Checking for C++ header file gtest/gtest.h... (cached) no
+Checking for C++ header file gmock/gmock.h... (cached) no
 INFO: Using Googletest from Git submodule
-Checking for C++ header file eigen3/Eigen/Dense... yes
+Checking for C++ header file eigen3/Eigen/Dense... (cached) yes
 INFO: Using system installation of Eigen.
 INFO: Found Eigen version 3.4.0
-Checking whether __GLIBCXX__ is declared... yes
-Checking whether __clang__ is declared... no
-Checking for C++ library iomp5... no
-Checking for C++ library omp... no
-Checking for C++ library gomp... yes
+Checking whether __GLIBCXX__ is declared... (cached) yes
+Checking whether __clang__ is declared... (cached) no
+Checking for C++ library iomp5... (cached) no
+Checking for C++ library omp... (cached) no
+Checking for C++ library gomp... (cached) yes
 INFO: Found Boost version 1.74
-Checking whether boost::core::demangle is declared... yes
-Checking for CVodeCreate(CV_BDF, CV_NEWTON) in C++ library sundials_cvodes... no
-Checking for CVodeCreate(CV_BDF) in C++ library sundials_cvodes... no
-Checking for SUNContext ctx; SUNContext_Create(0, &ctx) in C++ library sundials_cvodes... no
-Submodule path 'ext/sundials': checked out '887af4374af2271db9310d31eaa9b5aeff49e829'
-Checking for double x; log(x) in C library None... no
+Checking whether boost::core::demangle is declared... (cached) yes
+Checking for CVodeCreate(CV_BDF, CV_NEWTON) in C++ library sundials_cvodes... (cached) no
+Checking for CVodeCreate(CV_BDF) in C++ library sundials_cvodes... (cached) no
+Checking for SUNContext ctx; SUNContext_Create(0, &ctx) in C++ library sundials_cvodes... (cached) no
+Checking for double x; log(x) in C library None... (cached) no
 INFO: Using private installation of Sundials version 5.3.
 scons: done reading SConscript files.
 scons: Building targets ...
-Copy("build/data/KOH.cti", "data/inputs/KOH.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/KOH.cti build/data/KOH.xml
-Copy("build/data/air.cti", "data/inputs/air.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/air.cti build/data/air.xml
-Copy("build/data/airNASA9.cti", "data/inputs/airNASA9.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/airNASA9.cti build/data/airNASA9.xml
-Copy("build/data/argon.cti", "data/inputs/argon.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/argon.cti build/data/argon.xml
-Copy("build/data/diamond.cti", "data/inputs/diamond.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/diamond.cti build/data/diamond.xml
-Copy("build/data/graphite.cti", "data/inputs/graphite.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/graphite.cti build/data/graphite.xml
-Copy("build/data/gri30.cti", "data/inputs/gri30.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30.cti build/data/gri30.xml
-Copy("build/data/gri30_highT.cti", "data/inputs/gri30_highT.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30_highT.cti build/data/gri30_highT.xml
-Copy("build/data/gri30_ion.cti", "data/inputs/gri30_ion.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/gri30_ion.cti build/data/gri30_ion.xml
-Copy("build/data/h2o2.cti", "data/inputs/h2o2.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/h2o2.cti build/data/h2o2.xml
-Copy("build/data/liquidvapor.cti", "data/inputs/liquidvapor.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/liquidvapor.cti build/data/liquidvapor.xml
-Copy("build/data/lithium_ion_battery.cti", "data/inputs/lithium_ion_battery.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/lithium_ion_battery.cti build/data/lithium_ion_battery.xml
-Copy("build/data/methane_pox_on_pt.cti", "data/inputs/methane_pox_on_pt.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/methane_pox_on_pt.cti build/data/methane_pox_on_pt.xml
-Copy("build/data/nDodecane_Reitz.cti", "data/inputs/nDodecane_Reitz.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/nDodecane_Reitz.cti build/data/nDodecane_Reitz.xml
-Copy("build/data/nasa.cti", "data/inputs/nasa.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa.cti build/data/nasa.xml
-Copy("build/data/nasa_condensed.cti", "data/inputs/nasa_condensed.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa_condensed.cti build/data/nasa_condensed.xml
-Copy("build/data/nasa_gas.cti", "data/inputs/nasa_gas.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/nasa_gas.cti build/data/nasa_gas.xml
-Copy("build/data/ohn.cti", "data/inputs/ohn.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/ohn.cti build/data/ohn.xml
-Copy("build/data/ptcombust.cti", "data/inputs/ptcombust.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/ptcombust.cti build/data/ptcombust.xml
-Copy("build/data/silane.cti", "data/inputs/silane.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/silane.cti build/data/silane.xml
-Copy("build/data/silicon.cti", "data/inputs/silicon.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/silicon.cti build/data/silicon.xml
-Copy("build/data/silicon_carbide.cti", "data/inputs/silicon_carbide.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/silicon_carbide.cti build/data/silicon_carbide.xml
-Copy("build/data/sofc.cti", "data/inputs/sofc.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/sofc.cti build/data/sofc.xml
-Copy("build/data/water.cti", "data/inputs/water.cti")
-"/usr/bin/python3" interfaces/cython/cantera/ctml_writer.py data/inputs/water.cti build/data/water.xml
-Copy("build/data/elements.xml", "data/inputs/elements.xml")
-Copy("build/data/KOH.yaml", "data/KOH.yaml")
-Copy("build/data/air.yaml", "data/air.yaml")
-Copy("build/data/airNASA9.yaml", "data/airNASA9.yaml")
-Copy("build/data/critical-properties.yaml", "data/critical-properties.yaml")
-Copy("build/data/diamond.yaml", "data/diamond.yaml")
-Copy("build/data/element-standard-entropies.yaml", "data/element-standard-entropies.yaml")
-Copy("build/data/graphite.yaml", "data/graphite.yaml")
-Copy("build/data/gri30.yaml", "data/gri30.yaml")
-Copy("build/data/gri30_highT.yaml", "data/gri30_highT.yaml")
-Copy("build/data/gri30_ion.yaml", "data/gri30_ion.yaml")
-Copy("build/data/h2o2.yaml", "data/h2o2.yaml")
-Copy("build/data/liquidvapor.yaml", "data/liquidvapor.yaml")
-Copy("build/data/lithium_ion_battery.yaml", "data/lithium_ion_battery.yaml")
-Copy("build/data/methane_pox_on_pt.yaml", "data/methane_pox_on_pt.yaml")
-Copy("build/data/nDodecane_Reitz.yaml", "data/nDodecane_Reitz.yaml")
-Copy("build/data/nasa_condensed.yaml", "data/nasa_condensed.yaml")
-Copy("build/data/nasa_gas.yaml", "data/nasa_gas.yaml")
-Copy("build/data/ohn.yaml", "data/ohn.yaml")
-Copy("build/data/ptcombust.yaml", "data/ptcombust.yaml")
-Copy("build/data/silane.yaml", "data/silane.yaml")
-Copy("build/data/silicon.yaml", "data/silicon.yaml")
-Copy("build/data/silicon_carbide.yaml", "data/silicon_carbide.yaml")
-Copy("build/data/sofc.yaml", "data/sofc.yaml")
-Copy("build/data/water.yaml", "data/water.yaml")
-g++ -o build/ext/googletest/googletest/src/gtest-all.o -c -std=c++11 -pthread -O3 -Wno-inline -w -DGTEST_HAS_PTHREAD=0 -DNDEBUG -Iext/googletest/googletest -Iext/googletest/googletest/include -I/include/eigen3 -I/include ext/googletest/googletest/src/gtest-all.cc
-ar rc build/lib/libgtest.a build/ext/googletest/googletest/src/gtest-all.o
-ranlib build/lib/libgtest.a
-g++ -o build/ext/googletest/googlemock/src/gmock-all.o -c -std=c++11 -pthread -O3 -Wno-inline -w -DGTEST_HAS_PTHREAD=0 -DNDEBUG -Iext/googletest/googletest/include -Iext/googletest/googlemock -Iext/googletest/googlemock/include -I/include/eigen3 -I/include ext/googletest/googlemock/src/gmock-all.cc
-ar rc build/lib/libgmock.a build/ext/googletest/googlemock/src/gmock-all.o
-ranlib build/lib/libgmock.a
 ConfigBuilder(["build/ext/sundials_config.h.build"], ["ext/sundials_config.h.in"])
 INFO: Generating build/ext/sundials_config.h.build with the following settings:
     SUNDIALS_USE_GENERIC_MATH           1
     SUNDIALS_BLAS_LAPACK                *undefined*
-Copy("include/cantera/ext/sundials/sundials_config.h", "build/ext/sundials_config.h.build")
-Copy("include/cantera/ext/sundials/sundials_band.h", "ext/sundials/include/sundials/sundials_band.h")
-Copy("include/cantera/ext/sundials/sundials_dense.h", "ext/sundials/include/sundials/sundials_dense.h")
-Copy("include/cantera/ext/sundials/sundials_direct.h", "ext/sundials/include/sundials/sundials_direct.h")
-Copy("include/cantera/ext/sundials/sundials_fnvector.h", "ext/sundials/include/sundials/sundials_fnvector.h")
-Copy("include/cantera/ext/sundials/sundials_futils.h", "ext/sundials/include/sundials/sundials_futils.h")
-Copy("include/cantera/ext/sundials/sundials_iterative.h", "ext/sundials/include/sundials/sundials_iterative.h")
-Copy("include/cantera/ext/sundials/sundials_lapack.h", "ext/sundials/include/sundials/sundials_lapack.h")
-Copy("include/cantera/ext/sundials/sundials_linearsolver.h", "ext/sundials/include/sundials/sundials_linearsolver.h")
-Copy("include/cantera/ext/sundials/sundials_math.h", "ext/sundials/include/sundials/sundials_math.h")
-Copy("include/cantera/ext/sundials/sundials_matrix.h", "ext/sundials/include/sundials/sundials_matrix.h")
-Copy("include/cantera/ext/sundials/sundials_mpi_types.h", "ext/sundials/include/sundials/sundials_mpi_types.h")
-Copy("include/cantera/ext/sundials/sundials_nonlinearsolver.h", "ext/sundials/include/sundials/sundials_nonlinearsolver.h")
-Copy("include/cantera/ext/sundials/sundials_nvector.h", "ext/sundials/include/sundials/sundials_nvector.h")
-Copy("include/cantera/ext/sundials/sundials_nvector_senswrapper.h", "ext/sundials/include/sundials/sundials_nvector_senswrapper.h")
-Copy("include/cantera/ext/sundials/sundials_types.h", "ext/sundials/include/sundials/sundials_types.h")
-Copy("include/cantera/ext/sundials/sundials_version.h", "ext/sundials/include/sundials/sundials_version.h")
-Copy("include/cantera/ext/nvector/nvector_cuda.h", "ext/sundials/include/nvector/nvector_cuda.h")
-Copy("include/cantera/ext/nvector/nvector_manyvector.h", "ext/sundials/include/nvector/nvector_manyvector.h")
-Copy("include/cantera/ext/nvector/nvector_mpimanyvector.h", "ext/sundials/include/nvector/nvector_mpimanyvector.h")
-Copy("include/cantera/ext/nvector/nvector_mpiplusx.h", "ext/sundials/include/nvector/nvector_mpiplusx.h")
-Copy("include/cantera/ext/nvector/nvector_openmp.h", "ext/sundials/include/nvector/nvector_openmp.h")
-Copy("include/cantera/ext/nvector/nvector_openmpdev.h", "ext/sundials/include/nvector/nvector_openmpdev.h")
-Copy("include/cantera/ext/nvector/nvector_parallel.h", "ext/sundials/include/nvector/nvector_parallel.h")
-Copy("include/cantera/ext/nvector/nvector_parhyp.h", "ext/sundials/include/nvector/nvector_parhyp.h")
-Copy("include/cantera/ext/nvector/nvector_petsc.h", "ext/sundials/include/nvector/nvector_petsc.h")
-Copy("include/cantera/ext/nvector/nvector_pthreads.h", "ext/sundials/include/nvector/nvector_pthreads.h")
-Copy("include/cantera/ext/nvector/nvector_raja.h", "ext/sundials/include/nvector/nvector_raja.h")
-Copy("include/cantera/ext/nvector/nvector_serial.h", "ext/sundials/include/nvector/nvector_serial.h")
-Copy("include/cantera/ext/nvector/nvector_trilinos.h", "ext/sundials/include/nvector/nvector_trilinos.h")
-Copy("include/cantera/ext/cvodes/cvodes.h", "ext/sundials/include/cvodes/cvodes.h")
-Copy("include/cantera/ext/cvodes/cvodes_bandpre.h", "ext/sundials/include/cvodes/cvodes_bandpre.h")
-Copy("include/cantera/ext/cvodes/cvodes_bbdpre.h", "ext/sundials/include/cvodes/cvodes_bbdpre.h")
-Copy("include/cantera/ext/cvodes/cvodes_diag.h", "ext/sundials/include/cvodes/cvodes_diag.h")
-Copy("include/cantera/ext/cvodes/cvodes_direct.h", "ext/sundials/include/cvodes/cvodes_direct.h")
-Copy("include/cantera/ext/cvodes/cvodes_ls.h", "ext/sundials/include/cvodes/cvodes_ls.h")
-Copy("include/cantera/ext/cvodes/cvodes_spils.h", "ext/sundials/include/cvodes/cvodes_spils.h")
-Copy("include/cantera/ext/ida/ida.h", "ext/sundials/include/ida/ida.h")
-Copy("include/cantera/ext/ida/ida_bbdpre.h", "ext/sundials/include/ida/ida_bbdpre.h")
-Copy("include/cantera/ext/ida/ida_direct.h", "ext/sundials/include/ida/ida_direct.h")
-Copy("include/cantera/ext/ida/ida_ls.h", "ext/sundials/include/ida/ida_ls.h")
-Copy("include/cantera/ext/ida/ida_spils.h", "ext/sundials/include/ida/ida_spils.h")
-Copy("include/cantera/ext/sunmatrix/sunmatrix_band.h", "ext/sundials/include/sunmatrix/sunmatrix_band.h")
-Copy("include/cantera/ext/sunmatrix/sunmatrix_cusparse.h", "ext/sundials/include/sunmatrix/sunmatrix_cusparse.h")
-Copy("include/cantera/ext/sunmatrix/sunmatrix_dense.h", "ext/sundials/include/sunmatrix/sunmatrix_dense.h")
-Copy("include/cantera/ext/sunmatrix/sunmatrix_slunrloc.h", "ext/sundials/include/sunmatrix/sunmatrix_slunrloc.h")
-Copy("include/cantera/ext/sunmatrix/sunmatrix_sparse.h", "ext/sundials/include/sunmatrix/sunmatrix_sparse.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_band.h", "ext/sundials/include/sunlinsol/sunlinsol_band.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_cusolversp_batchqr.h", "ext/sundials/include/sunlinsol/sunlinsol_cusolversp_batchqr.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_dense.h", "ext/sundials/include/sunlinsol/sunlinsol_dense.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_klu.h", "ext/sundials/include/sunlinsol/sunlinsol_klu.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_lapackband.h", "ext/sundials/include/sunlinsol/sunlinsol_lapackband.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_lapackdense.h", "ext/sundials/include/sunlinsol/sunlinsol_lapackdense.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_pcg.h", "ext/sundials/include/sunlinsol/sunlinsol_pcg.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_spbcgs.h", "ext/sundials/include/sunlinsol/sunlinsol_spbcgs.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_spfgmr.h", "ext/sundials/include/sunlinsol/sunlinsol_spfgmr.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_spgmr.h", "ext/sundials/include/sunlinsol/sunlinsol_spgmr.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_sptfqmr.h", "ext/sundials/include/sunlinsol/sunlinsol_sptfqmr.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_superludist.h", "ext/sundials/include/sunlinsol/sunlinsol_superludist.h")
-Copy("include/cantera/ext/sunlinsol/sunlinsol_superlumt.h", "ext/sundials/include/sunlinsol/sunlinsol_superlumt.h")
-Copy("include/cantera/ext/sunnonlinsol/sunnonlinsol_fixedpoint.h", "ext/sundials/include/sunnonlinsol/sunnonlinsol_fixedpoint.h")
-Copy("include/cantera/ext/sunnonlinsol/sunnonlinsol_newton.h", "ext/sundials/include/sunnonlinsol/sunnonlinsol_newton.h")
-Copy("include/cantera/ext/sunnonlinsol/sunnonlinsol_petscsnes.h", "ext/sundials/include/sunnonlinsol/sunnonlinsol_petscsnes.h")
-Copy("include/cantera/ext/yaml-cpp/anchor.h", "ext/yaml-cpp/include/yaml-cpp/anchor.h")
-Copy("include/cantera/ext/yaml-cpp/dll.h", "ext/yaml-cpp/include/yaml-cpp/dll.h")
-Copy("include/cantera/ext/yaml-cpp/binary.h", "ext/yaml-cpp/include/yaml-cpp/binary.h")
-Copy("include/cantera/ext/yaml-cpp/emitterstyle.h", "ext/yaml-cpp/include/yaml-cpp/emitterstyle.h")
-Copy("include/cantera/ext/yaml-cpp/eventhandler.h", "ext/yaml-cpp/include/yaml-cpp/eventhandler.h")
-Copy("include/cantera/ext/yaml-cpp/emitfromevents.h", "ext/yaml-cpp/include/yaml-cpp/emitfromevents.h")
-Copy("include/cantera/ext/yaml-cpp/emitterdef.h", "ext/yaml-cpp/include/yaml-cpp/emitterdef.h")
-Copy("include/cantera/ext/yaml-cpp/emittermanip.h", "ext/yaml-cpp/include/yaml-cpp/emittermanip.h")
-Copy("include/cantera/ext/yaml-cpp/null.h", "ext/yaml-cpp/include/yaml-cpp/null.h")
-Copy("include/cantera/ext/yaml-cpp/ostream_wrapper.h", "ext/yaml-cpp/include/yaml-cpp/ostream_wrapper.h")
-Copy("include/cantera/ext/yaml-cpp/emitter.h", "ext/yaml-cpp/include/yaml-cpp/emitter.h")
-Copy("include/cantera/ext/yaml-cpp/mark.h", "ext/yaml-cpp/include/yaml-cpp/mark.h")
-Copy("include/cantera/ext/yaml-cpp/traits.h", "ext/yaml-cpp/include/yaml-cpp/traits.h")
-Copy("include/cantera/ext/yaml-cpp/exceptions.h", "ext/yaml-cpp/include/yaml-cpp/exceptions.h")
-Copy("include/cantera/ext/yaml-cpp/parser.h", "ext/yaml-cpp/include/yaml-cpp/parser.h")
-Copy("include/cantera/ext/yaml-cpp/stlemitter.h", "ext/yaml-cpp/include/yaml-cpp/stlemitter.h")
-Copy("include/cantera/ext/yaml-cpp/node/ptr.h", "ext/yaml-cpp/include/yaml-cpp/node/ptr.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/memory.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/memory.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/node_iterator.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/bool_type.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/bool_type.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/iterator_fwd.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h")
-Copy("include/cantera/ext/yaml-cpp/node/type.h", "ext/yaml-cpp/include/yaml-cpp/node/type.h")
-Copy("include/cantera/ext/yaml-cpp/node/node.h", "ext/yaml-cpp/include/yaml-cpp/node/node.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/iterator.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/iterator.h")
-Copy("include/cantera/ext/yaml-cpp/node/iterator.h", "ext/yaml-cpp/include/yaml-cpp/node/iterator.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/node_data.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/node_data.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/node_ref.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/node.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/node.h")
-Copy("include/cantera/ext/yaml-cpp/node/impl.h", "ext/yaml-cpp/include/yaml-cpp/node/impl.h")
-Copy("include/cantera/ext/yaml-cpp/node/convert.h", "ext/yaml-cpp/include/yaml-cpp/node/convert.h")
-Copy("include/cantera/ext/yaml-cpp/node/detail/impl.h", "ext/yaml-cpp/include/yaml-cpp/node/detail/impl.h")
-Copy("include/cantera/ext/yaml-cpp/node/emit.h", "ext/yaml-cpp/include/yaml-cpp/node/emit.h")
-Copy("include/cantera/ext/yaml-cpp/node/parse.h", "ext/yaml-cpp/include/yaml-cpp/node/parse.h")
-Copy("include/cantera/ext/yaml-cpp/yaml.h", "ext/yaml-cpp/include/yaml-cpp/yaml.h")
-Copy("include/cantera/ext/yaml-cpp/contrib/anchordict.h", "ext/yaml-cpp/include/yaml-cpp/contrib/anchordict.h")
-Copy("include/cantera/ext/yaml-cpp/contrib/graphbuilder.h", "ext/yaml-cpp/include/yaml-cpp/contrib/graphbuilder.h")
-generate_license(["build/ext/LICENSE.txt"], ["License.txt", "ext/libexecstream/doc/license.txt", "ext/sundials/LICENSE", "ext/yaml-cpp/LICENSE"])
-g++ -o build/ext/libexecstream/exec-stream.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -I/include/eigen3 -I/include ext/libexecstream/exec-stream.cpp
-gcc -o build/ext/sundials/src/sundials/sundials_band.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_band.c
-gcc -o build/ext/sundials/src/sundials/sundials_dense.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_dense.c
-gcc -o build/ext/sundials/src/sundials/sundials_direct.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_direct.c
-gcc -o build/ext/sundials/src/sundials/sundials_futils.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_futils.c
-gcc -o build/ext/sundials/src/sundials/sundials_iterative.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_iterative.c
-gcc -o build/ext/sundials/src/sundials/sundials_linearsolver.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_linearsolver.c
-gcc -o build/ext/sundials/src/sundials/sundials_math.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_math.c
-gcc -o build/ext/sundials/src/sundials/sundials_matrix.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_matrix.c
-gcc -o build/ext/sundials/src/sundials/sundials_nonlinearsolver.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_nonlinearsolver.c
-gcc -o build/ext/sundials/src/sundials/sundials_nvector.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_nvector.c
-gcc -o build/ext/sundials/src/sundials/sundials_nvector_senswrapper.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_nvector_senswrapper.c
-gcc -o build/ext/sundials/src/sundials/sundials_version.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sundials/sundials_version.c
-gcc -o build/ext/sundials/src/nvector/serial/fnvector_serial.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/nvector/serial/fnvector_serial.c
-gcc -o build/ext/sundials/src/nvector/serial/nvector_serial.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/nvector/serial/nvector_serial.c
-gcc -o build/ext/sundials/src/cvodes/cvodea.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodea.c
-gcc -o build/ext/sundials/src/cvodes/cvodea_io.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodea_io.c
-gcc -o build/ext/sundials/src/cvodes/cvodes.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_bandpre.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_bandpre.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_bbdpre.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_bbdpre.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_diag.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_diag.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_direct.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_direct.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_io.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_io.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_ls.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_ls.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_nls.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_nls.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_nls_sim.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_nls_sim.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_nls_stg.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_nls_stg.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_nls_stg1.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_nls_stg1.c
-gcc -o build/ext/sundials/src/cvodes/cvodes_spils.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/cvodes/cvodes_spils.c
-gcc -o build/ext/sundials/src/ida/ida.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida.c
-gcc -o build/ext/sundials/src/ida/ida_bbdpre.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_bbdpre.c
-gcc -o build/ext/sundials/src/ida/ida_direct.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_direct.c
-gcc -o build/ext/sundials/src/ida/ida_ic.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_ic.c
-gcc -o build/ext/sundials/src/ida/ida_io.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_io.c
-gcc -o build/ext/sundials/src/ida/ida_ls.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_ls.c
-gcc -o build/ext/sundials/src/ida/ida_nls.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_nls.c
-gcc -o build/ext/sundials/src/ida/ida_spils.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/ida/ida_spils.c
-gcc -o build/ext/sundials/src/sunmatrix/band/sunmatrix_band.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunmatrix/band/sunmatrix_band.c
-gcc -o build/ext/sundials/src/sunmatrix/dense/sunmatrix_dense.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunmatrix/dense/sunmatrix_dense.c
-gcc -o build/ext/sundials/src/sunmatrix/sparse/sunmatrix_sparse.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunmatrix/sparse/sunmatrix_sparse.c
-gcc -o build/ext/sundials/src/sunlinsol/dense/sunlinsol_dense.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunlinsol/dense/sunlinsol_dense.c
-gcc -o build/ext/sundials/src/sunlinsol/band/sunlinsol_band.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunlinsol/band/sunlinsol_band.c
-gcc -o build/ext/sundials/src/sunlinsol/spgmr/sunlinsol_spgmr.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunlinsol/spgmr/sunlinsol_spgmr.c
-gcc -o build/ext/sundials/src/sunnonlinsol/newton/sunnonlinsol_newton.os -c -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -Iext/sundials/src/sundials -I/include/eigen3 -I/include ext/sundials/src/sunnonlinsol/newton/sunnonlinsol_newton.c
-g++ -o build/ext/yaml-cpp/src/binary.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/binary.cpp
-g++ -o build/ext/yaml-cpp/src/convert.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/convert.cpp
-g++ -o build/ext/yaml-cpp/src/directives.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/directives.cpp
-g++ -o build/ext/yaml-cpp/src/emit.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/emit.cpp
-g++ -o build/ext/yaml-cpp/src/emitfromevents.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/emitfromevents.cpp
-g++ -o build/ext/yaml-cpp/src/emitter.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/emitter.cpp
-g++ -o build/ext/yaml-cpp/src/emitterstate.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/emitterstate.cpp
-g++ -o build/ext/yaml-cpp/src/emitterutils.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/emitterutils.cpp
-g++ -o build/ext/yaml-cpp/src/exceptions.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/exceptions.cpp
-g++ -o build/ext/yaml-cpp/src/exp.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/exp.cpp
-g++ -o build/ext/yaml-cpp/src/memory.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/memory.cpp
-g++ -o build/ext/yaml-cpp/src/node.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/node.cpp
-g++ -o build/ext/yaml-cpp/src/node_data.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/node_data.cpp
-g++ -o build/ext/yaml-cpp/src/nodebuilder.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/nodebuilder.cpp
-g++ -o build/ext/yaml-cpp/src/nodeevents.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/nodeevents.cpp
-g++ -o build/ext/yaml-cpp/src/null.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/null.cpp
-g++ -o build/ext/yaml-cpp/src/ostream_wrapper.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/ostream_wrapper.cpp
-g++ -o build/ext/yaml-cpp/src/parse.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/parse.cpp
-g++ -o build/ext/yaml-cpp/src/parser.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/parser.cpp
-g++ -o build/ext/yaml-cpp/src/regex_yaml.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/regex_yaml.cpp
-g++ -o build/ext/yaml-cpp/src/scanner.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/scanner.cpp
-g++ -o build/ext/yaml-cpp/src/scanscalar.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/scanscalar.cpp
-g++ -o build/ext/yaml-cpp/src/scantag.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/scantag.cpp
-g++ -o build/ext/yaml-cpp/src/scantoken.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/scantoken.cpp
-g++ -o build/ext/yaml-cpp/src/simplekey.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/simplekey.cpp
-g++ -o build/ext/yaml-cpp/src/singledocparser.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/singledocparser.cpp
-g++ -o build/ext/yaml-cpp/src/stream.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/stream.cpp
-g++ -o build/ext/yaml-cpp/src/tag.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/tag.cpp
-g++ -o build/ext/yaml-cpp/src/contrib/graphbuilder.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/contrib/graphbuilder.cpp
-g++ -o build/ext/yaml-cpp/src/contrib/graphbuilderadapter.os -c -std=c++11 -pthread -O3 -Wno-inline -w -fPIC -DNDEBUG -Iinclude/cantera/ext -I/include/eigen3 -I/include ext/yaml-cpp/src/contrib/graphbuilderadapter.cpp
 ConfigBuilder(["build/src/config.h.build"], ["include/cantera/base/config.h.in"])
 INFO: Generating build/src/config.h.build with the following settings:
     CANTERA_SHORT_VERSION               "2.6"
@@ -317,27 +61,171 @@ INFO: Generating build/src/config.h.build with the following settings:
     CT_USE_SYSTEM_YAMLCPP               *undefined*
     DARWIN                              *undefined*
     SOLARIS                             *undefined*
-Copy("include/cantera/base/config.h", "build/src/config.h.build")
-g++ -o src/pch/system.h.gch -x c++-header -c -std=c++11 -pthread -O3 -Wno-inline -Wall -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/pch/system.h
-g++ -o build/src/base/AnyMap.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/AnyMap.cpp
-g++ -o build/src/base/Array.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/Array.cpp
-g++ -o build/src/base/Interface.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/Interface.cpp
-g++ -o build/src/base/Solution.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/Solution.cpp
-g++ -o build/src/base/Units.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/Units.cpp
-g++ -o build/src/base/ValueCache.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/ValueCache.cpp
-g++ -o build/src/base/YamlWriter.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/YamlWriter.cpp
-g++ -o build/src/base/checkFinite.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/checkFinite.cpp
-g++ -o build/src/base/clockWC.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/clockWC.cpp
-g++ -o build/src/base/ct2ctml.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/ct2ctml.cpp
-g++ -o build/src/base/ctexceptions.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/ctexceptions.cpp
-g++ -o build/src/base/ctml.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/ctml.cpp
-g++ -o build/src/base/plots.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/plots.cpp
-g++ -o build/src/base/stringUtils.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/stringUtils.cpp
-g++ -o build/src/base/xml.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/xml.cpp
-g++ -o build/src/base/application.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -DCANTERA_DATA=\"/opt/cantera/share/cantera/data\" -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/application.cpp
-g++ -o build/src/base/global.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -DGIT_COMMIT=\"9573e6b1e\" -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/base/global.cpp
-g++ -o build/src/thermo/BinarySolutionTabulatedThermo.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/BinarySolutionTabulatedThermo.cpp
-g++ -o build/src/thermo/ConstCpPoly.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/ConstCpPoly.cpp
 g++ -o build/src/thermo/DebyeHuckel.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/DebyeHuckel.cpp
-scons: building terminated because of errors.
-scons: writing .sconsign file.
+g++ -o build/src/thermo/Elements.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Elements.cpp
+g++ -o build/src/thermo/GibbsExcessVPSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/GibbsExcessVPSSTP.cpp
+g++ -o build/src/thermo/HMWSoln.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/HMWSoln.cpp
+g++ -o build/src/thermo/IdealGasPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/IdealGasPhase.cpp
+g++ -o build/src/thermo/IdealMolalSoln.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/IdealMolalSoln.cpp
+g++ -o build/src/thermo/IdealSolidSolnPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/IdealSolidSolnPhase.cpp
+g++ -o build/src/thermo/IdealSolnGasVPSS.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/IdealSolnGasVPSS.cpp
+g++ -o build/src/thermo/IonsFromNeutralVPSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/IonsFromNeutralVPSSTP.cpp
+g++ -o build/src/thermo/LatticePhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/LatticePhase.cpp
+g++ -o build/src/thermo/LatticeSolidPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/LatticeSolidPhase.cpp
+g++ -o build/src/thermo/MargulesVPSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/MargulesVPSSTP.cpp
+g++ -o build/src/thermo/MaskellSolidSolnPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/MaskellSolidSolnPhase.cpp
+g++ -o build/src/thermo/MixtureFugacityTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/MixtureFugacityTP.cpp
+g++ -o build/src/thermo/MolalityVPSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/MolalityVPSSTP.cpp
+g++ -o build/src/thermo/Mu0Poly.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Mu0Poly.cpp
+g++ -o build/src/thermo/MultiSpeciesThermo.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/MultiSpeciesThermo.cpp
+g++ -o build/src/thermo/Nasa9Poly1.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Nasa9Poly1.cpp
+g++ -o build/src/thermo/Nasa9PolyMultiTempRegion.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Nasa9PolyMultiTempRegion.cpp
+g++ -o build/src/thermo/NasaPoly2.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/NasaPoly2.cpp
+g++ -o build/src/thermo/PDSS.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS.cpp
+g++ -o build/src/thermo/PDSSFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSSFactory.cpp
+g++ -o build/src/thermo/PDSS_ConstVol.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_ConstVol.cpp
+g++ -o build/src/thermo/PDSS_HKFT.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_HKFT.cpp
+g++ -o build/src/thermo/PDSS_IdealGas.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_IdealGas.cpp
+g++ -o build/src/thermo/PDSS_IonsFromNeutral.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_IonsFromNeutral.cpp
+g++ -o build/src/thermo/PDSS_SSVol.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_SSVol.cpp
+g++ -o build/src/thermo/PDSS_Water.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PDSS_Water.cpp
+g++ -o build/src/thermo/PengRobinson.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PengRobinson.cpp
+g++ -o build/src/thermo/Phase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Phase.cpp
+g++ -o build/src/thermo/PlasmaPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PlasmaPhase.cpp
+g++ -o build/src/thermo/PureFluidPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/PureFluidPhase.cpp
+g++ -o build/src/thermo/RedlichKisterVPSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/RedlichKisterVPSSTP.cpp
+g++ -o build/src/thermo/RedlichKwongMFTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/RedlichKwongMFTP.cpp
+g++ -o build/src/thermo/SingleSpeciesTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/SingleSpeciesTP.cpp
+g++ -o build/src/thermo/Species.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/Species.cpp
+g++ -o build/src/thermo/SpeciesThermoFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/SpeciesThermoFactory.cpp
+g++ -o build/src/thermo/SpeciesThermoInterpType.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/SpeciesThermoInterpType.cpp
+g++ -o build/src/thermo/StoichSubstance.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/StoichSubstance.cpp
+g++ -o build/src/thermo/SurfPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/SurfPhase.cpp
+g++ -o build/src/thermo/ThermoFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/ThermoFactory.cpp
+g++ -o build/src/thermo/ThermoPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/ThermoPhase.cpp
+g++ -o build/src/thermo/VPStandardStateTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/VPStandardStateTP.cpp
+g++ -o build/src/thermo/WaterProps.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/WaterProps.cpp
+g++ -o build/src/thermo/WaterPropsIAPWS.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/WaterPropsIAPWS.cpp
+g++ -o build/src/thermo/WaterPropsIAPWSphi.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/WaterPropsIAPWSphi.cpp
+g++ -o build/src/thermo/WaterSSTP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/thermo/WaterSSTP.cpp
+g++ -o build/src/tpx/CarbonDioxide.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/CarbonDioxide.cpp
+g++ -o build/src/tpx/HFC134a.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/HFC134a.cpp
+g++ -o build/src/tpx/Heptane.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Heptane.cpp
+g++ -o build/src/tpx/Hydrogen.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Hydrogen.cpp
+g++ -o build/src/tpx/Methane.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Methane.cpp
+g++ -o build/src/tpx/Nitrogen.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Nitrogen.cpp
+g++ -o build/src/tpx/Oxygen.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Oxygen.cpp
+g++ -o build/src/tpx/Sub.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Sub.cpp
+g++ -o build/src/tpx/Water.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/Water.cpp
+g++ -o build/src/tpx/utils.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/tpx/utils.cpp
+g++ -o build/src/equil/BasisOptimize.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/BasisOptimize.cpp
+g++ -o build/src/equil/ChemEquil.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/ChemEquil.cpp
+g++ -o build/src/equil/MultiPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/MultiPhase.cpp
+g++ -o build/src/equil/MultiPhaseEquil.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/MultiPhaseEquil.cpp
+g++ -o build/src/equil/vcs_MultiPhaseEquil.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/vcs_MultiPhaseEquil.cpp
+g++ -o build/src/equil/vcs_VolPhase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/vcs_VolPhase.cpp
+g++ -o build/src/equil/vcs_solve.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/vcs_solve.cpp
+g++ -o build/src/equil/vcs_solve_TP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/vcs_solve_TP.cpp
+g++ -o build/src/equil/vcs_util.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/equil/vcs_util.cpp
+g++ -o build/src/numerics/BandMatrix.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/BandMatrix.cpp
+g++ -o build/src/numerics/CVodesIntegrator.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/CVodesIntegrator.cpp
+g++ -o build/src/numerics/DAE_solvers.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/DAE_solvers.cpp
+g++ -o build/src/numerics/DenseMatrix.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/DenseMatrix.cpp
+g++ -o build/src/numerics/Func1.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/Func1.cpp
+g++ -o build/src/numerics/FuncEval.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/FuncEval.cpp
+g++ -o build/src/numerics/IDA_Solver.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/IDA_Solver.cpp
+g++ -o build/src/numerics/ODE_integrators.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/ODE_integrators.cpp
+g++ -o build/src/numerics/ResidJacEval.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/ResidJacEval.cpp
+g++ -o build/src/numerics/funcs.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/funcs.cpp
+g++ -o build/src/numerics/polyfit.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/numerics/polyfit.cpp
+g++ -o build/src/kinetics/Arrhenius.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Arrhenius.cpp
+g++ -o build/src/kinetics/BlowersMaselRate.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/BlowersMaselRate.cpp
+g++ -o build/src/kinetics/BulkKinetics.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/BulkKinetics.cpp
+g++ -o build/src/kinetics/ChebyshevRate.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/ChebyshevRate.cpp
+g++ -o build/src/kinetics/Custom.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Custom.cpp
+g++ -o build/src/kinetics/Falloff.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Falloff.cpp
+g++ -o build/src/kinetics/FalloffFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/FalloffFactory.cpp
+g++ -o build/src/kinetics/GasKinetics.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/GasKinetics.cpp
+g++ -o build/src/kinetics/Group.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Group.cpp
+g++ -o build/src/kinetics/ImplicitSurfChem.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/ImplicitSurfChem.cpp
+g++ -o build/src/kinetics/InterfaceKinetics.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/InterfaceKinetics.cpp
+g++ -o build/src/kinetics/InterfaceRate.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/InterfaceRate.cpp
+g++ -o build/src/kinetics/Kinetics.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Kinetics.cpp
+g++ -o build/src/kinetics/KineticsFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/KineticsFactory.cpp
+g++ -o build/src/kinetics/PlogRate.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/PlogRate.cpp
+g++ -o build/src/kinetics/Reaction.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/Reaction.cpp
+g++ -o build/src/kinetics/ReactionFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/ReactionFactory.cpp
+g++ -o build/src/kinetics/ReactionPath.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/ReactionPath.cpp
+g++ -o build/src/kinetics/ReactionRateFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/ReactionRateFactory.cpp
+g++ -o build/src/kinetics/RxnRates.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/RxnRates.cpp
+g++ -o build/src/kinetics/TwoTempPlasmaRate.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/TwoTempPlasmaRate.cpp
+g++ -o build/src/kinetics/importKinetics.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/importKinetics.cpp
+g++ -o build/src/kinetics/solveSP.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/kinetics/solveSP.cpp
+g++ -o build/src/transport/DustyGasTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/DustyGasTransport.cpp
+g++ -o build/src/transport/GasTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/GasTransport.cpp
+g++ -o build/src/transport/HighPressureGasTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/HighPressureGasTransport.cpp
+g++ -o build/src/transport/IonGasTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/IonGasTransport.cpp
+g++ -o build/src/transport/MMCollisionInt.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/MMCollisionInt.cpp
+g++ -o build/src/transport/MixTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/MixTransport.cpp
+g++ -o build/src/transport/MultiTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/MultiTransport.cpp
+g++ -o build/src/transport/TransportBase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/TransportBase.cpp
+g++ -o build/src/transport/TransportData.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/TransportData.cpp
+g++ -o build/src/transport/TransportFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/TransportFactory.cpp
+g++ -o build/src/transport/WaterTransport.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/transport/WaterTransport.cpp
+g++ -o build/src/oneD/Boundary1D.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/Boundary1D.cpp
+g++ -o build/src/oneD/Domain1D.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/Domain1D.cpp
+g++ -o build/src/oneD/IonFlow.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/IonFlow.cpp
+g++ -o build/src/oneD/MultiJac.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/MultiJac.cpp
+g++ -o build/src/oneD/MultiNewton.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/MultiNewton.cpp
+g++ -o build/src/oneD/OneDim.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/OneDim.cpp
+g++ -o build/src/oneD/Sim1D.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/Sim1D.cpp
+g++ -o build/src/oneD/StFlow.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/StFlow.cpp
+g++ -o build/src/oneD/refine.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/oneD/refine.cpp
+g++ -o build/src/zeroD/ConstPressureReactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/ConstPressureReactor.cpp
+g++ -o build/src/zeroD/FlowDevice.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/FlowDevice.cpp
+g++ -o build/src/zeroD/FlowDeviceFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/FlowDeviceFactory.cpp
+g++ -o build/src/zeroD/FlowReactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/FlowReactor.cpp
+g++ -o build/src/zeroD/IdealGasConstPressureReactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/IdealGasConstPressureReactor.cpp
+g++ -o build/src/zeroD/IdealGasReactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/IdealGasReactor.cpp
+g++ -o build/src/zeroD/Reactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/Reactor.cpp
+g++ -o build/src/zeroD/ReactorBase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/ReactorBase.cpp
+g++ -o build/src/zeroD/ReactorFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/ReactorFactory.cpp
+g++ -o build/src/zeroD/ReactorNet.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/ReactorNet.cpp
+g++ -o build/src/zeroD/ReactorSurface.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/ReactorSurface.cpp
+g++ -o build/src/zeroD/Wall.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/Wall.cpp
+g++ -o build/src/zeroD/WallFactory.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/WallFactory.cpp
+g++ -o build/src/zeroD/flowControllers.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/zeroD/flowControllers.cpp
+g++ -o build/src/clib/ct.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ct.cpp
+g++ -o build/src/clib/ctfunc.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctfunc.cpp
+g++ -o build/src/clib/ctmultiphase.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctmultiphase.cpp
+g++ -o build/src/clib/ctonedim.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctonedim.cpp
+g++ -o build/src/clib/ctreactor.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctreactor.cpp
+g++ -o build/src/clib/ctrpath.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctrpath.cpp
+g++ -o build/src/clib/ctsurf.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctsurf.cpp
+g++ -o build/src/clib/ctxml.os -c -std=c++11 -pthread -O3 -Wno-inline -Wall -include src/pch/system.h -fPIC -DNDEBUG -Iinclude -Iinclude/cantera/ext -Ibuild/src -I/include/eigen3 -I/include src/clib/ctxml.cpp
+ar rc build/lib/libcantera.a build/ext/libexecstream/exec-stream.os build/ext/sundials/src/sundials/sundials_band.os build/ext/sundials/src/sundials/sundials_dense.os build/ext/sundials/src/sundials/sundials_direct.os build/ext/sundials/src/sundials/sundials_futils.os build/ext/sundials/src/sundials/sundials_iterative.os build/ext/sundials/src/sundials/sundials_linearsolver.os build/ext/sundials/src/sundials/sundials_math.os build/ext/sundials/src/sundials/sundials_matrix.os build/ext/sundials/src/sundials/sundials_nonlinearsolver.os build/ext/sundials/src/sundials/sundials_nvector.os build/ext/sundials/src/sundials/sundials_nvector_senswrapper.os build/ext/sundials/src/sundials/sundials_version.os build/ext/sundials/src/nvector/serial/fnvector_serial.os build/ext/sundials/src/nvector/serial/nvector_serial.os build/ext/sundials/src/cvodes/cvodea.os build/ext/sundials/src/cvodes/cvodea_io.os build/ext/sundials/src/cvodes/cvodes.os build/ext/sundials/src/cvodes/cvodes_bandpre.os build/ext/sundials/src/cvodes/cvodes_bbdpre.os build/ext/sundials/src/cvodes/cvodes_diag.os build/ext/sundials/src/cvodes/cvodes_direct.os build/ext/sundials/src/cvodes/cvodes_io.os build/ext/sundials/src/cvodes/cvodes_ls.os build/ext/sundials/src/cvodes/cvodes_nls.os build/ext/sundials/src/cvodes/cvodes_nls_sim.os build/ext/sundials/src/cvodes/cvodes_nls_stg.os build/ext/sundials/src/cvodes/cvodes_nls_stg1.os build/ext/sundials/src/cvodes/cvodes_spils.os build/ext/sundials/src/ida/ida.os build/ext/sundials/src/ida/ida_bbdpre.os build/ext/sundials/src/ida/ida_direct.os build/ext/sundials/src/ida/ida_ic.os build/ext/sundials/src/ida/ida_io.os build/ext/sundials/src/ida/ida_ls.os build/ext/sundials/src/ida/ida_nls.os build/ext/sundials/src/ida/ida_spils.os build/ext/sundials/src/sunmatrix/band/sunmatrix_band.os build/ext/sundials/src/sunmatrix/dense/sunmatrix_dense.os build/ext/sundials/src/sunmatrix/sparse/sunmatrix_sparse.os build/ext/sundials/src/sunlinsol/dense/sunlinsol_dense.os build/ext/sundials/src/sunlinsol/band/sunlinsol_band.os build/ext/sundials/src/sunlinsol/spgmr/sunlinsol_spgmr.os build/ext/sundials/src/sunnonlinsol/newton/sunnonlinsol_newton.os build/ext/yaml-cpp/src/binary.os build/ext/yaml-cpp/src/convert.os build/ext/yaml-cpp/src/directives.os build/ext/yaml-cpp/src/emit.os build/ext/yaml-cpp/src/emitfromevents.os build/ext/yaml-cpp/src/emitter.os build/ext/yaml-cpp/src/emitterstate.os build/ext/yaml-cpp/src/emitterutils.os build/ext/yaml-cpp/src/exceptions.os build/ext/yaml-cpp/src/exp.os build/ext/yaml-cpp/src/memory.os build/ext/yaml-cpp/src/node.os build/ext/yaml-cpp/src/node_data.os build/ext/yaml-cpp/src/nodebuilder.os build/ext/yaml-cpp/src/nodeevents.os build/ext/yaml-cpp/src/null.os build/ext/yaml-cpp/src/ostream_wrapper.os build/ext/yaml-cpp/src/parse.os build/ext/yaml-cpp/src/parser.os build/ext/yaml-cpp/src/regex_yaml.os build/ext/yaml-cpp/src/scanner.os build/ext/yaml-cpp/src/scanscalar.os build/ext/yaml-cpp/src/scantag.os build/ext/yaml-cpp/src/scantoken.os build/ext/yaml-cpp/src/simplekey.os build/ext/yaml-cpp/src/singledocparser.os build/ext/yaml-cpp/src/stream.os build/ext/yaml-cpp/src/tag.os build/ext/yaml-cpp/src/contrib/graphbuilder.os build/ext/yaml-cpp/src/contrib/graphbuilderadapter.os build/src/base/AnyMap.os build/src/base/Array.os build/src/base/Interface.os build/src/base/Solution.os build/src/base/Units.os build/src/base/ValueCache.os build/src/base/YamlWriter.os build/src/base/checkFinite.os build/src/base/clockWC.os build/src/base/ct2ctml.os build/src/base/ctexceptions.os build/src/base/ctml.os build/src/base/plots.os build/src/base/stringUtils.os build/src/base/xml.os build/src/base/application.os build/src/base/global.os build/src/thermo/BinarySolutionTabulatedThermo.os build/src/thermo/ConstCpPoly.os build/src/thermo/DebyeHuckel.os build/src/thermo/Elements.os build/src/thermo/GibbsExcessVPSSTP.os build/src/thermo/HMWSoln.os build/src/thermo/IdealGasPhase.os build/src/thermo/IdealMolalSoln.os build/src/thermo/IdealSolidSolnPhase.os build/src/thermo/IdealSolnGasVPSS.os build/src/thermo/IonsFromNeutralVPSSTP.os build/src/thermo/LatticePhase.os build/src/thermo/LatticeSolidPhase.os build/src/thermo/MargulesVPSSTP.os build/src/thermo/MaskellSolidSolnPhase.os build/src/thermo/MixtureFugacityTP.os build/src/thermo/MolalityVPSSTP.os build/src/thermo/Mu0Poly.os build/src/thermo/MultiSpeciesThermo.os build/src/thermo/Nasa9Poly1.os build/src/thermo/Nasa9PolyMultiTempRegion.os build/src/thermo/NasaPoly2.os build/src/thermo/PDSS.os build/src/thermo/PDSSFactory.os build/src/thermo/PDSS_ConstVol.os build/src/thermo/PDSS_HKFT.os build/src/thermo/PDSS_IdealGas.os build/src/thermo/PDSS_IonsFromNeutral.os build/src/thermo/PDSS_SSVol.os build/src/thermo/PDSS_Water.os build/src/thermo/PengRobinson.os build/src/thermo/Phase.os build/src/thermo/PlasmaPhase.os build/src/thermo/PureFluidPhase.os build/src/thermo/RedlichKisterVPSSTP.os build/src/thermo/RedlichKwongMFTP.os build/src/thermo/SingleSpeciesTP.os build/src/thermo/Species.os build/src/thermo/SpeciesThermoFactory.os build/src/thermo/SpeciesThermoInterpType.os build/src/thermo/StoichSubstance.os build/src/thermo/SurfPhase.os build/src/thermo/ThermoFactory.os build/src/thermo/ThermoPhase.os build/src/thermo/VPStandardStateTP.os build/src/thermo/WaterProps.os build/src/thermo/WaterPropsIAPWS.os build/src/thermo/WaterPropsIAPWSphi.os build/src/thermo/WaterSSTP.os build/src/tpx/CarbonDioxide.os build/src/tpx/HFC134a.os build/src/tpx/Heptane.os build/src/tpx/Hydrogen.os build/src/tpx/Methane.os build/src/tpx/Nitrogen.os build/src/tpx/Oxygen.os build/src/tpx/Sub.os build/src/tpx/Water.os build/src/tpx/utils.os build/src/equil/BasisOptimize.os build/src/equil/ChemEquil.os build/src/equil/MultiPhase.os build/src/equil/MultiPhaseEquil.os build/src/equil/vcs_MultiPhaseEquil.os build/src/equil/vcs_VolPhase.os build/src/equil/vcs_solve.os build/src/equil/vcs_solve_TP.os build/src/equil/vcs_util.os build/src/numerics/BandMatrix.os build/src/numerics/CVodesIntegrator.os build/src/numerics/DAE_solvers.os build/src/numerics/DenseMatrix.os build/src/numerics/Func1.os build/src/numerics/FuncEval.os build/src/numerics/IDA_Solver.os build/src/numerics/ODE_integrators.os build/src/numerics/ResidJacEval.os build/src/numerics/funcs.os build/src/numerics/polyfit.os build/src/kinetics/Arrhenius.os build/src/kinetics/BlowersMaselRate.os build/src/kinetics/BulkKinetics.os build/src/kinetics/ChebyshevRate.os build/src/kinetics/Custom.os build/src/kinetics/Falloff.os build/src/kinetics/FalloffFactory.os build/src/kinetics/GasKinetics.os build/src/kinetics/Group.os build/src/kinetics/ImplicitSurfChem.os build/src/kinetics/InterfaceKinetics.os build/src/kinetics/InterfaceRate.os build/src/kinetics/Kinetics.os build/src/kinetics/KineticsFactory.os build/src/kinetics/PlogRate.os build/src/kinetics/Reaction.os build/src/kinetics/ReactionFactory.os build/src/kinetics/ReactionPath.os build/src/kinetics/ReactionRateFactory.os build/src/kinetics/RxnRates.os build/src/kinetics/TwoTempPlasmaRate.os build/src/kinetics/importKinetics.os build/src/kinetics/solveSP.os build/src/transport/DustyGasTransport.os build/src/transport/GasTransport.os build/src/transport/HighPressureGasTransport.os build/src/transport/IonGasTransport.os build/src/transport/MMCollisionInt.os build/src/transport/MixTransport.os build/src/transport/MultiTransport.os build/src/transport/TransportBase.os build/src/transport/TransportData.os build/src/transport/TransportFactory.os build/src/transport/WaterTransport.os build/src/oneD/Boundary1D.os build/src/oneD/Domain1D.os build/src/oneD/IonFlow.os build/src/oneD/MultiJac.os build/src/oneD/MultiNewton.os build/src/oneD/OneDim.os build/src/oneD/Sim1D.os build/src/oneD/StFlow.os build/src/oneD/refine.os build/src/zeroD/ConstPressureReactor.os build/src/zeroD/FlowDevice.os build/src/zeroD/FlowDeviceFactory.os build/src/zeroD/FlowReactor.os build/src/zeroD/IdealGasConstPressureReactor.os build/src/zeroD/IdealGasReactor.os build/src/zeroD/Reactor.os build/src/zeroD/ReactorBase.os build/src/zeroD/ReactorFactory.os build/src/zeroD/ReactorNet.os build/src/zeroD/ReactorSurface.os build/src/zeroD/Wall.os build/src/zeroD/WallFactory.os build/src/zeroD/flowControllers.os build/src/clib/ct.os build/src/clib/ctfunc.os build/src/clib/ctmultiphase.os build/src/clib/ctonedim.os build/src/clib/ctreactor.os build/src/clib/ctrpath.os build/src/clib/ctsurf.os build/src/clib/ctxml.os
+ranlib build/lib/libcantera.a
+g++ -o build/lib/libcantera_shared.so.2.6.0 -pthread -shared -Wl,-soname=libcantera_shared.so.2 build/ext/libexecstream/exec-stream.os build/ext/sundials/src/sundials/sundials_band.os build/ext/sundials/src/sundials/sundials_dense.os build/ext/sundials/src/sundials/sundials_direct.os build/ext/sundials/src/sundials/sundials_futils.os build/ext/sundials/src/sundials/sundials_iterative.os build/ext/sundials/src/sundials/sundials_linearsolver.os build/ext/sundials/src/sundials/sundials_math.os build/ext/sundials/src/sundials/sundials_matrix.os build/ext/sundials/src/sundials/sundials_nonlinearsolver.os build/ext/sundials/src/sundials/sundials_nvector.os build/ext/sundials/src/sundials/sundials_nvector_senswrapper.os build/ext/sundials/src/sundials/sundials_version.os build/ext/sundials/src/nvector/serial/fnvector_serial.os build/ext/sundials/src/nvector/serial/nvector_serial.os build/ext/sundials/src/cvodes/cvodea.os build/ext/sundials/src/cvodes/cvodea_io.os build/ext/sundials/src/cvodes/cvodes.os build/ext/sundials/src/cvodes/cvodes_bandpre.os build/ext/sundials/src/cvodes/cvodes_bbdpre.os build/ext/sundials/src/cvodes/cvodes_diag.os build/ext/sundials/src/cvodes/cvodes_direct.os build/ext/sundials/src/cvodes/cvodes_io.os build/ext/sundials/src/cvodes/cvodes_ls.os build/ext/sundials/src/cvodes/cvodes_nls.os build/ext/sundials/src/cvodes/cvodes_nls_sim.os build/ext/sundials/src/cvodes/cvodes_nls_stg.os build/ext/sundials/src/cvodes/cvodes_nls_stg1.os build/ext/sundials/src/cvodes/cvodes_spils.os build/ext/sundials/src/ida/ida.os build/ext/sundials/src/ida/ida_bbdpre.os build/ext/sundials/src/ida/ida_direct.os build/ext/sundials/src/ida/ida_ic.os build/ext/sundials/src/ida/ida_io.os build/ext/sundials/src/ida/ida_ls.os build/ext/sundials/src/ida/ida_nls.os build/ext/sundials/src/ida/ida_spils.os build/ext/sundials/src/sunmatrix/band/sunmatrix_band.os build/ext/sundials/src/sunmatrix/dense/sunmatrix_dense.os build/ext/sundials/src/sunmatrix/sparse/sunmatrix_sparse.os build/ext/sundials/src/sunlinsol/dense/sunlinsol_dense.os build/ext/sundials/src/sunlinsol/band/sunlinsol_band.os build/ext/sundials/src/sunlinsol/spgmr/sunlinsol_spgmr.os build/ext/sundials/src/sunnonlinsol/newton/sunnonlinsol_newton.os build/ext/yaml-cpp/src/binary.os build/ext/yaml-cpp/src/convert.os build/ext/yaml-cpp/src/directives.os build/ext/yaml-cpp/src/emit.os build/ext/yaml-cpp/src/emitfromevents.os build/ext/yaml-cpp/src/emitter.os build/ext/yaml-cpp/src/emitterstate.os build/ext/yaml-cpp/src/emitterutils.os build/ext/yaml-cpp/src/exceptions.os build/ext/yaml-cpp/src/exp.os build/ext/yaml-cpp/src/memory.os build/ext/yaml-cpp/src/node.os build/ext/yaml-cpp/src/node_data.os build/ext/yaml-cpp/src/nodebuilder.os build/ext/yaml-cpp/src/nodeevents.os build/ext/yaml-cpp/src/null.os build/ext/yaml-cpp/src/ostream_wrapper.os build/ext/yaml-cpp/src/parse.os build/ext/yaml-cpp/src/parser.os build/ext/yaml-cpp/src/regex_yaml.os build/ext/yaml-cpp/src/scanner.os build/ext/yaml-cpp/src/scanscalar.os build/ext/yaml-cpp/src/scantag.os build/ext/yaml-cpp/src/scantoken.os build/ext/yaml-cpp/src/simplekey.os build/ext/yaml-cpp/src/singledocparser.os build/ext/yaml-cpp/src/stream.os build/ext/yaml-cpp/src/tag.os build/ext/yaml-cpp/src/contrib/graphbuilder.os build/ext/yaml-cpp/src/contrib/graphbuilderadapter.os build/src/base/AnyMap.os build/src/base/Array.os build/src/base/Interface.os build/src/base/Solution.os build/src/base/Units.os build/src/base/ValueCache.os build/src/base/YamlWriter.os build/src/base/checkFinite.os build/src/base/clockWC.os build/src/base/ct2ctml.os build/src/base/ctexceptions.os build/src/base/ctml.os build/src/base/plots.os build/src/base/stringUtils.os build/src/base/xml.os build/src/base/application.os build/src/base/global.os build/src/thermo/BinarySolutionTabulatedThermo.os build/src/thermo/ConstCpPoly.os build/src/thermo/DebyeHuckel.os build/src/thermo/Elements.os build/src/thermo/GibbsExcessVPSSTP.os build/src/thermo/HMWSoln.os build/src/thermo/IdealGasPhase.os build/src/thermo/IdealMolalSoln.os build/src/thermo/IdealSolidSolnPhase.os build/src/thermo/IdealSolnGasVPSS.os build/src/thermo/IonsFromNeutralVPSSTP.os build/src/thermo/LatticePhase.os build/src/thermo/LatticeSolidPhase.os build/src/thermo/MargulesVPSSTP.os build/src/thermo/MaskellSolidSolnPhase.os build/src/thermo/MixtureFugacityTP.os build/src/thermo/MolalityVPSSTP.os build/src/thermo/Mu0Poly.os build/src/thermo/MultiSpeciesThermo.os build/src/thermo/Nasa9Poly1.os build/src/thermo/Nasa9PolyMultiTempRegion.os build/src/thermo/NasaPoly2.os build/src/thermo/PDSS.os build/src/thermo/PDSSFactory.os build/src/thermo/PDSS_ConstVol.os build/src/thermo/PDSS_HKFT.os build/src/thermo/PDSS_IdealGas.os build/src/thermo/PDSS_IonsFromNeutral.os build/src/thermo/PDSS_SSVol.os build/src/thermo/PDSS_Water.os build/src/thermo/PengRobinson.os build/src/thermo/Phase.os build/src/thermo/PlasmaPhase.os build/src/thermo/PureFluidPhase.os build/src/thermo/RedlichKisterVPSSTP.os build/src/thermo/RedlichKwongMFTP.os build/src/thermo/SingleSpeciesTP.os build/src/thermo/Species.os build/src/thermo/SpeciesThermoFactory.os build/src/thermo/SpeciesThermoInterpType.os build/src/thermo/StoichSubstance.os build/src/thermo/SurfPhase.os build/src/thermo/ThermoFactory.os build/src/thermo/ThermoPhase.os build/src/thermo/VPStandardStateTP.os build/src/thermo/WaterProps.os build/src/thermo/WaterPropsIAPWS.os build/src/thermo/WaterPropsIAPWSphi.os build/src/thermo/WaterSSTP.os build/src/tpx/CarbonDioxide.os build/src/tpx/HFC134a.os build/src/tpx/Heptane.os build/src/tpx/Hydrogen.os build/src/tpx/Methane.os build/src/tpx/Nitrogen.os build/src/tpx/Oxygen.os build/src/tpx/Sub.os build/src/tpx/Water.os build/src/tpx/utils.os build/src/equil/BasisOptimize.os build/src/equil/ChemEquil.os build/src/equil/MultiPhase.os build/src/equil/MultiPhaseEquil.os build/src/equil/vcs_MultiPhaseEquil.os build/src/equil/vcs_VolPhase.os build/src/equil/vcs_solve.os build/src/equil/vcs_solve_TP.os build/src/equil/vcs_util.os build/src/numerics/BandMatrix.os build/src/numerics/CVodesIntegrator.os build/src/numerics/DAE_solvers.os build/src/numerics/DenseMatrix.os build/src/numerics/Func1.os build/src/numerics/FuncEval.os build/src/numerics/IDA_Solver.os build/src/numerics/ODE_integrators.os build/src/numerics/ResidJacEval.os build/src/numerics/funcs.os build/src/numerics/polyfit.os build/src/kinetics/Arrhenius.os build/src/kinetics/BlowersMaselRate.os build/src/kinetics/BulkKinetics.os build/src/kinetics/ChebyshevRate.os build/src/kinetics/Custom.os build/src/kinetics/Falloff.os build/src/kinetics/FalloffFactory.os build/src/kinetics/GasKinetics.os build/src/kinetics/Group.os build/src/kinetics/ImplicitSurfChem.os build/src/kinetics/InterfaceKinetics.os build/src/kinetics/InterfaceRate.os build/src/kinetics/Kinetics.os build/src/kinetics/KineticsFactory.os build/src/kinetics/PlogRate.os build/src/kinetics/Reaction.os build/src/kinetics/ReactionFactory.os build/src/kinetics/ReactionPath.os build/src/kinetics/ReactionRateFactory.os build/src/kinetics/RxnRates.os build/src/kinetics/TwoTempPlasmaRate.os build/src/kinetics/importKinetics.os build/src/kinetics/solveSP.os build/src/transport/DustyGasTransport.os build/src/transport/GasTransport.os build/src/transport/HighPressureGasTransport.os build/src/transport/IonGasTransport.os build/src/transport/MMCollisionInt.os build/src/transport/MixTransport.os build/src/transport/MultiTransport.os build/src/transport/TransportBase.os build/src/transport/TransportData.os build/src/transport/TransportFactory.os build/src/transport/WaterTransport.os build/src/oneD/Boundary1D.os build/src/oneD/Domain1D.os build/src/oneD/IonFlow.os build/src/oneD/MultiJac.os build/src/oneD/MultiNewton.os build/src/oneD/OneDim.os build/src/oneD/Sim1D.os build/src/oneD/StFlow.os build/src/oneD/refine.os build/src/zeroD/ConstPressureReactor.os build/src/zeroD/FlowDevice.os build/src/zeroD/FlowDeviceFactory.os build/src/zeroD/FlowReactor.os build/src/zeroD/IdealGasConstPressureReactor.os build/src/zeroD/IdealGasReactor.os build/src/zeroD/Reactor.os build/src/zeroD/ReactorBase.os build/src/zeroD/ReactorFactory.os build/src/zeroD/ReactorNet.os build/src/zeroD/ReactorSurface.os build/src/zeroD/Wall.os build/src/zeroD/WallFactory.os build/src/zeroD/flowControllers.os build/src/clib/ct.os build/src/clib/ctfunc.os build/src/clib/ctmultiphase.os build/src/clib/ctonedim.os build/src/clib/ctreactor.os build/src/clib/ctrpath.os build/src/clib/ctsurf.os build/src/clib/ctxml.os -Lbuild/lib -lgomp -lfmt
+Create symlinks for: 'build/lib/libcantera_shared.so.2.6.0': 'build/lib/libcantera_shared.so.2'->'build/lib/libcantera_shared.so.2.6.0', 'build/lib/libcantera_shared.so'->'build/lib/libcantera_shared.so.2.6.0'
+Substituting vars from platform/posix/Cantera.mak.in to build/platform/Cantera.mak
+Substituting vars from platform/posix/cantera.pc.in to build/platform/cantera.pc
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/combustor/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/custom/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/demo/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/flamespeed/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/kinetics1/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/jacobian/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/gas_transport/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/rankine/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/LiC6_electrode/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/openmp_ignition/Makefile
+Substituting vars from samples/cxx/Makefile.in to build/samples/cxx/bvp/Makefile
+postBuildMessage(["finish_build"], [])
+*******************************************************
+Compilation completed successfully.
+
+- To run the test suite, type 'scons test'.
+- To list available tests, type 'scons test-help'.
+- To install, type 'scons install'.
+*******************************************************
+scons: done building targets.
