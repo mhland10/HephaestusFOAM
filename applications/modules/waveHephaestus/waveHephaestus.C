@@ -196,7 +196,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         dimensionedScalar(p_.dimensions()/dimTime, 0)
     ),
     
-    rhoYi_(Y_.size()),
+    //rhoYi_(Y_.size()),
 
     K("K", 0.5*magSqr(U_)),
     
@@ -298,6 +298,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     //
     //  Initialize the species
     //
+    /*
     forAll(Y_, i)
     {
         rhoYi_.set
@@ -319,6 +320,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     }
     
     Info<< "[waveFluid] species initialized..." << endl;
+    */
 
     //
     //  Initialize cantera

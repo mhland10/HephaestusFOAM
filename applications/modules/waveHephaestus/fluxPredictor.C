@@ -164,10 +164,12 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //
     rhoYi_pos.setSize(Y_.size());
     rhoYi_neg.setSize(Y_.size());
+
+    PtrList<volScalarField> rhoYi_(Y_.size());
     
     forAll(Y_, i)
     {
-        rhoYi_[i] = rho_ * Y_[i];
+        rhoYi_.set( i, new volScalarField( "rhoYi_", rho_* Y_[i] ) );
     
         rhoYi_pos[i] = interpolate(rhoYi_[i], pos(), Y_[i].name());
         rhoYi_neg[i] = interpolate(rhoYi_[i], neg(), Y_[i].name());

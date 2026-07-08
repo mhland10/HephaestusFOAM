@@ -129,7 +129,7 @@ protected:
         volScalarField::Internal dpdt;
         
         //- The species concentrations
-        PtrList<volScalarField> rhoYi_;
+        //PtrList<volScalarField> rhoYi_;
 
         //- Kinetic energy field
         //  Used in the energy equation

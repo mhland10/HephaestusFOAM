@@ -39,12 +39,10 @@ void Foam::solvers::waveFluid::pressureCorrector()
         rho_.boundaryFieldRef() = psi.boundaryField()*p_.boundaryField();
     }
     
-    /*
     if (thermo_.he().name() == "e")
     {
-        rho_.boundaryFieldRef() = thermo_.psi().boundaryField()*p_.boundaryField();
+        rho_.boundaryFieldRef() = psi.boundaryField()*p_.boundaryField();
     }
-    */
 
 }
 
