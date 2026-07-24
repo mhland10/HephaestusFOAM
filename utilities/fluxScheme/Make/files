@@ -1,0 +1,6 @@
+faceEvaluate.C
+predictor.C
+
+fluxScheme.C
+
+LIB = $(FOAM_LIBBIN)/libfluxScheme

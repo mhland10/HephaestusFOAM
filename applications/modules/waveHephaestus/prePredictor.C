@@ -51,6 +51,8 @@ void Foam::solvers::waveFluid::prePredictor()
     }
     */
 
+    fluxScheme_.predictor();
+
     fluxPredictor();
 
     reaction->correct();

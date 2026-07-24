@@ -36,7 +36,7 @@ void Foam::solvers::waveFluid::correctDensity()
 
     fvScalarMatrix rhoEqn
     (
-        fvm::ddt(rho) + fvc::div(phi)
+        fvm::ddt(rho) + fvc::div(fluxScheme_.phiRho())
       ==
         fvModels().source(rho)
     );

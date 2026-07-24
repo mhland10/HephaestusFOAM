@@ -3,7 +3,6 @@ EXE_INC = \
     -I$(HEPH_UTIL)/cantera/thermofluid/lnInclude \
     -I$(HEPH_UTIL)/cantera/thermofluid/baseThermo/lnInclude \
     -I$(HEPH_UTIL)/cantera/thermofluid/multicomponentThermo/lnInclude \
-    -I$(HEPH_UTIL)/fluxScheme/lnInclude \
     -I$(FOAM_MODULES)/fluidSolver/lnInclude \
     -I$(LIB_SRC)/physicalProperties/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
@@ -40,7 +39,6 @@ LIB_LIBS = \
     -lcanteraMulticomponentThermophysicalModels \
     -L$(CANT_HOME)/lib \
     -lcantera \
-    -lfluxScheme \
     -lfluidSolver \
     -lfluidThermophysicalModels \
     -lspecie \

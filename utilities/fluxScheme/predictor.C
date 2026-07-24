@@ -17,7 +17,7 @@ License
     This file is from HephaestusFOAM.
 
     HephaestusFOAM is free software: you can redistribute it and/or modify 
-    it under the terms of the GNU General Public License as published by 
+    it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
@@ -31,22 +31,30 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "waveHephaestus.H"
+#include "fluxScheme.H"
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-void Foam::solvers::waveFluid::fluxPredictor()
+void Foam::fluxScheme::predictor()
 {
 
     //================================================================
     //
     //  Initialize references
     //
-    //================================================================
+    //===============================================================
+
+    // Mass fields
+    volScalarField& rho = rho_;
+    volVectorField& U = U_;
+
+    // Momentum fields
+    volScalarField& p = p_;
     
     // Thermo fields
     volScalarField& he = thermo_.he();
-    const volScalarField& T = thermo.T();
+    const volScalarField& T = thermo_.T();
+    volScalarField& K = K_;
 
     //================================================================
     //
@@ -184,7 +192,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //
     //  Calculate the flux values
     //
-    const volScalarField rPsi("rPsi", 1.0/thermo.psi());
+    const volScalarField rPsi("rPsi", 1.0/thermo_.psi());
     const surfaceScalarField rPsi_pos(interpolate(rPsi, pos(), T.name()));
     const surfaceScalarField rPsi_neg(interpolate(rPsi, neg(), T.name()));
     surfaceScalarField phiv_pos("phiv_pos", 1.0* ( U_posF & mesh.Sf()) );
@@ -260,7 +268,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     //
     //================================================================
 
-    volScalarField c("c", sqrt(thermo.Cp()/thermo.Cv()*rPsi));
+    volScalarField c("c", sqrt(thermo_.Cp()/thermo_.Cv()*rPsi));
         
     surfaceScalarField cSf_pos("cSf_pos",interpolate(c, pos, T.name())*mesh.magSf());
     surfaceScalarField cSf_neg("cSf_neg",interpolate(c, neg, T.name())*mesh.magSf());
@@ -305,7 +313,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     a_pos = surfaceScalarField::New
     (
         "a_pos",
-        fluxSchemeName_ == "Tadmor"
+        fluxSchemeSelection_ == "Tadmor"
         ? surfaceScalarField::New("a_pos", mesh, 0.5)
         : ap/denom
     );
@@ -317,7 +325,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     aSf = surfaceScalarField::New
     (
         "aSf",
-        fluxSchemeName_ == "Tadmor"
+        fluxSchemeSelection_ == "Tadmor"
         ? -0.5*max(mag(am), mag(ap))
         : am*a_pos()
     );
@@ -325,7 +333,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
     aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
     aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
 
-    if (fluxSchemeName_ == "HLLC"){
+    if (fluxSchemeSelection_ == "HLLC"){
 
         /*
             Set all the necessary local scalar/vector fields
@@ -493,26 +501,26 @@ void Foam::solvers::waveFluid::fluxPredictor()
         //
         //  Calculate the mass fluxes
         //
-        phi_ = F_massHLLC*mesh.magSf();
+        phiRho_ = F_massHLLC*mesh.magSf();
 
         
         //
         //  Calculate the momentum fluxes
         //
-        phiUp = F_momHLLC*mesh.magSf();
+        phiRhoUplusP_ = F_momHLLC*mesh.magSf();
 
         //
         //  Calculate the energy fluxes
         //
-        phiHEp = F_nrgHLLC*mesh.magSf();
+        phiRhoHE_ = F_nrgHLLC*mesh.magSf();
 
         //
         //  Calculate the species fluxes
         //
-        phiYi.setSize(Y_.size());
+        phiRhoYi_.setSize(Y_.size());
         forAll(Y_, i)
         {
-            phiYi[i] = F_specHLLC[i] * mesh.magSf();
+            phiRhoYi_[i] = F_specHLLC[i] * mesh.magSf();
         }
 
     }
@@ -527,18 +535,18 @@ void Foam::solvers::waveFluid::fluxPredictor()
         //
         //  Calculate the mass fluxes
         //
-        phi_ = aphiv_pos()*rho_posF + aphiv_neg()*rho_negF;
+        phiRho_ = aphiv_pos()*rho_posF + aphiv_neg()*rho_negF;
 
         //
         //  Calculate the momentum fluxes
         //
-        phiUp = aphiv_pos()*rhoU_posF + aphiv_neg()*rhoU_negF
+        phiRhoUplusP_ = aphiv_pos()*rhoU_posF + aphiv_neg()*rhoU_negF
                 + (a_pos()*p_posF + a_neg()*p_negF)*mesh.Sf();
 
         //
         //  Calculate the energy fluxes
         //
-        phiHEp = aphiv_pos()*rhoHE_posF + aphiv_neg()*rhoHE_negF;
+        phiRhoHE_ = aphiv_pos()*rhoHE_posF + aphiv_neg()*rhoHE_negF;
         
         if (he.name() == "e")
         {
@@ -557,7 +565,7 @@ void Foam::solvers::waveFluid::fluxPredictor()
                 phiP.ref() += mesh.phi()*(a_pos()*p_posF + a_neg()*p_negF);
             }
 
-            phiHEp.ref() += phiP;
+            phiRhoHE_ += phiP;
             
         }
 
@@ -573,17 +581,17 @@ void Foam::solvers::waveFluid::fluxPredictor()
                 phiP.ref() += mesh.phi()*(a_pos()*p_posF + a_neg()*p_negF);
             }
 
-            phiHEp.ref() += phiP;
+            phiRhoHE_ += phiP;
             
         }
         
         //
         //  Calculate the species fluxes
         //
-        phiYi.setSize(Y_.size());
+        phiRhoYi_.setSize(Y_.size());
         forAll(Y_, i)
         {
-            phiYi[i] = aphiv_pos()*rhoYi_posF[i] + aphiv_neg()*rhoYi_negF[i];
+            phiRhoYi_[i] = aphiv_pos()*rhoYi_posF[i] + aphiv_neg()*rhoYi_negF[i];
         }
 
     }

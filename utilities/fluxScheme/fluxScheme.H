@@ -30,37 +30,24 @@ License
     along with HephaestusFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    Foam::solvers::waveFluid
+    Foam::fluxScheme
 
 Description
-    Solver module for density-based solution of compressible flow that
-    incorporates the multicomponent gas infrastructure, unlike the module it
-    is derived from, `shockFluid`.
-
-    For now, its flux schemes are based on central-upwind schemes of Kurganov 
-    and Tadmor with support for mesh-motion and topology change.
-
-    Reference:
-    \verbatim
-        Greenshields, C. J., Weller, H. G., Gasparini, L.,
-        & Reese, J. M. (2010).
-        Implementation of semi‐discrete, non‐staggered central schemes
-        in a colocated, polyhedral, finite volume framework,
-        for high‐speed viscous flows.
-        International journal for numerical methods in fluids, 63(1), 1-21.
-    \endverbatim
+    This class is a utility for calculating the fluxes that go into the div()
+    operator in the various conservation equations. This also includes the 
+    construction and utilities needed for robust flux evaluation across 
+    multiple schemes
 
 SourceFiles
-    waveHephaestus.C
+    fluxScheme.C
 
 See also
-    Foam::solvers::fluidSolver
-    Foam::solvers::shockFluid
+    Foam::solvers::waveHephaestus
 
 \*---------------------------------------------------------------------------*/
 
-#ifndef waveHephaestus_H
-#define waveHephaestus_H
+#ifndef fluxScheme_H
+#define fluxScheme_H
 
 #include "fluidSolver.H"
 #include "psiThermo.H"
@@ -73,9 +60,6 @@ See also
 #include "fluidMulticomponentThermophysicalTransportModel.H"
 #include "multivariateScheme.H"
 
-// Included headers for the flux scheme
-#include "fluxScheme.H"
-
 // Cantera headers
 #include "cantera/thermo/IdealGasPhase.h" // defines class IdealGasPhase
 #include "cantera/base/Solution.h"
@@ -86,90 +70,80 @@ See also
 
 namespace Foam
 {
-namespace solvers
-{
 
 /*---------------------------------------------------------------------------*\
-                          Class waveFluid Declaration
+                          Class fluxScheme Declaration
 \*---------------------------------------------------------------------------*/
 
-class waveFluid
-:
-    public fluidSolver
+class fluxScheme
 {
-    
-protected:     
-    
+    //=====================================================================
+    //
+    //  Object Data
+    //
+    //=====================================================================
+
+    protected:
+
+    // Dictionaries & controls - solver storage
+
+        //- Reference to the mesh
+        const fvMesh& mesh;
+
+        //- Reference to the runtime
+        const Time& runTime_;
+
     // Thermo models
-    
-        //- Pointer to the fluid thermophysical properties
-        autoPtr<fluidMulticomponentThermo> thermoPtr_;
 
         //- Reference to the fluid thermophysical properties
-        fluidMulticomponentThermo& thermo_;   
+        fluidMulticomponentThermo& thermo_; 
 
     // Thermophysical properties
     
         //- Velocity field
-        volVectorField U_;
+        volVectorField& U_;
         
         //- The continuity density field
-        volScalarField rho_;
+        volScalarField& rho_;
 
         //- Reference to the pressure field
         volScalarField& p_;
+
+        //- Reference to the temperature field
+        volScalarField& T_;
+
+        //- Reference to the static energy field
+        volScalarField& he_;
         
         //- Reference to the species fraction fields
         PtrList<volScalarField>& Y_;
 
-    // Derived properties
+     // Derived properties
 
         //- Mass-flux field
         surfaceScalarField phi_;
-        
-        //- Rate of change of the pressure
-        //  Used in the enthalpy equation
-        volScalarField::Internal dpdt;
-        
-        //- The species concentrations
-        //PtrList<volScalarField> rhoYi_;
 
         //- Kinetic energy field
         //  Used in the energy equation
-        volScalarField K;
+        volScalarField K_;
+
+    // Cantera data 
+
+        // Create pointer for Cantera solution
+        Cantera::shared_ptr<Cantera::Solution> canteraSolution_;
+
+        // Allow easy switching between enthalpy and internal energy
+        bool useEnthalpy_;
 
     // Controls
 
-        word fluxSchemeName_;
-        /*
-          TODO: in the future when the flux scheme is broken into its
-        own class, this will end up being a pointer to that class.
-        
-        */
-
-        fluxScheme fluxScheme_;
+        //- Which flux scheme the object will use
+        word fluxSchemeSelection_;
 
     // Thermophysical models
     
         IOdictionary physicalProperties_;
-        
-        bool inviscid;
-        
-        //- Pointer to the momentum transport model
-        autoPtr<compressible::momentumTransportModel> momentumTransport;
-        
-        /*
-          TODO: at some point we should generate some helper modules
-        for this variable.
-        
-        */
-        //- The thermophysical transport model
-        autoPtr<fluidMulticomponentThermophysicalTransportModel>
-            thermophysicalTransport;
-        
-        //- Pointer to the combustion model  
-        autoPtr<combustionModel> reaction;
-        
+
         //- The multivariate interpolation scheme
         multivariateSurfaceInterpolationScheme<scalar>::fieldTable fields;
         /*
@@ -181,9 +155,8 @@ protected:
         reconstruction of velocity, it could greatly throw off other
         models trying to interact with the data.
         
-        */    
+        */   
 
-    
     // Cached temporary fields
 
         tmp<surfaceScalarField> pos;
@@ -238,19 +211,29 @@ protected:
         tmp<surfaceScalarField> phiP;
         List<tmp<surfaceScalarField>> phiYi;
 
+    //- Flux terms to deliver to solver
 
-private:
+        //- Mass flux over face area
+        surfaceScalarField phiRho_;
+
+        //- Momentum flux over face area
+        surfaceVectorField phiRhoUplusP_;
+
+        //- Energy flux over face area
+        surfaceScalarField phiRhoHE_;
+
+        //- Species fluxes over face area
+        PtrList<surfaceScalarField> phiRhoYi_;
+
+    //=====================================================================
+    //
+    //  Functions
+    //
+    //=====================================================================
+
+    private:
 
     // Private Member Functions
-
-        //- Set rDeltaT for LTS
-        void setRDeltaT(const surfaceScalarField& amaxSf);
-
-        //- Correct the cached Courant numbers
-        void correctCoNum(const surfaceScalarField& amaxSf);
-
-        //- Construct the continuity equation and correct the density
-        void correctDensity();
 
         //- Interpolate field vf according to direction dir
         template<class Type>
@@ -280,112 +263,57 @@ private:
             return tsf;
         }
 
-        void fluxPredictor();
-        /*
-          TODO: Alter this to handle the additional flux terms
-          
-        */
+        
 
         void clearTemporaryFields();
-        
-protected:
 
-        //- Adds the mesh-motion work to the pressure work term provided
-        tmp<volScalarField::Internal> pressureWork
+    public:
+
+    // Public Functions
+
+        //- Constructors
+        fluxScheme
         (
-            const tmp<volScalarField::Internal>&
-        ) const;
-
-
-public:
-
-    // Public Data
-
-        //- Reference to the fluid thermophysical properties
-        const fluidMulticomponentThermo& thermo;
-
-        //- Reference to the pressure field
-        const volScalarField& p;
-
-        //- Reference to the continuity density field
-        const volScalarField& rho;
-
-        //- Reference to the velocity field
-        const volVectorField& U;
-
-        //- Reference to the mass-flux field
-        const surfaceScalarField& phi;
-        
-        //- Reference to the composition
-        const PtrList<volScalarField>& Y;
-
-    //- Runtime type information
-    TypeName("waveHephaestus");
-
-
-    // Constructors
-
-        //- Construct from region mesh
-        waveFluid(fvMesh& mesh);
+            const Time& runTime,
+            const fvMesh& mesh,
+            fluidMulticomponentThermo& thermo,
+            volScalarField& p,
+            volVectorField& U,
+            volScalarField& rho,
+            PtrList<volScalarField>& Y
+        );
 
         //- Disallow default bitwise copy construction
-        waveFluid(const waveFluid&) = delete;
+        fluxScheme(const fluxScheme&) = delete;
 
-
-    //- Destructor
-    virtual ~waveFluid();
-
-
-    // Member Functions
-
-        //- Called at the start of the time-step, before the PIMPLE loop
-        virtual void preSolve();
-
-        //- Called at the start of the PIMPLE loop to move the mesh
-        virtual void moveMesh();
-
-        //- Corrections that follow mesh motion
-        virtual void motionCorrector();
-
-        //- Called at the start of the PIMPLE loop
-        virtual void prePredictor();
-
-        //- Construct and optionally solve the momentum equation
-        virtual void momentumPredictor();
-
-        //- Construct and solve the energy equation,
-        //  convert to temperature
-        //  and update thermophysical and transport properties
-        virtual void thermophysicalPredictor();
-        
-        virtual void speciesPredictor();
-
-        //- Construct and solve the pressure equation in the PISO loop
-        virtual void pressureCorrector();
-
-        //- Correct the momentum and thermophysical transport modelling
-        virtual void postCorrector();
-
-        //- Called after the PIMPLE loop at the end of the time-step
-        virtual void postSolve();
-
-    // Member Operators
+        //- Destructor
+        virtual ~fluxScheme();
 
         //- Disallow default bitwise assignment
-        void operator=(const waveFluid&) = delete;
+        void operator=(const fluxScheme&) = delete;
 
-protected:
+        //- The function that provides the predictor-stage calculation of the 
+        //  fluxes
+        void predictor();
 
-    // Cantera data & functions
+        //- The function that provides the corrector-stage operations
+        void corrector(); 
 
-        // Create pointer for Cantera solution
-        Cantera::shared_ptr<Cantera::Solution> canteraSolution_;
+    // Accessing Functions
+
+        //- Return the fluxes
+        const surfaceScalarField& phiRho() const { return phiRho_; }
+        const surfaceVectorField& phiRhoUplusP() const { return phiRhoUplusP_; }
+        const surfaceScalarField& phiRhoHE() const { return phiRhoHE_; }
+        const PtrList<surfaceScalarField>& phiRhoYi() const { return phiRhoYi_; }
+        const surfaceScalarField& phiRhoY(const label i) const{ return phiRhoYi_[i]; }
+
+    protected:
+
+    // Cantera functions
 
         // Cantera initialization function
-        void initializeCantera();
-
-        // Allow easy switching between enthalpy and internal energy
-        bool useEnthalpy_;
+        void initializeCantera();        
 
         //- Function for face evaluation at the solver level
         virtual void faceEvaluate
@@ -397,12 +325,9 @@ protected:
             surfaceScalarField& field
         ) const;
 
-};
-
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-} // End namespace solvers
+}; // End class fluxScheme
 } // End namespace Foam
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

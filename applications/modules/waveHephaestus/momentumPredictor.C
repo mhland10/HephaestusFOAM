@@ -43,11 +43,11 @@ void Foam::solvers::waveFluid::momentumPredictor()
 
     fvVectorMatrix UEqn
     (
-        fvm::ddt(rho, U) + fvc::div(phiUp)
+        fvm::ddt(rho, U) + fvc::div(fluxScheme_.phiRhoUplusP())
       ==
         fvModels().source(rho, U)
     );
-
+    
     if (!inviscid)
     {
         UEqn += divDevTau();

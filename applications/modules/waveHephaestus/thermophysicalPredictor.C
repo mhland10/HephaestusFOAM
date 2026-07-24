@@ -66,7 +66,7 @@ void Foam::solvers::waveFluid::speciesPredictor()
             fvScalarMatrix rhoYiEqn
             (
                 fvm::ddt(rho, Yi)
-              + fvc::div(phiYi[i])
+              + fvc::div(fluxScheme_.phiRhoY(i))
              ==
                 //fvModels().source(rhoYi_[i])
                 fvModels().source(rho, Yi)
@@ -110,7 +110,7 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
     //
     fvScalarMatrix EEqn
     (
-        fvm::ddt(rho, he) + fvc::div(phiHEp)
+        fvm::ddt(rho, he) + fvc::div(fluxScheme_.phiRhoHE())
       + fvc::ddt(rho, K)
      ==
         fvModels().source(rho, he)

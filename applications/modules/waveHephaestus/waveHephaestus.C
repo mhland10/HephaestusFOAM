@@ -121,7 +121,6 @@ void Foam::solvers::waveFluid::clearTemporaryFields()
 
 }
 
-
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
@@ -195,17 +194,26 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
         mesh,
         dimensionedScalar(p_.dimensions()/dimTime, 0)
     ),
-    
-    //rhoYi_(Y_.size()),
 
     K("K", 0.5*magSqr(U_)),
     
     //
     //  Formulation data
     //
-    fluxScheme
+    fluxSchemeName_
     (
         mesh.schemes().dict().lookupOrDefault<word>("fluxScheme", "Kurganov")
+    ),
+
+    fluxScheme_
+    (
+        runTime,
+        mesh,
+        thermo_,
+        p_,
+        U_,
+        rho_,
+        Y_
     ),
     
     //
@@ -282,7 +290,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
             << exit(FatalError);
     }
     
-     Info<< "[waveFluid] Energy type: " << (useEnthalpy_ ? "Enthalpy" : "Internal Energy") << endl;
+    Info<< "[waveFluid] Energy type: " << (useEnthalpy_ ? "Enthalpy" : "Internal Energy") << endl;
     
     //
     //  Check momentum transport model  
@@ -294,33 +302,6 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     }
     
     Info<< "[waveFluid] momentum transport model validated..." << endl;
-    
-    //
-    //  Initialize the species
-    //
-    /*
-    forAll(Y_, i)
-    {
-        rhoYi_.set
-        (
-            i,
-            new volScalarField
-            (
-                IOobject
-                (
-                    "rhoY_" + Y_[i].name(),
-                    runTime.name(),
-                    mesh,
-                    IOobject::NO_READ,
-                    IOobject::AUTO_WRITE
-                ),
-                rho_ * Y_[i]
-            )
-        );
-    }
-    
-    Info<< "[waveFluid] species initialized..." << endl;
-    */
 
     //
     //  Initialize cantera
@@ -370,7 +351,6 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     }
     
     Info<< "[waveFluid] fluxes initialized..." << endl;
-
 
 }
 
@@ -423,6 +403,8 @@ void Foam::solvers::waveFluid::postCorrector()
         momentumTransport->correct();
         thermophysicalTransport->correct();
     }
+
+    fluxScheme_.corrector();
 }
 
 
