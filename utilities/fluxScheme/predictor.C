@@ -38,11 +38,11 @@ License
 void Foam::fluxScheme::predictor()
 {
 
-    //================================================================
+    //=====================================================================
     //
     //  Initialize references
     //
-    //===============================================================
+    //=====================================================================
 
     // Mass fields
     volScalarField& rho = rho_;
@@ -56,11 +56,11 @@ void Foam::fluxScheme::predictor()
     const volScalarField& T = thermo_.T();
     volScalarField& K = K_;
 
-    //================================================================
+    //=====================================================================
     //
     //  Find the Direction of the Faces
     //
-    //================================================================
+    //=====================================================================
     if (!pos.valid())
     {
         pos = surfaceScalarField::New
@@ -78,11 +78,11 @@ void Foam::fluxScheme::predictor()
         );
     }
     
-    //================================================================
+    //=====================================================================
     //
     //  Find the primitive construction
     //
-    //================================================================
+    //=====================================================================
     
     // Set up pressure
     p_pos   = interpolate(p, pos(), p.name());
@@ -122,12 +122,76 @@ void Foam::fluxScheme::predictor()
 
     surfaceVectorField U_posF   = interpolate(U, pos(), U.name());
     surfaceVectorField U_negF   = interpolate(U, neg(), U.name());
+
+    //=====================================================================
+    //
+    //  Limit the state to physically possible
+    //
+    //=====================================================================
+
+    // Limit pressure
+    const dimensionedScalar pSmall( "pSmall", p.dimensions(), SMALL );
+    p_pos = max( p_pos, pSmall );
+    p_neg = max( p_neg, pSmall );
+
+    // Limit temperature
+    const dimensionedScalar tSmall( "tSmall", T.dimensions(), SMALL );
+    T_pos = max( T_pos, tSmall );
+    T_neg = max( T_neg, tSmall );
+
+    // Limit species to + values
+    forAll(Yi_pos, i)
+    {
+        Yi_pos[i] = max(Yi_pos[i], scalar(0));
+        Yi_neg[i] = max(Yi_neg[i], scalar(0));
+        Yi_posF[i] = max(Yi_posF[i], scalar(0));
+        Yi_negF[i] = max(Yi_negF[i], scalar(0));
+    }
+
+    // Limit species to total=1
+    surfaceScalarField sumY_pos
+    (
+        IOobject
+        (
+            "sumY_pos",
+            mesh,
+            IOobject::NO_READ,
+            IOobject::NO_WRITE
+        ),
+        mesh,
+        dimensionedScalar("zero", dimless, 0)
+    );
+
+    surfaceScalarField sumY_neg(sumY_pos);
+    surfaceScalarField sumY_posF(sumY_pos);
+    surfaceScalarField sumY_negF(sumY_pos);
     
-    //================================================================
+    forAll(Yi_pos, i)
+    {
+        sumY_pos += Yi_pos[i].ref();
+        sumY_neg += Yi_neg[i].ref();
+        sumY_posF += Yi_posF[i];
+        sumY_negF += Yi_negF[i];
+    }
+    
+    sumY_pos = max(sumY_pos, SMALL);
+    sumY_neg = max(sumY_neg, SMALL);
+    sumY_posF = max(sumY_posF, SMALL);
+    sumY_negF = max(sumY_negF, SMALL);
+
+    forAll(Yi_pos, i)
+    {
+        Yi_pos[i].ref() = Yi_pos[i].ref() / sumY_pos;
+        Yi_neg[i].ref() = Yi_neg[i].ref() / sumY_neg;
+        Yi_posF[i] = Yi_posF[i] / sumY_posF;
+        Yi_negF[i] = Yi_negF[i] / sumY_negF;
+    }
+    
+    //=====================================================================
     //
     //  Produce the initial flux values
     //
-    //================================================================
+    //=====================================================================
 
     rho_pos = interpolate(rho, pos(), rho.name());
     rho_neg = interpolate(rho, neg(), rho.name());
@@ -198,11 +262,11 @@ void Foam::fluxScheme::predictor()
     surfaceScalarField phiv_pos("phiv_pos", 1.0* ( U_posF & mesh.Sf()) );
     surfaceScalarField phiv_neg("phiv_neg", 1.0* ( U_negF & mesh.Sf()) );
 
-    //================================================================
+    //=====================================================================
     //
     //  Calculate the flux values
     //
-    //================================================================
+    //=====================================================================
 
     //
     //  Correct the mass conservation values
@@ -249,11 +313,11 @@ void Foam::fluxScheme::predictor()
         );
     }
     
-    //================================================================
+    //=====================================================================
     //
     //  Correct for the mesh motion
     //
-    //================================================================
+    //=====================================================================
 
     // Make fluxes relative to mesh-motion
     if (mesh.moving())
@@ -262,76 +326,26 @@ void Foam::fluxScheme::predictor()
         phiv_neg -= mesh.phi();
     }
     
-    //================================================================
+    //=====================================================================
     //
     //  Calculate the wave corrections
     //
-    //================================================================
+    //=====================================================================
 
     volScalarField c("c", sqrt(thermo_.Cp()/thermo_.Cv()*rPsi));
+    const dimensionedScalar v_zero("v_zero", dimVolume/dimTime, 0);
         
-    surfaceScalarField cSf_pos("cSf_pos",interpolate(c, pos, T.name())*mesh.magSf());
-    surfaceScalarField cSf_neg("cSf_neg",interpolate(c, neg, T.name())*mesh.magSf());
-
     // Correct the sound speed
     surfaceScalarField c_posF("c_posF",interpolate(c, pos, T.name()));
     surfaceScalarField c_negF("c_negF",interpolate(c, neg, T.name()));
     faceEvaluate( "a", p_posF, T_posF, Yi_posF, c_posF );
-    faceEvaluate( "a", p_negF, T_negF, Yi_negF, c_negF );
-    cSf_pos = c_posF * mesh.magSf();
-    cSf_neg = c_negF * mesh.magSf();
+    faceEvaluate( "a", p_negF, T_negF, Yi_negF, c_negF );    
 
-    const dimensionedScalar v_zero("v_zero", dimVolume/dimTime, 0);
-    
-    const surfaceScalarField ap
-    (
-        "ap",
-        max(max(phiv_pos + cSf_pos, phiv_neg + cSf_neg), v_zero)
-    );
-    const surfaceScalarField am
-    (
-        "am",
-        min(min(phiv_pos - cSf_pos, phiv_neg - cSf_neg), v_zero)
-    );    
-
-    surfaceScalarField denom
-    (
-        "denom",
-        ap - am
-    );
-
-    const dimensionedScalar denomSmall
-    (
-        "denomSmall",
-        denom.dimensions(),
-        SMALL
-    );
-
-    // Preserve sign while enforcing minimum magnitude
-    denom = sign(denom)*max(mag(denom), denomSmall);
-    
-    a_pos = surfaceScalarField::New
-    (
-        "a_pos",
-        fluxSchemeSelection_ == "Tadmor"
-        ? surfaceScalarField::New("a_pos", mesh, 0.5)
-        : ap/denom
-    );
-    a_neg = surfaceScalarField::New("a_neg", 1.0 - a_pos());
-
-    phiv_pos *= a_pos();
-    phiv_neg *= a_neg();
-    
-    aSf = surfaceScalarField::New
-    (
-        "aSf",
-        fluxSchemeSelection_ == "Tadmor"
-        ? -0.5*max(mag(am), mag(ap))
-        : am*a_pos()
-    );
-
-    aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
-    aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
+    //=====================================================================
+    //
+    //  HLLC Flux Scheme
+    //
+    //=====================================================================
 
     if (fluxSchemeSelection_ == "HLLC"){
 
@@ -354,9 +368,6 @@ void Foam::fluxScheme::predictor()
         const surfaceScalarField rhoHENeg = interpolate(rhoHE, neg(), U.name());
 
         surfaceVectorField nHat(mesh.Sf()/mesh.magSf());
-
-        surfaceScalarField cn_pos(interpolate(c, pos, T.name()));
-        surfaceScalarField cn_neg(interpolate(c, neg, T.name()));
 
         /*
             Process fields from the tmp fields
@@ -492,11 +503,11 @@ void Foam::fluxScheme::predictor()
             );
         }
         
-        //================================================================
+        //=============================================================
         //
         //  Calculate the flux terms for equations
         //
-        //================================================================
+        //=============================================================
 
         //
         //  Calculate the mass fluxes
@@ -523,14 +534,82 @@ void Foam::fluxScheme::predictor()
             phiRhoYi_[i] = F_specHLLC[i] * mesh.magSf();
         }
 
+        //=============================================================
+        //
+        //  Calculate the wavespeed terms for the solver
+        //
+        //=============================================================
+
+        lambdaMax_ = max(mag(SL), mag(SR));
+
     }
+
+    //=====================================================================
+    //
+    //  Kurganov family Flux Schemes
+    //
+    //=====================================================================
+
     else{
 
-        //================================================================
+        //=============================================================
+        //
+        //  Calculate the wavespeed corrections
+        //
+        //=============================================================
+
+        surfaceScalarField cSf_pos("cSf_pos",interpolate(c, pos, T.name())*mesh.magSf());
+        surfaceScalarField cSf_neg("cSf_neg",interpolate(c, neg, T.name())*mesh.magSf());
+        cSf_pos = c_posF * mesh.magSf();
+        cSf_neg = c_negF * mesh.magSf();
+
+        const surfaceScalarField ap
+        (
+            "ap",
+            max(max(phiv_pos + cSf_pos, phiv_neg + cSf_neg), v_zero)
+        );
+        const surfaceScalarField am
+        (
+            "am",
+            min(min(phiv_pos - cSf_pos, phiv_neg - cSf_neg), v_zero)
+        );    
+
+        surfaceScalarField denom( "denom", ap - am );
+
+        const dimensionedScalar denomSmall( "denomSmall", 
+            denom.dimensions(), SMALL);
+
+        // Preserve sign while enforcing minimum magnitude
+        denom = sign(denom)*max(mag(denom), denomSmall);
+        
+        a_pos = surfaceScalarField::New
+        (
+            "a_pos",
+            fluxSchemeSelection_ == "Tadmor"
+            ? surfaceScalarField::New("a_pos", mesh, 0.5)
+            : ap/denom
+        );
+        a_neg = surfaceScalarField::New("a_neg", 1.0 - a_pos());
+
+        phiv_pos *= a_pos();
+        phiv_neg *= a_neg();
+        
+        aSf = surfaceScalarField::New
+        (
+            "aSf",
+            fluxSchemeSelection_ == "Tadmor"
+            ? -0.5*max(mag(am), mag(ap))
+            : am*a_pos()
+        );
+
+        aphiv_pos = surfaceScalarField::New("aphiv_pos", phiv_pos - aSf());
+        aphiv_neg = surfaceScalarField::New("aphiv_neg", phiv_neg + aSf());
+
+        //=============================================================
         //
         //  Calculate the flux terms for equations
         //
-        //================================================================
+        //=============================================================
 
         //
         //  Calculate the mass fluxes
@@ -593,6 +672,14 @@ void Foam::fluxScheme::predictor()
         {
             phiRhoYi_[i] = aphiv_pos()*rhoYi_posF[i] + aphiv_neg()*rhoYi_negF[i];
         }
+
+        //=============================================================
+        //
+        //  Calculate the wavespeed terms for the solver
+        //
+        //=============================================================
+
+        lambdaMax_ = max(ap, -am)/mesh.magSf();
 
     }
     

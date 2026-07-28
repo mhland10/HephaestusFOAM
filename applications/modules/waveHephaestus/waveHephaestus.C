@@ -322,7 +322,7 @@ Foam::solvers::waveFluid::waveFluid(fvMesh& mesh)
     {
         const surfaceScalarField amaxSf
         (
-            max(mag(aphiv_pos()), mag(aphiv_neg()))
+            fluxScheme_.maxWavespeed()*mesh.magSf()
         );
 
         correctCoNum(amaxSf);
@@ -368,7 +368,7 @@ void Foam::solvers::waveFluid::preSolve()
     {
         const surfaceScalarField amaxSf
         (
-            max(mag(aphiv_pos()), mag(aphiv_neg()))
+            fluxScheme_.maxWavespeed()*mesh.magSf()
         );
 
         if (transient())
@@ -389,12 +389,13 @@ void Foam::solvers::waveFluid::preSolve()
         neg.clear();
 
         clearTemporaryFields();
+
+        fluxScheme_.topoChange();
     }
 
     // Update the mesh for topology change, mesh to mesh mapping
     mesh_.update();
 }
-
 
 void Foam::solvers::waveFluid::postCorrector()
 {
@@ -407,9 +408,10 @@ void Foam::solvers::waveFluid::postCorrector()
     fluxScheme_.corrector();
 }
 
-
 void Foam::solvers::waveFluid::postSolve()
 {}
+
+// * * * * * * * * * * * * * * Cantera Functions * * * * * * * * * * * * * * //
 
 using namespace Cantera;
 

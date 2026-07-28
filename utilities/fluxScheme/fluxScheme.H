@@ -225,6 +225,11 @@ class fluxScheme
         //- Species fluxes over face area
         PtrList<surfaceScalarField> phiRhoYi_;
 
+    //- Wave speed terms to deliver to solver
+
+        //- Maximum wavespeed over face area
+        surfaceScalarField lambdaMax_;
+
     //=====================================================================
     //
     //  Functions
@@ -261,9 +266,7 @@ class fluxScheme
             sf.rename(vf.name() + '_' + dir.name());
 
             return tsf;
-        }
-
-        
+        }        
 
         void clearTemporaryFields();
 
@@ -299,6 +302,9 @@ class fluxScheme
         //- The function that provides the corrector-stage operations
         void corrector(); 
 
+        //- The function that provides the topographic change for the fluxes
+        void topoChange();
+
     // Accessing Functions
 
         //- Return the fluxes
@@ -307,6 +313,9 @@ class fluxScheme
         const surfaceScalarField& phiRhoHE() const { return phiRhoHE_; }
         const PtrList<surfaceScalarField>& phiRhoYi() const { return phiRhoYi_; }
         const surfaceScalarField& phiRhoY(const label i) const{ return phiRhoYi_[i]; }
+
+        //- Return the maximum wavespeed
+        const surfaceScalarField& maxWavespeed() const { return lambdaMax_; }
 
     protected:
 

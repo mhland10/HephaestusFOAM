@@ -132,6 +132,24 @@ fluxScheme::fluxScheme
             dimEnergy/dimTime,
             0.0
         )
+    ),
+    lambdaMax_
+    (
+        IOobject
+        (
+            "lambdaMax",
+            runTime.name(),
+            mesh,
+            IOobject::NO_READ,
+            IOobject::NO_WRITE
+        ),
+        mesh,
+        dimensionedScalar
+        (
+            "zero",
+            dimVelocity,
+            0.0
+        )
     )
 {
     Info<< "\n\n[fluxScheme] Constructor START\n" << endl;
@@ -198,6 +216,13 @@ fluxScheme::~fluxScheme()
 
 void fluxScheme::corrector()
 {
+    clearTemporaryFields();
+}
+
+void fluxScheme::topoChange()
+{
+    pos.clear();
+    neg.clear();
     clearTemporaryFields();
 }
 
