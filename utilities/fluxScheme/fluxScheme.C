@@ -150,6 +150,24 @@ fluxScheme::fluxScheme
             dimVelocity,
             0.0
         )
+    ),
+    Uf_
+    (
+        IOobject
+        (
+            "lambdaMax",
+            runTime.name(),
+            mesh,
+            IOobject::NO_READ,
+            IOobject::NO_WRITE
+        ),
+        mesh,
+        dimensionedVector
+        (
+            "zero",
+            dimVelocity,
+            vector::zero
+        )
     )
 {
     Info<< "\n\n[fluxScheme] Constructor START\n" << endl;

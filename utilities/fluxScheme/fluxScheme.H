@@ -230,6 +230,11 @@ class fluxScheme
         //- Maximum wavespeed over face area
         surfaceScalarField lambdaMax_;
 
+    //- Transport values
+
+        //- The face velocity for transport
+        surfaceVectorField Uf_;
+
     //=====================================================================
     //
     //  Functions
@@ -316,6 +321,9 @@ class fluxScheme
 
         //- Return the maximum wavespeed
         const surfaceScalarField& maxWavespeed() const { return lambdaMax_; }
+
+        //- Return the face velocity
+        const surfaceVectorField& Uf() const { return Uf_; }
 
     protected:
 

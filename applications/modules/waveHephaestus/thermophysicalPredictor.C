@@ -127,7 +127,7 @@ void Foam::solvers::waveFluid::thermophysicalPredictor()
         const surfaceScalarField devTauDotU
         (
             "devTauDotU",
-            devTau() & (a_pos()*U_pos() + a_neg()*U_neg())
+            devTau() & fluxScheme_.Uf()
         );
 
         EEqn += thermophysicalTransport->divq(he) + fvc::div(devTauDotU);
