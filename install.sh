@@ -18,7 +18,7 @@ echo "Environment ready"
 ## Append hephaestusFOAM RC to bashrc
 # Temporarily disable exit-on-error
 set +e
-source ~/HephaestusFOAM/hephaestusrc
+source ~/hephaestusfoam/hephaestusrc
 rc=$?
 set -e
 
@@ -68,20 +68,19 @@ echo " "
 
 ##=================================================================================================
 ##
-##  Install Modules
+##  Install Data
 ##
 ##=================================================================================================
 
-echo "**Installing Modules**"
+echo "**Installing Data**"
 echo " "
 
-## Run modules install script
-cd "$HEPH_APP"
-cd modules
-./modules_installation
+## Run utilities install script
+cd "$HEPH_DATA"
+./data_install
 
 echo " "
-echo "**Module Installed**"
+echo "**Data Installed**"
 echo " "
 
 ##=================================================================================================
@@ -93,9 +92,9 @@ echo " "
 echo "**Installing Applications**"
 echo " "
 
-## Run applications install script
-cd ../solvers
-./solvers_installation
+## Run utilities install script
+cd "$HEPH_APP"
+./app_install
 
 echo " "
 echo "**Applications Installed**"

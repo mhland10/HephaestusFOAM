@@ -18,17 +18,18 @@ export CANT_HOME=/opt/cantera
 export BUILD_DIR=$CANT_HOME
 
 # Add Cantera-related paths
-export CPATH=$HOME/hephaestusfoam/utilities/cantera/thermofluid/lnInclude:$HOME/hephaestusfoam/utilities/cantera/thermofluid:$CPATH
-export LD_LIBRARY_PATH=$HOME/hephaestusfoam/utilities/cantera:$LD_LIBRARY_PATH
+export CPATH=$HOME/HephaestusFOAM/utilities/cantera/thermofluid/lnInclude:$HOME/HephaestusFOAM/utilities/cantera/thermofluid:$CPATH
+export LD_LIBRARY_PATH=$HOME/HephaestusFOAM/utilities/cantera:$LD_LIBRARY_PATH
 
 # Optional: point to your custom solvers/utilities
-export PATH=$HOME/hephaestusfoam/utilities/cantera:$PATH
+export PATH=$HOME/HephaestusFOAM/utilities/cantera:$PATH
 
 # Add in locations of different portions
-export HEPH_APP=$HOME/hephaestusfoam/applications
-export HEPH_UTIL=$HOME/hephaestusfoam/utilities
-export HEPH_CANT=$HOME/hephaestusfoam/utilities/cantera
-export HEPH_TUT=$HOME/hephaestusfoam/tutorials
+export HEPH_APP=$HOME/HephaestusFOAM/applications
+export HEPH_UTIL=$HOME/HephaestusFOAM/utilities
+export HEPH_DATA=$HOME/HephaestusFOAM/data
+export HEPH_CANT=$HOME/HephaestusFOAM/utilities/cantera
+export HEPH_TUT=$HOME/HephaestusFOAM/tutorials
 
 
 

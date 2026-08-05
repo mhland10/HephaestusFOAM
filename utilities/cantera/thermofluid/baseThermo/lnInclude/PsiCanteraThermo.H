@@ -1,1 +1,1 @@
-../psiThermo/PsiCanteraThermo.H
+/home/mholland/HephaestusFOAM/utilities/cantera/thermofluid/baseThermo/psiThermo/PsiCanteraThermo.H

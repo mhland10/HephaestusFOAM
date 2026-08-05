@@ -1,1 +1,1 @@
-/home/mholland/hephaestusfoam/utilities/cantera/thermochemistry/chemistrySolver/canteraChemistrySolvers.C
+/home/mholland/HephaestusFOAM/utilities/cantera/thermochemistry/chemistrySolver/canteraChemistrySolvers.C

@@ -1,0 +1,77 @@
+#!/bin/bash
+set -e
+
+echo "Beginning installation of Cantera package"
+export hephaestus_canteraUtilsDir="$PWD"
+
+#==================================================================================================
+#
+#  Create dynamic links for included thermodynamic files for basic thermo models
+#
+#==================================================================================================
+
+ln -sf "$hephaestus_utilsDir/include"/* thermofluid/baseThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/baseThermo/rhoThermo"/* thermofluid/baseThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/baseThermo/psiThermo"/* thermofluid/baseThermo/lnInclude
+
+#==================================================================================================
+#
+#  Create dynamic links for included thermodynamic files for basic thermo models
+#
+#==================================================================================================
+
+ln -sf "$hephaestus_utilsDir/include"/* thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/factory"/* thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/multicomponentThermo/rhoMulticomponentThermo"/* thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/multicomponentThermo/psiMulticomponentThermo"/* thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/multicomponentThermo/multicomponent/fluidMulticomponentThermo"/* thermofluid/multicomponentThermo/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermofluid/multicomponentThermo/mixtures/canteraMulticomponentMixture"/* thermofluid/multicomponentThermo/lnInclude
+
+#==================================================================================================
+#
+#  Create dynamic links for included chemistry files
+#
+#==================================================================================================
+
+ln -sf "$hephaestus_canteraUtilsDir/thermochemistry/chemistryModel"/* thermochemistry/lnInclude
+ln -sf "$hephaestus_canteraUtilsDir/thermochemistry/chemistrySolver"/* thermochemistry/lnInclude
+
+#==================================================================================================
+#
+#  Install Cantera Basic Thermodynamics Package
+#
+#==================================================================================================
+
+export start_dir=$PWD
+
+echo "Changing to cantera directory: $hephaestus_canteraUtilsDir/thermofluid/baseThermo"
+cd "$hephaestus_canteraUtilsDir/thermofluid/baseThermo"
+
+echo "Compiling thermo package with wmake..."
+wmake > cantera_basicThermo_make.log 2>&1
+
+echo "Compilation complete. Log saved to cantera_basicThermo_make.log"
+
+#==================================================================================================
+#
+#  Install Cantera Multicomponent Thermodynamics Package
+#
+#==================================================================================================
+
+cd ../multicomponentThermo
+
+echo "Compiling thermo package with wmake..."
+wmake > cantera_multiCThermo_make.log 2>&1
+
+echo "Compilation complete. Log saved to cantera_multiCThermo_make.log"
+
+#==================================================================================================
+#
+#  Install Cantera Thermochemistry Package
+#
+#==================================================================================================
+
+cd ../../thermochemistry
+
+echo "Compiling chemistry package with wmake..."
+##wmake > cantera_chem_make.log 2>&1

@@ -1,1 +1,1 @@
-../multicomponent/fluidMulticomponentThermo/makeCanteraFluidMulticomponentThermo.H
+/home/mholland/HephaestusFOAM/utilities/cantera/thermofluid/multicomponentThermo/multicomponent/fluidMulticomponentThermo/makeCanteraFluidMulticomponentThermo.H

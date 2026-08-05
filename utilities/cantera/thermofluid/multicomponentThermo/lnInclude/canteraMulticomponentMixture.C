@@ -1,1 +1,1 @@
-../mixtures/canteraMulticomponentMixture/canteraMulticomponentMixture.C
+/home/mholland/HephaestusFOAM/utilities/cantera/thermofluid/multicomponentThermo/mixtures/canteraMulticomponentMixture/canteraMulticomponentMixture.C

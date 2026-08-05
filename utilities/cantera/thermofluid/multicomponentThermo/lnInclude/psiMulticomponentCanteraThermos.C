@@ -1,1 +1,1 @@
-../psiMulticomponentThermo/psiMulticomponentCanteraThermos.C
+/home/mholland/HephaestusFOAM/utilities/cantera/thermofluid/multicomponentThermo/psiMulticomponentThermo/psiMulticomponentCanteraThermos.C

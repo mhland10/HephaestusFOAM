@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+
+##=================================================================================================
+##
+##  Install Modules
+##
+##=================================================================================================
+
+echo "**Installing Modules**"
+echo " "
+
+## Run modules install script
+cd "$HEPH_APP"
+cd modules
+./modules_installation
+
+echo " "
+echo "**Module Installed**"
+echo " "
+
+##=================================================================================================
+##
+##  Install Applications
+##
+##=================================================================================================
+
+echo "**Installing Applications**"
+echo " "
+
+## Run applications install script
+cd ../solvers
+./solvers_installation
+
+echo " "
+echo "**Applications Installed**"
+echo " "
+

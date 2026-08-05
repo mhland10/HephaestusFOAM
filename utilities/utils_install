@@ -1,88 +1,38 @@
 #!/bin/bash
 set -e
 
-echo "Beginning installation of Cantera package"
+echo " "
+echo "**Beginning installation of Utilities**"
+echo " "
 export hephaestus_utilsDir="$PWD"
 
 #==================================================================================================
 #
-#  Create dynamic links for included thermodynamic files for basic thermo models
+#  Run Cantera installation scripts
 #
 #==================================================================================================
 
-ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/baseThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/baseThermo/rhoThermo"/* cantera/thermofluid/baseThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/baseThermo/psiThermo"/* cantera/thermofluid/baseThermo/lnInclude
+cd cantera
+./cantera_install
+./canteraUtils_install
+cd ../
 
 #==================================================================================================
 #
-#  Create dynamic links for included thermodynamic files for basic thermo models
+#  Run discretization installation
 #
 #==================================================================================================
 
-ln -sf "$hephaestus_utilsDir/include"/* cantera/thermofluid/multicomponentThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/factory"/* cantera/thermofluid/multicomponentThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/rhoMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/psiMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/multicomponent/fluidMulticomponentThermo"/* cantera/thermofluid/multicomponentThermo/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermofluid/multicomponentThermo/mixtures/canteraMulticomponentMixture"/* cantera/thermofluid/multicomponentThermo/lnInclude
+cd  discretization
+./discretization_install
+cd ../
 
 #==================================================================================================
 #
-#  Create dynamic links for included chemistry files
+#  Run flux scheme installation
 #
 #==================================================================================================
 
-ln -sf "$hephaestus_utilsDir/cantera/thermochemistry/chemistryModel"/* cantera/thermochemistry/lnInclude
-ln -sf "$hephaestus_utilsDir/cantera/thermochemistry/chemistrySolver"/* cantera/thermochemistry/lnInclude
-
-#==================================================================================================
-#
-#  Install Cantera Basic Thermodynamics Package
-#
-#==================================================================================================
-
-export start_dir=$PWD
-
-echo "Changing to cantera directory: $start_dir/cantera/thermofluid/baseThermo"
-cd "$start_dir/cantera/thermofluid/baseThermo"
-
-echo "Compiling thermo package with wmake..."
-wmake > cantera_basicThermo_make.log 2>&1
-
-echo "Compilation complete. Log saved to cantera_basicThermo_make.log"
-
-#==================================================================================================
-#
-#  Install Cantera Multicomponent Thermodynamics Package
-#
-#==================================================================================================
-
-cd ../multicomponentThermo
-
-echo "Compiling thermo package with wmake..."
-wmake > cantera_multiCThermo_make.log 2>&1
-
-echo "Compilation complete. Log saved to cantera_multiCThermo_make.log"
-
-#==================================================================================================
-#
-#  Install Cantera Thermochemistry Package
-#
-#==================================================================================================
-
-cd ../../thermochemistry
-
-echo "Compiling chemistry package with wmake..."
-##wmake > cantera_chem_make.log 2>&1
-
-#==================================================================================================
-#
-#  Move tables over
-#
-#==================================================================================================
-
-cd ../tables
-
-##cp basicChemistryModel $FOAM_ETC/codeTemplates/dynamicCode
-##cp fluidMulticomponentThermo $FOAM_ETC/codeTemplates/dynamicCode
+cd  fluxScheme
+./fluxScheme_install
+cd ../
