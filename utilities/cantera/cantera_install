@@ -24,18 +24,74 @@ git status
 
 #==================================================================================================
 #
+#  Setup Anaconda for a Cantera environement
+#
+#==================================================================================================
+
+echo " "
+
+# Check to see if conda is even installed
+if ! command -v conda >/dev/null 2>&1; then
+    echo " "
+    echo "**Cricial error found**"
+    echo " "
+    echo "Conda not found. Please install Miniconda"
+    echo " "
+fi
+
+#  Set the environment name
+ENV_NAME="cantera"
+
+# Enable the 'conda' command in non-interactive shells
+source "$(conda info --base)/etc/profile.d/conda.sh"
+
+# Check if the environment exists
+if ! conda env list | awk '{print $1}' | grep -qx "$ENV_NAME"; then
+    echo "Creating Conda environment: $ENV_NAME"
+
+    conda create -y -n cantera \
+      python=3.10 \
+      scons \
+      "setuptools<69" \
+      numpy \
+      cython \
+      ruamel.yaml \
+      pytest \
+      -c conda-forge
+else
+    echo "Using existing Conda environment: $ENV_NAME"
+
+    conda install -y -n "$ENV_NAME" \
+        scons \
+        setuptools=68.2.2 \
+        numpy \
+        cython \
+        ruamel.yaml \
+        pytest \
+        -c conda-forge
+fi
+
+# Activate it
+conda activate "$ENV_NAME"
+
+# Install Eigen into environment
+conda install -c conda-forge eigen
+
+# Verify scons
+echo " "
+echo "SCONS verification: "
+which scons
+scons --version
+python -c "import pkg_resources; print(pkg_resources.__file__)"
+
+#==================================================================================================
+#
 #  Configure SCONS and install
 #
 #==================================================================================================
 
 export BUILD_DIR="$CANT_HOME"
 mkdir -p $BUILD_DIR
-
-# Activate the conda environment for Cantera
-echo "Opening miniconda "
-source "$HOME/miniconda3/etc/profile.d/conda.sh"
-conda activate cantera
-echo " "
 
 # --- Configure Build ---
 # Disable Python module if only C++ is needed (set yes if needed)
@@ -50,14 +106,14 @@ scons build \
     debug=n \
     python_package=n \
     f90_interface=n \
-    system_eigen=y \
-    extra_inc_dirs=$TACC_EIGEN_DIR/include/eigen3 \
-    boost_inc_dir=$TACC_BOOST_DIR/include > ~/hephaestusfoam/cantera_build.log
+    system_eigen=n > ~/HephaestusFOAM/utilities/cantera/cantera_build.log
 
 
 # --- Install ---
+echo " "
 echo "Installing Cantera"
-scons install > ~/hephaestusfoam/cantera_install.log
+scons install > ~/HephaestusFOAM/utilities/cantera/cantera_install.log
+echo " "
 
 #==================================================================================================
 #

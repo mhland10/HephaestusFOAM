@@ -15,10 +15,10 @@ echo "Environment ready"
 ##
 ##=================================================================================================
 
-## Append hephaestusFOAM RC to bashrc
+## Append HephaestusFOAM RC to bashrc
 # Temporarily disable exit-on-error
 set +e
-source ~/hephaestusfoam/hephaestusrc
+source ~/HephaestusFOAM/hephaestusrc
 rc=$?
 set -e
 

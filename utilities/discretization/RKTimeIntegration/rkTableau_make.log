@@ -2,3 +2,41 @@ wmake libso .
 wmakeLnIncludeAll error: file 'Make/options' does not exist
 wmake: 'Make' directory does not exist in /home/mholland/HephaestusFOAM/utilities/discretization/RKTimeIntegration
     Searching up directories tree for Make directory
+Making dependency list for source file rkTableau.C
+g++ -std=c++14 -m64 -DLIB_NAME=libHephaestusDiscretizations.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/opt/openfoam12/src/RKTimeIntegration/lnInclude -IlnInclude -I. -I/opt/openfoam12/src/OpenFOAM/lnInclude -I/opt/openfoam12/src/OSspecific/POSIX/lnInclude   -fPIC -c RKTimeIntegration/rkTableau.C -o Make/linux64GccDPInt32Opt/RKTimeIntegration/rkTableau.o
+In file included from RKTimeIntegration/rkTableau.C:36:
+RKTimeIntegration/rkTableau.H: In constructor ‘rkTableau::rkTableau(const std::vector<std::vector<double> >&, const std::vector<double>&)’:
+RKTimeIntegration/rkTableau.H:74:25: warning: ‘rkTableau::c_’ will be initialized after [-Wreorder]
+   74 |     std::vector<double> c_;
+      |                         ^~
+RKTimeIntegration/rkTableau.H:65:9: warning:   ‘int rkTableau::stages_’ [-Wreorder]
+   65 |     int stages_;
+      |         ^~~~~~~
+RKTimeIntegration/rkTableau.C:49:1: warning:   when initialized here [-Wreorder]
+   49 | rkTableau::rkTableau(const std::vector<std::vector<double>>& a,
+      | ^~~~~~~~~
+RKTimeIntegration/rkTableau.C:54:26: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+   54 |     for (size_t i = 0; i < stages_; ++i)
+      |                        ~~^~~~~~~~~
+RKTimeIntegration/rkTableau.C:55:30: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+   55 |         for (size_t j = i; j < stages_; ++j)
+      |                            ~~^~~~~~~~~
+RKTimeIntegration/rkTableau.C:60:26: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+   60 |     for (size_t i = 0; i < stages_; ++i) {
+      |                        ~~^~~~~~~~~
+In file included from RKTimeIntegration/rkTableau.C:36:
+RKTimeIntegration/rkTableau.H: In constructor ‘rkTableau::rkTableau(const std::vector<std::vector<double> >&)’:
+RKTimeIntegration/rkTableau.H:68:38: warning: ‘rkTableau::a_’ will be initialized after [-Wreorder]
+   68 |     std::vector<std::vector<double>> a_;
+      |                                      ^~
+RKTimeIntegration/rkTableau.H:65:9: warning:   ‘int rkTableau::stages_’ [-Wreorder]
+   65 |     int stages_;
+      |         ^~~~~~~
+RKTimeIntegration/rkTableau.C:77:1: warning:   when initialized here [-Wreorder]
+   77 | rkTableau::rkTableau(const std::vector<std::vector<double>>& a)
+      | ^~~~~~~~~
+RKTimeIntegration/rkTableau.C:82:26: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘int’ [-Wsign-compare]
+   82 |     for (size_t i = 0; i < stages_; ++i) {
+      |                        ~~^~~~~~~~~
+g++ -std=c++14 -m64 -DLIB_NAME=libHephaestusDiscretizations.so -Dlinux64 -DWM_ARCH_OPTION=64 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -O3  -DNoRepository -ftemplate-depth-100 -I/opt/openfoam12/src/RKTimeIntegration/lnInclude -IlnInclude -I. -I/opt/openfoam12/src/OpenFOAM/lnInclude -I/opt/openfoam12/src/OSspecific/POSIX/lnInclude   -fPIC -fuse-ld=bfd -shared -Xlinker --add-needed -Xlinker --no-as-needed Make/linux64GccDPInt32Opt/RKTimeIntegration/rkTableau.o -L/opt/openfoam12/platforms/linux64GccDPInt32Opt/lib \
+      -o /opt/openfoam12/platforms/linux64GccDPInt32Opt/lib/libHephaestusDiscretizations.so

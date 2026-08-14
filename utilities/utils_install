@@ -13,7 +13,6 @@ export hephaestus_utilsDir="$PWD"
 #==================================================================================================
 
 cd cantera
-./cantera_install
 ./canteraUtils_install
 cd ../
 
